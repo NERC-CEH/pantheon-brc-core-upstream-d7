@@ -38,13 +38,10 @@ function ctools_entity_form_field_content_type_content_types() {
   $types = array();
   $content_types = array();
   $entities = entity_get_info();
-  $field_instances = field_info_instances();
+
   foreach ($entities as $entity_type => $entity) {
     foreach ($entity['bundles'] as $type => $bundle) {
-      if (!isset($field_instances[$entity_type][$type])) {
-        continue;
-      }
-      foreach ($field_instances[$entity_type][$type] as $field_name => $field) {
+      foreach (field_info_instances($entity_type, $type) as $field_name => $field) {
         if (!isset($types[$entity_type . ':' . $field_name])) {
           $types[$entity_type . ':' . $field_name] = array(
             'category' => t('Form'),

@@ -85,6 +85,7 @@ function page_manager_node_view_page($node) {
   ctools_include('context');
   ctools_include('context-task-handler');
 
+<<<<<<< HEAD
   $uri = entity_uri('node', $node);
   if (isset($uri['path'])) {
     // Set the node path as the canonical URL to prevent duplicate content.
@@ -102,6 +103,8 @@ function page_manager_node_view_page($node) {
     drupal_add_html_head_link($meta_short, TRUE);
   }
 
+=======
+>>>>>>> 840cf2e0e (Upload modules,themes and libraries)
   // Load all contexts.
   $contexts = ctools_context_handler_get_task_contexts($task, '', array($node));
 

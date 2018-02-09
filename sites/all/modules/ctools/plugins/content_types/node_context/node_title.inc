@@ -25,7 +25,11 @@ $plugin = array(
  * Render the custom content type.
  */
 function ctools_node_title_content_type_render($subtype, $conf, $panel_args, $context) {
+<<<<<<< HEAD
   if (!empty($context) && (empty($context->data) || empty($context->data->nid))) {
+=======
+  if (empty($context) || empty($context->data)) {
+>>>>>>> 840cf2e0e (Upload modules,themes and libraries)
     return;
   }
 

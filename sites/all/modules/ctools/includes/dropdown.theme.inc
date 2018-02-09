@@ -58,7 +58,7 @@ function ctools_dropdown_theme(&$items) {
  * @return string
  *   Returns HTML for a language configuration form.
  */
-function theme_ctools_dropdown($vars) {
+function theme_ctools_dropdown($vars) { 
   // Provide a unique identifier for every dropdown on the page.
   static $id = 0;
   $id++;

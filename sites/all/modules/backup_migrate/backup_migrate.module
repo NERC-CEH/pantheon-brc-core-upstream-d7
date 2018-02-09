@@ -1588,6 +1588,7 @@ function backup_migrate_perform_backup(&$settings) {
 
   timer_start('backup_migrate_backup');
 
+<<<<<<< HEAD
   _backup_migrate_set_timeout();
 
   // Conditionally increase the memory limit.
@@ -1624,6 +1625,11 @@ function backup_migrate_perform_backup(&$settings) {
 
   if (variable_get('backup_migrate_verbose')) {
     _backup_migrate_message("Memory limit: %limit", array('%limit' => ini_get('memory_limit')), 'success');
+=======
+  // If not in 'safe mode', increase the maximum execution time:
+  if (!ini_get('safe_mode') && strpos(ini_get('disable_functions'), 'set_time_limit') === FALSE && ini_get('max_execution_time') < 1200) {
+    set_time_limit(variable_get('backup_migrate_backup_max_time', 1200));
+>>>>>>> 840cf2e0e (Upload modules,themes and libraries)
   }
 
   // Confirm the destinations are valid.
@@ -1709,7 +1715,14 @@ function backup_migrate_perform_restore($destination_id, $file, $settings = arra
 
   timer_start('backup_migrate_restore');
 
+<<<<<<< HEAD
   _backup_migrate_set_timeout();
+=======
+  // If not in 'safe mode', increase the maximum execution time:
+  if (!ini_get('safe_mode') && ini_get('max_execution_time') < variable_get('backup_migrate_backup_max_time', 1200)) {
+    set_time_limit(variable_get('backup_migrate_restore_max_time', 1200));
+  }
+>>>>>>> 840cf2e0e (Upload modules,themes and libraries)
 
   // Make the settings into a default profile.
   if (!is_object($settings)) {
