@@ -123,17 +123,17 @@ function _backup_migrate_ui_backup_settings_form($profile) {
   $form['file']['append_timestamp'] = array(
     "#type" => "radios",
     '#options' => array(
-      0 => t('Create separate backups if `Backup file name` already exists'),
-      2 => t('Overwrite the existing backup file'),
-      1 => t('Append the timestamp'),
+      0 => t('Create seperate backups even if `Backup file name` is the same.'),
+      1 => t('Overwrite backup.'),
+      2 => t('Append timestamp.'),
     ),
-    "#title" => t("Save mode"),
+    "#title" => t("Save modes."),
     "#default_value" => $profile->append_timestamp,
   );
   $form['file']['timestamp_format_wrapper'] = array(
     '#type' => 'backup_migrate_dependent',
     '#dependencies' => array(
-      'append_timestamp' => 1,
+      'append_timestamp' => 2,
     ),
   );
   $form['file']['timestamp_format_wrapper']['timestamp_format'] = array(

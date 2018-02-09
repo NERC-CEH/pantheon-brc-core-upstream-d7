@@ -2,6 +2,7 @@
 
 /**
  * @file
+ *
  * Plugins to handle cache-indirection.
  *
  * Simple plugin management to allow clients to more tightly control where
@@ -149,7 +150,7 @@ function ctools_cache_operation($mechanism, $key, $op, $object = NULL) {
  */
 function ctools_cache_find_plugin($mechanism) {
   if (strpos($mechanism, '::') !== FALSE) {
-    // Use explode(2) to ensure that the data can contain double
+    // use explode(2) to ensure that the data can contain double
     // colons, just in case.
     list($name, $data) = explode('::', $mechanism, 2);
   }
