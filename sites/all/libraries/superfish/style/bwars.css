@@ -1,0 +1,146 @@
+.sf-menu.sf-style-bwars {
+  float: left;
+  margin-bottom: 1em;
+  padding: 0;
+}
+.sf-menu.sf-style-bwars.sf-navbar {
+  width: 100%;
+}
+.sf-menu.sf-style-bwars ul {
+  padding-left: 0;
+}
+.sf-menu.sf-style-bwars a,
+.sf-menu.sf-style-bwars span.nolink {
+  border: 1px #9A6C12 dotted;
+  color: #104A91;
+  padding: 0.75em 1em;
+}
+.sf-menu.sf-style-bwars a.sf-with-ul,
+.sf-menu.sf-style-bwars span.nolink.sf-with-ul {
+  padding-right: 2.25em;
+}
+.sf-menu.sf-style-bwars.rtl a.sf-with-ul,
+.sf-menu.sf-style-bwars.rtl span.nolink.sf-with-ul {
+  padding-left: 2.25em;
+  padding-right: 1em;
+}
+.sf-menu.sf-style-bwars.sf-navbar a,
+.sf-menu.sf-style-bwars.sf-navbar span.nolink {
+  border: 0;
+}
+.sf-menu.sf-style-bwars span.sf-description {
+  color: #104A91;
+  display: block;
+  font-size: 0.833em;
+  line-height: 1.5;
+  margin: 5px 0 0 5px;
+  padding: 0;
+}
+.sf-menu.sf-style-bwars.rtl span.sf-description {
+  margin: 5px 5px 0 0;
+}
+.sf-menu.sf-style-bwars li,
+.sf-menu.sf-style-bwars.sf-navbar {
+  background: #edb038;
+}
+.sf-menu.sf-style-bwars li li {
+  background: #edb038;
+}
+.sf-menu.sf-style-bwars li li li {
+  background: #edb038;
+}
+.sf-menu.sf-style-bwars li:hover,
+.sf-menu.sf-style-bwars li.sfHover,
+.sf-menu.sf-style-bwars a:focus,
+.sf-menu.sf-style-bwars a:hover,
+.sf-menu.sf-style-bwars a:active,
+.sf-menu.sf-style-bwars span.nolink:hover,
+.sf-menu.sf-style-bwars.sf-navbar li li {
+  background: #FFD700;
+}
+.sf-menu.sf-style-bwars.sf-navbar li ul {
+  background-color: #edb038;
+}
+.sf-menu.sf-style-bwars.sf-navbar li ul li ul {
+  background-color: transparent;
+}
+.sf-menu.sf-style-bwars .sf-sub-indicator {
+  background-image: url('../images/arrows-777777.png');
+}
+.sf-menu.sf-style-bwars.rtl .sf-sub-indicator {
+  background-image: url('../images/arrows-777777-rtl.png');
+}
+div.sf-accordion-toggle.sf-style-bwars a {
+  background: #edb038;
+  border: 1px #9A6C12 dotted;
+  color: #104A91;
+  padding: 1em;
+}
+div.sf-accordion-toggle.sf-style-bwars a.sf-expanded,
+.sf-menu.sf-style-bwars.sf-accordion li.sf-expanded {
+  background-color: #edb038;
+}
+div.sf-accordion-toggle.sf-style-bwars a.sf-expanded,
+.sf-menu.sf-style-bwars.sf-accordion li.sf-expanded > a,
+.sf-menu.sf-style-bwars.sf-accordion li.sf-expanded > span.nolink {
+  font-weight: bold;
+}
+.sf-menu.sf-style-bwars.sf-accordion li a.sf-accordion-button {
+  font-weight: bold;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 499;
+}
+.sf-menu.sf-style-bwars.sf-accordion li li a,
+.sf-menu.sf-style-bwars.sf-accordion li li span.nolink {
+  padding-left: 2em;
+}
+.sf-menu.sf-style-bwars.sf-accordion li li li a,
+.sf-menu.sf-style-bwars.sf-accordion li li li span.nolink {
+  padding-left: 3em;
+}
+.sf-menu.sf-style-bwars.sf-accordion li li li li a,
+.sf-menu.sf-style-bwars.sf-accordion li li li li span.nolink {
+  padding-left: 4em;
+}
+.sf-menu.sf-style-bwars.sf-accordion li li li li a,
+.sf-menu.sf-style-bwars.sf-accordion li li li li span.nolink {
+  padding-left: 5em;
+}
+.sf-menu.sf-style-bwars.rtl.sf-accordion li li a,
+.sf-menu.sf-style-bwars.rtl.sf-accordion li li span.nolink {
+  padding-left: auto;
+  padding-right: 2em;
+}
+.sf-menu.sf-style-bwars.rtl.sf-accordion li li li a,
+.sf-menu.sf-style-bwars.rtl.sf-accordion li li li span.nolink {
+  padding-left: auto;
+  padding-right: 3em;
+}
+.sf-menu.sf-style-bwars.rtl.sf-accordion li li li li a,
+.sf-menu.sf-style-bwars.rtl.sf-accordion li li li li span.nolink {
+  padding-left: auto;
+  padding-right: 4em;
+}
+.sf-menu.sf-style-bwars.rtl.sf-accordion li li li li li a,
+.sf-menu.sf-style-bwars.rtl.sf-accordion li li li li li span.nolink {
+  padding-left: auto;
+  padding-right: 5em;
+}
+.sf-menu.sf-style-bwars ul.sf-megamenu li.sf-megamenu-wrapper ol,
+.sf-menu.sf-style-bwars ul.sf-megamenu li.sf-megamenu-wrapper ol li {
+  margin: 0;
+  padding: 0;
+}
+.sf-menu.sf-style-bwars ul.sf-megamenu li.sf-megamenu-wrapper a.menuparent,
+.sf-menu.sf-style-bwars ul.sf-megamenu li.sf-megamenu-wrapper span.nolink.menuparent {
+  font-weight: bold;
+}
+.sf-menu.sf-style-bwars ul.sf-megamenu li.sf-megamenu-wrapper ol li.sf-megamenu-column {
+  display: inline;
+  float: left;
+}
+.sf-menu.sf-style-bwars.rtl ul.sf-megamenu li.sf-megamenu-wrapper ol li.sf-megamenu-column {
+  float: right;
+}
