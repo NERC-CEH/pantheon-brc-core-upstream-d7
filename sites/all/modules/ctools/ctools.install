@@ -41,6 +41,7 @@ function ctools_requirements($phase) {
  * Implements hook_schema().
  */
 function ctools_schema() {
+<<<<<<< HEAD
   return ctools_schema_4();
 }
 
@@ -54,6 +55,9 @@ function ctools_schema_4() {
   // @see https://www.drupal.org/project/ctools/issues/2941920
 
   return $schema;
+=======
+  return ctools_schema_3();
+>>>>>>> 11cf5ed37 (Upload modules,themes and libraries)
 }
 
 /**
@@ -62,7 +66,7 @@ function ctools_schema_4() {
 function ctools_schema_3() {
   $schema = ctools_schema_2();
 
-  // Update the 'obj' field to be 128 bytes long:
+  // update the 'obj' field to be 128 bytes long:
   $schema['ctools_object_cache']['fields']['obj']['length'] = 128;
 
   return $schema;
@@ -74,7 +78,7 @@ function ctools_schema_3() {
 function ctools_schema_2() {
   $schema = ctools_schema_1();
 
-  // Update the 'name' field to be 128 bytes long:
+  // update the 'name' field to be 128 bytes long:
   $schema['ctools_object_cache']['fields']['name']['length'] = 128;
 
   // Update the 'data' field to be type 'blob'.
@@ -108,10 +112,10 @@ function ctools_schema_2() {
         'serialize' => TRUE,
       ),
       'filter' => array(
-        'type' => 'int',
-        'size' => 'tiny',
-        'description' => 'Whether or not this CSS needs to be filtered.',
-      ),
+         'type' => 'int',
+         'size' => 'tiny',
+         'description' => 'Whether or not this CSS needs to be filtered.',
+       ),
     ),
     'primary key' => array('cid'),
   );
@@ -210,7 +214,7 @@ function ctools_update_6003() {
   if ($result) {
     db_delete('system')->condition('name', 'panels_views')->execute();
     module_enable(array('views_content'), TRUE);
-  }
+ }
 }
 
 /**
@@ -229,7 +233,7 @@ function ctools_update_6005() {
 }
 
 /**
- * The ctools_custom_content table was originally here, but is now moved to
+ * ctools_custom_content table was originally here, but is now moved to
  * its own module.
  */
 function ctools_update_6007() {
@@ -243,18 +247,18 @@ function ctools_update_6007() {
 }
 
 /**
- * The ctools_object_cache needs to be defined as a blob.
+ * ctools_object_cache needs to be defined as a blob.
  */
 function ctools_update_6008() {
   db_delete('ctools_object_cache')
     ->execute();
 
   db_change_field('ctools_object_cache', 'data', 'data', array(
-    'type' => 'blob',
-    'size' => 'big',
-    'description' => 'Serialized data being stored.',
-    'serialize' => TRUE,
-  )
+      'type' => 'blob',
+      'size' => 'big',
+      'description' => 'Serialized data being stored.',
+      'serialize' => TRUE,
+    )
   );
 }
 
@@ -276,6 +280,7 @@ function ctools_update_7001() {
     'description' => 'The type of the object this cache is attached to; this essentially represents the owner so that several sub-systems can use this cache.',
   ));
 }
+<<<<<<< HEAD
 
 /**
  * Increase the length of the ctools_object_cache.name column to 255.
@@ -297,3 +302,5 @@ function ctools_update_7003() {
     'description' => 'The name of the object this cache is attached to.',
   ));
 }
+=======
+>>>>>>> 11cf5ed37 (Upload modules,themes and libraries)

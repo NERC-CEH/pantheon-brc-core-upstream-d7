@@ -29,7 +29,11 @@ $plugin = array(
  * Render the node content.
  */
 function ctools_node_content_content_type_render($subtype, $conf, $panel_args, $context) {
+<<<<<<< HEAD
   if (!empty($context) && (empty($context->data) || empty($context->data->nid))) {
+=======
+  if (!empty($context) && empty($context->data)) {
+>>>>>>> 11cf5ed37 (Upload modules,themes and libraries)
     return;
   }
 

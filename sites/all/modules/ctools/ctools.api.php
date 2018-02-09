@@ -17,9 +17,9 @@
  * Inform CTools about plugin types.
  *
  * @return array
- *   An array of plugin types, keyed by the type name.
- *   See the advanced help topic 'plugins-creating' for details of the array
- *   properties.
+ *  An array of plugin types, keyed by the type name.
+ *  See the advanced help topic 'plugins-creating' for details of the array
+ *  properties.
  */
 function hook_ctools_plugin_type() {
   $plugins['my_type'] = array(
@@ -67,7 +67,6 @@ function hook_ctools_plugin_type() {
  *   directory location is being requested.
  * @param string $plugin_type
  *   The name of the plugin type for which a base directory is being requested.
- *
  * @return string
  *   The path where CTools' plugin system should search for plugin files,
  *   relative to your module's root. Omit leading and trailing slashes.
@@ -97,7 +96,7 @@ function hook_ctools_plugin_directory($owner, $plugin_type) {
     // Yes, this is exactly like Form 2 - just a different reasoning for it.
     return "plugins/$plugin_type";
   }
-  // Finally, if nothing matches, it's safe to return nothing at all (== NULL).
+  // Finally, if nothing matches, it's safe to return nothing at all (or NULL).
 }
 
 /**
@@ -157,12 +156,17 @@ function hook_ctools_api_hook_alter(array &$list) {
  * One use case would be to create your own function in your module and
  * allow to use it in the math expression api.
  *
+<<<<<<< HEAD
  * @param array $functions
  *   An array which has the functions as value.
  * @param array $context
  *   An array containing an item 'final' whose value is a reference to the
  *   definitions for multiple-arg functions. Use this to add in functions that
  *   require more than one arg.
+=======
+ * @param $functions
+ *    An array which has the functions as value.
+>>>>>>> 11cf5ed37 (Upload modules,themes and libraries)
  */
 function hook_ctools_math_expression_functions_alter(array &$functions, array $context) {
   // Allow to convert from degrees to radians.
@@ -228,10 +232,7 @@ function hook_ctools_render_alter(array &$info, &$page, array &$context) {
  */
 function hook_ctools_content_subtype_alter($subtype, $plugin) {
   // Force a particular subtype of a particular plugin to render last.
-  if ($plugin['module'] === 'some_plugin_module'
-    && $plugin['name'] === 'some_plugin_name'
-    && $subtype['subtype_id'] === 'my_subtype_id'
-  ) {
+  if ($plugin['module'] == 'some_plugin_module' && $plugin['name'] == 'some_plugin_name' && $subtype['subtype_id'] == 'my_subtype_id') {
     $subtype['render last'] = TRUE;
   }
 }
@@ -260,6 +261,7 @@ function hook_ctools_entity_context_alter(array &$plugin, array &$entity, $plugi
 }
 
 /**
+<<<<<<< HEAD
  * Alter the conversion of context items by ctools context plugin convert()s.
  *
  * @param ctools_context $context
@@ -282,6 +284,8 @@ function hook_ctools_context_converter_alter(ctools_context $context, $converter
 }
 
 /**
+=======
+>>>>>>> 11cf5ed37 (Upload modules,themes and libraries)
  * Alter the definition of entity context plugins.
  *
  * @param array $plugins
@@ -320,6 +324,7 @@ function hook_ctools_cleanstring_CLEAN_ID_alter(array &$settings) {
 }
 
 /**
+<<<<<<< HEAD
  * Let other modules modify the context handler before it is rendered.
  *
  * @param object $handler
@@ -336,5 +341,7 @@ function ctools_context_handler_pre_render($handler, array $contexts, array $arg
 }
 
 /**
+=======
+>>>>>>> 11cf5ed37 (Upload modules,themes and libraries)
  * @} End of "addtogroup hooks".
  */

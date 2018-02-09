@@ -268,7 +268,7 @@
           // We also have to check jQuery version to prevent
           // IE8 + jQuery 1.4.4 to break on other events
           // bound to the submit button.
-          if (jQuery.fn.jquery.substr(0, 3) === '1.4' && typeof event.bubbles === "undefined") {
+          if (jQuery.fn.jquery === '1.4' && typeof event.bubbles === "undefined") {
             $(this.form).trigger('submit');
             return false;
           }
@@ -303,7 +303,7 @@
 
     // Attach behaviors within a modal dialog.
     var settings = response.settings || ajax.settings || Drupal.settings;
-    Drupal.attachBehaviors($('#modalContent'), settings);
+    Drupal.attachBehaviors('#modalContent', settings);
 
     if ($('#modal-content').hasClass('ctools-modal-loading')) {
       $('#modal-content').removeClass('ctools-modal-loading');
@@ -555,15 +555,19 @@
 
     // Create our content div, get the dimensions, and hide it
     var modalContent = $('#modalContent').css('top','-1000px');
+<<<<<<< HEAD
     var $modalHeader = modalContent.find('.modal-header');
     var mdcTop = wt + Math.max((winHeight / 2) - (modalContent.outerHeight() / 2), 0);
+=======
+    var mdcTop = wt + ( winHeight / 2 ) - (  modalContent.outerHeight() / 2);
+>>>>>>> 11cf5ed37 (Upload modules,themes and libraries)
     var mdcLeft = ( winWidth / 2 ) - ( modalContent.outerWidth() / 2);
     $('#modalBackdrop').css(css).css('top', 0).css('height', docHeight + 'px').css('width', docWidth + 'px').show();
     modalContent.css({top: mdcTop + 'px', left: mdcLeft + 'px'}).hide()[animation](speed);
 
     // Bind a click for closing the modalContent
     modalContentClose = function(){close(); return false;};
-    $('.close', $modalHeader).bind('click', modalContentClose);
+    $('.close').bind('click', modalContentClose);
 
     // Bind a keypress on escape for closing the modalContent
     modalEventEscapeCloseHandler = function(event) {
@@ -579,7 +583,7 @@
     // close button, but we should save the original focus to restore it after
     // the dialog is closed.
     var oldFocus = document.activeElement;
-    $('.close', $modalHeader).focus();
+    $('.close').focus();
 
     // Close the open modal content and backdrop
     function close() {
@@ -588,8 +592,13 @@
       $('body').unbind( 'focus', modalEventHandler);
       $('body').unbind( 'keypress', modalEventHandler );
       $('body').unbind( 'keydown', modalTabTrapHandler );
+<<<<<<< HEAD
       $('.close', $modalHeader).unbind('click', modalContentClose);
       $(document).unbind('keydown', modalEventEscapeCloseHandler);
+=======
+      $('.close').unbind('click', modalContentClose);
+      $('body').unbind('keypress', modalEventEscapeCloseHandler);
+>>>>>>> 11cf5ed37 (Upload modules,themes and libraries)
       $(document).trigger('CToolsDetachBehaviors', $('#modalContent'));
 
       // Closing animation.
@@ -672,11 +681,9 @@
     $('body').unbind('focus', modalEventHandler);
     $('body').unbind('keypress', modalEventHandler);
     $('body').unbind( 'keydown', modalTabTrapHandler );
-    var $modalContent = $('#modalContent');
-    var $modalHeader = $modalContent.find('.modal-header');
-    $('.close', $modalHeader).unbind('click', modalContentClose);
+    $('.close').unbind('click', modalContentClose);
     $('body').unbind('keypress', modalEventEscapeCloseHandler);
-    $(document).trigger('CToolsDetachBehaviors', $modalContent);
+    $(document).trigger('CToolsDetachBehaviors', $('#modalContent'));
 
     // jQuery magic loop through the instances and run the animations or removal.
     content.each(function(){

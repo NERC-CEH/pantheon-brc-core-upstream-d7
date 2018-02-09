@@ -17,16 +17,6 @@ $plugin = array(
 
 /**
  * Create a context from manual configuration.
- *
- * @param $empty
- *   Unused.
- * @param $data
- *   Unused.
- * @param $conf
- *   Unused.
- *
- * @return ctools_context
- *   A context of type token, with the plugin set appropriately.
  */
 function ctools_context_create_token($empty, $data = NULL, $conf = FALSE) {
   $context = new ctools_context('token');
@@ -37,14 +27,16 @@ function ctools_context_create_token($empty, $data = NULL, $conf = FALSE) {
 
 /**
  * Implementation of hook_ctools_context_convert_list().
+<<<<<<< HEAD
  *
  * @return array|null
  *   An array of token type information, keyed by 'type:id', or NULL if
  *   none found.
+=======
+>>>>>>> 11cf5ed37 (Upload modules,themes and libraries)
  */
 function ctools_context_token_convert_list() {
   $tokens = token_info();
-  // Initialise $list here?
   foreach ($tokens['types'] as $type => $type_info) {
     if (empty($type_info['needs-data'])) {
       $real_type = isset($type_info['type']) ? $type_info['type'] : $type;
@@ -61,6 +53,7 @@ function ctools_context_token_convert_list() {
 }
 
 /**
+<<<<<<< HEAD
  * Token conversion function: look up the token and return it's value.
  *
  * @param $context
@@ -72,6 +65,9 @@ function ctools_context_token_convert_list() {
  *   The token value, or NULL if not found.
  *
  * @see ctools_context_convert_context()
+=======
+ * Implementation of hook_ctools_context_converter_alter().
+>>>>>>> 11cf5ed37 (Upload modules,themes and libraries)
  */
 function ctools_context_token_convert($context, $token) {
   $tokens = token_info();
@@ -84,5 +80,4 @@ function ctools_context_token_convert($context, $token) {
       return $values[$token];
     }
   }
-  return NULL;
 }

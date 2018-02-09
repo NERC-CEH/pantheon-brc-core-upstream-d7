@@ -1,22 +1,30 @@
 <?php
 
 /**
+ * @file
+ * Contains \CtoolsMathExpressionTestCase.
+ */
+
+/**
  * Tests the MathExpression library of ctools.
  */
 class CtoolsMathExpressionTestCase extends DrupalWebTestCase {
+<<<<<<< HEAD
 
   /**
    * {@inheritdoc}
    */
+=======
+>>>>>>> 11cf5ed37 (Upload modules,themes and libraries)
   public static function getInfo() {
     return array(
-      'name' => 'Math expressions',
+      'name' => 'CTools math expression tests',
       'description' => 'Test the math expression library of ctools.',
       'group' => 'ctools',
-      'dependencies' => array('ctools'),
     );
   }
 
+<<<<<<< HEAD
   /**
    * {@inheritdoc}
    */
@@ -24,6 +32,10 @@ class CtoolsMathExpressionTestCase extends DrupalWebTestCase {
     $modules[] = 'ctools';
     $modules[] = 'ctools_plugin_test';
     parent::setUp($modules);
+=======
+  public function setUp() {
+    parent::setUp('ctools', 'ctools_plugin_test');
+>>>>>>> 11cf5ed37 (Upload modules,themes and libraries)
   }
 
   /**
@@ -99,9 +111,6 @@ class CtoolsMathExpressionTestCase extends DrupalWebTestCase {
     return $this->assert($equal, $message, $group);
   }
 
-  /**
-   * Test some arithmetic handling.
-   */
   public function testArithmetic() {
     $math_expr = new ctools_math_expr();
 
@@ -177,6 +186,7 @@ class CtoolsMathExpressionTestCase extends DrupalWebTestCase {
     }
   }
 
+<<<<<<< HEAD
   /**
    * Test various built-in transcendental and extended functions.
    */
@@ -202,6 +212,28 @@ class CtoolsMathExpressionTestCase extends DrupalWebTestCase {
     }
 
     $this->assertFloat(time(), $math_expr->evaluate('time()'), "time()");
+=======
+  public function testBuildInFunctions() {
+    $math_expression = new ctools_math_expr();
+
+    // @todo: maybe run this code multiple times to test different values.
+    $random_double = $this->rand01();
+    $random_int = rand(5, 10);
+    $this->assertFloat(sin($random_double), $math_expression->e("sin($random_double)"));
+    $this->assertFloat(cos($random_double), $math_expression->e("cos($random_double)"));
+    $this->assertFloat(tan($random_double), $math_expression->e("tan($random_double)"));
+    $this->assertFloat(exp($random_double), $math_expression->e("exp($random_double)"));
+    $this->assertFloat(sqrt($random_double), $math_expression->e("sqrt($random_double)"));
+    $this->assertFloat(log($random_double), $math_expression->e("ln($random_double)"));
+    $this->assertFloat(round($random_double), $math_expression->e("round($random_double)"));
+    $this->assertFloat(abs($random_double + $random_int), $math_expression->e('abs(' . ($random_double + $random_int) . ')'));
+    $this->assertEqual(round($random_double + $random_int), $math_expression->e('round(' . ($random_double + $random_int) . ')'));
+    $this->assertEqual(ceil($random_double + $random_int), $math_expression->e('ceil(' . ($random_double + $random_int) . ')'));
+    $this->assertEqual(floor($random_double + $random_int), $math_expression->e('floor(' . ($random_double + $random_int) . ')'));
+
+    // @fixme: you can't run time without an argument.
+    $this->assertFloat(time(), $math_expression->e('time(1)'));
+>>>>>>> 11cf5ed37 (Upload modules,themes and libraries)
 
     $random_double_a = $this->rand01();
     $random_double_b = $this->rand01();
@@ -215,9 +247,6 @@ class CtoolsMathExpressionTestCase extends DrupalWebTestCase {
       "min($random_double_a, $random_double_b)");
   }
 
-  /**
-   * Test variable handling.
-   */
   public function testVariables() {
     $math_expr = new ctools_math_expr();
 
@@ -256,9 +285,6 @@ class CtoolsMathExpressionTestCase extends DrupalWebTestCase {
       "var / $number_b");
   }
 
-  /**
-   * Test custom function handling.
-   */
   public function testCustomFunctions() {
     $math_expr = new ctools_math_expr();
 
@@ -330,5 +356,4 @@ class CtoolsMathExpressionTestCase extends DrupalWebTestCase {
         "if($number_a < $number_b, $number_b, $number_a)");
     }
   }
-
 }
