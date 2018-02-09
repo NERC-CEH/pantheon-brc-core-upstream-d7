@@ -902,6 +902,7 @@ function backup_migrate_update_7305() {
     db_change_field('backup_migrate_schedules', 'cron', 'cron', $field_spec);
   }
 }
+<<<<<<< HEAD
 
 /**
  * Leave a message to explain the mixup over the backup option.
@@ -1066,3 +1067,5 @@ function backup_migrate_update_7311() {
     }
   }
 }
+=======
+>>>>>>> 9a28c8c7c (Upload modules,themes and libraries)
