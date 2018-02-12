@@ -23,10 +23,14 @@ $plugin = array(
  */
 function ctools_node_created_content_type_render($subtype, $conf, $panel_args, $context) {
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (!empty($context) && (empty($context->data) || empty($context->data->nid))) {
 =======
   if (empty($context) || empty($context->data)) {
 >>>>>>> f0da0c767... Upload modules,themes and libraries
+=======
+  if (!empty($context) && ( empty($context->data) || empty($context->data->nid)) ){
+>>>>>>> 5f701d37e... Upgrade Backup & ctools modules. also added settings.php file.
     return;
   }
 

@@ -86,6 +86,9 @@ function page_manager_node_view_page($node) {
   ctools_include('context-task-handler');
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 5f701d37e... Upgrade Backup & ctools modules. also added settings.php file.
   $uri = entity_uri('node', $node);
   if (isset($uri['path'])) {
     // Set the node path as the canonical URL to prevent duplicate content.
@@ -98,13 +101,20 @@ function page_manager_node_view_page($node) {
     // Set the non-aliased path as a default shortlink.
     $meta_short = array(
       'rel' => 'shortlink',
+<<<<<<< HEAD
       'href' => url($uri['path'], array_merge($uri['options'], array('alias' => TRUE))),
+=======
+      'href' => url($uri['path'], array_merge($uri['options'], array('alias' => TRUE)))
+>>>>>>> 5f701d37e... Upgrade Backup & ctools modules. also added settings.php file.
     );
     drupal_add_html_head_link($meta_short, TRUE);
   }
 
+<<<<<<< HEAD
 =======
 >>>>>>> f0da0c767... Upload modules,themes and libraries
+=======
+>>>>>>> 5f701d37e... Upgrade Backup & ctools modules. also added settings.php file.
   // Load all contexts.
   $contexts = ctools_context_handler_get_task_contexts($task, '', array($node));
 
