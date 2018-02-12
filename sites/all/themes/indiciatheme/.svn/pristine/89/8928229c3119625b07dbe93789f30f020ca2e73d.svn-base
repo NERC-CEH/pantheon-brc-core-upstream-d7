@@ -1,0 +1,208 @@
+/* Standard spacing between buttons, panels etc */
+/* No files to import found in custom/variables/*.* */
+/** banner area improvements **/
+@media screen and (max-width: 600px) {
+  /* line 10, sass/indiciatheme.scss */
+  #logo {
+    /* logo occupies own line if narrow */
+    float: none;
+  }
+}
+/* Remove restriction on banner height and width */
+/* line 17, sass/indiciatheme.scss */
+header#header, div#branding {
+  max-height: none;
+  width: 100%;
+  text-transform: none;
+}
+
+/** Adaptive theme panel layouts **/
+/* line 26, sass/indiciatheme.scss */
+.at-panel .region {
+  padding-right: 10px;
+  /* Prevent padding messing up layout */
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* line 30, sass/indiciatheme.scss */
+.at-panel .region label {
+  /* labels in columns take up 1 line */
+  display: block;
+  margin-bottom: 0;
+  width: auto;
+}
+/* line 36, sass/indiciatheme.scss */
+.at-panel .region textarea, .at-panel .region #map-help {
+  /* full width boxes, accounting for border, padding etc*/
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* line 41, sass/indiciatheme.scss */
+.at-panel .region .control-box nobr {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+}
+/* line 43, sass/indiciatheme.scss */
+.at-panel .region .control-box nobr span * {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+}
+/* line 47, sass/indiciatheme.scss */
+.at-panel .region .helpText, .at-panel .region p.inline-error {
+  /* Controls on separate line to labels, so remove margin for the helptext and errors */
+  margin-left: 0;
+}
+/* line 52, sass/indiciatheme.scss */
+.at-panel .region:last-child {
+  padding-right: 0;
+}
+
+/** Buttons **/
+/* Sassify the buttons */
+/* line 61, sass/indiciatheme.scss */
+input[type=submit], input[type=button], button, .indicia-button, a.indicia-button {
+  color: white;
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF006699', endColorstr='#FF002233');
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #006699), color-stop(70%, #0088cc));
+  background: -webkit-linear-gradient(#006699, #0088cc 70%);
+  background: -moz-linear-gradient(#006699, #0088cc 70%);
+  background: -o-linear-gradient(#006699, #0088cc 70%);
+  background: linear-gradient(#006699, #0088cc 70%);
+  -webkit-box-shadow: #0099e6 0 1px 0 inset;
+  -moz-box-shadow: #0099e6 0 1px 0 inset;
+  box-shadow: #0099e6 0 1px 0 inset;
+  border: 1px solid #0077b3;
+  color: white;
+  text-shadow: #00141f 0 -1px 0;
+}
+/* line 15, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/sassy-buttons-0.2.6/stylesheets/sassy-buttons/_sassy-button-pseudo-states.sass */
+input[type=submit]:hover, input[type=button]:hover, button:hover, .indicia-button:hover, a.indicia-button:hover {
+  text-decoration: none;
+}
+/* line 18, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/sassy-buttons-0.2.6/stylesheets/sassy-buttons/_sassy-button-pseudo-states.sass */
+input[type=submit]:hover, input[type=button]:hover, button:hover, .indicia-button:hover, a.indicia-button:hover {
+  background-color: #0077b3;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(3%, #005580), color-stop(75%, #0077b3));
+  background: -webkit-linear-gradient(#005580 3%, #0077b3 75%);
+  background: -moz-linear-gradient(#005580 3%, #0077b3 75%);
+  background: -o-linear-gradient(#005580 3%, #0077b3 75%);
+  background: linear-gradient(#005580 3%, #0077b3 75%);
+}
+/* line 21, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/sassy-buttons-0.2.6/stylesheets/sassy-buttons/_sassy-button-pseudo-states.sass */
+input[type=submit]:active, input[type=button]:active, button:active, .indicia-button:active, a.indicia-button:active {
+  -webkit-box-shadow: #006da3 0 1px 2px inset;
+  -moz-box-shadow: #006da3 0 1px 2px inset;
+  box-shadow: #006da3 0 1px 2px inset;
+}
+/* line 6, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/sassy-buttons-0.2.6/stylesheets/sassy-buttons/_sassy-button-pseudo-states.sass */
+input[type=submit].disabled, input[type=submit][disabled], input[type=button].disabled, input[type=button][disabled], button.disabled, button[disabled], .indicia-button.disabled, .indicia-button[disabled], a.indicia-button.disabled, a.indicia-button[disabled] {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
+  opacity: 0.6;
+  background: #0088cc;
+  cursor: default;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+/* line 65, sass/indiciatheme.scss */
+input[type=button], button, .indicia-button {
+  font-size: 12px;
+  padding: 0.25em;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+}
+
+/* Submit button a bit bigger */
+/* line 69, sass/indiciatheme.scss */
+input[type=submit], button[type=submit], .fb-close {
+  font-size: 14px;
+  padding: 0.25em;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+/* line 73, sass/indiciatheme.scss */
+.form-submit:hover {
+  color: white;
+}
+
+/** Menu configuration **/
+/* Menus on same line */
+/* line 80, sass/indiciatheme.scss */
+#block-superfish-1 {
+  float: left;
+}
+
+/* line 83, sass/indiciatheme.scss */
+#block-system-user-menu {
+  float: right;
+}
+
+/* Menu colour */
+/* line 88, sass/indiciatheme.scss */
+#menu-bar, #menu-bar li a {
+  background-color: #006699;
+  color: white;
+}
+
+/* Correct padding in main menu for nolink items */
+/* line 93, sass/indiciatheme.scss */
+#menu-bar ul.sf-menu li span {
+  padding: 0 15px;
+}
+
+/* line 96, sass/indiciatheme.scss */
+ul.sf-menu.sf-horizontal span {
+  height: 32px;
+  line-height: 32px;
+}
+
+/** Apply tweaks and bugfixes **/
+/* Line up lock icons */
+/* line 104, sass/indiciatheme.scss */
+input, .unlocked-icon, .locked-icon {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+/* remove legend background colour (from pixture reloaded's link colour) */
+/* line 109, sass/indiciatheme.scss */
+fieldset legend {
+  background-color: transparent;
+  color: #333333;
+  padding: 0 10px;
+}
+
+/* Fixes a bug where Google attributions appear 1 character wide therefore go up the middle of the map in IE on some D7 templates. We 
+   can't use a conditional stylesheet, as it also applies to IE10 which does not support conditional comments. */
+/* line 117, sass/indiciatheme.scss */
+.gm-style .gmnoprint {
+  width: auto !important;
+}
+
+/** import any custom override files **/
+/* No files to import found in custom/*.* */

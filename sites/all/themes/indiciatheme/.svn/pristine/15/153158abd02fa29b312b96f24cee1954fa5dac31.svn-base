@@ -1,0 +1,6 @@
+/* Use reference colours from the default Girly Pink colour scheme here so that the colors module can overwrite them */
+$colour-ctrl-background:#eb5ac3;
+$colour-ctrl-background-light:#eb5ac3;
+$colour-ctrl-text:#fffffc;
+
+$colour-header-text:#333333;
