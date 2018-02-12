@@ -43,10 +43,11 @@ function service_links_update_6200() {
   }
 
   // delete old service variables
-  db_delete('variable')
-    ->condition('name', 'service_links_show_%', 'LIKE')
-    ->execute();
-  
+  $result = db_query('SELECT name FROM {variable} v WHERE LOCATE("service_links_show_",v.name) > 0');
+  while ($row = db_fetch_object($result)) {
+    variable_del($row->name);
+  }
+
   // Aggregator2 support
   variable_del('service_links_agg2_link');
 }
@@ -55,11 +56,11 @@ function service_links_update_6200() {
  * Switch the old variables to the news based on view modes.
  */
 function _update_to_view_modes($old_var, $new_var) {
-  $old_val = variable_get($old_var, 0);
-  $new_val = variable_get($new_var, NULL);
+  $modes = array_filter(variable_get($old_var, 0));
+  $new_var = variable_get($new_var, NULL);
 
-  if (!isset($new_val)) {
-    switch($old_val) {
+  if (!isset($new_var)) {
+    switch($modes) {
     case 0:
       $modes = array();
       break;
@@ -67,10 +68,10 @@ function _update_to_view_modes($old_var, $new_var) {
       $modes = array('teaser' => 'teaser');
       break;
     case 2:
-      $modes = array('full' => 'full');
+      $modes = array('full' => 1);
       break;
     case 3:
-      $modes = array('teaser' => 'teaser', 'full' => 'full');
+      $modes = array('teaser' => 1, 'full' => 1);
       break;
     }
 
