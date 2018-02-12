@@ -1,14 +1,10 @@
 <?php
 
 /**
- * @file
- * Contains \CtoolsMathExpressionTestCase.
- */
-
-/**
  * Tests the MathExpression library of ctools.
  */
 class CtoolsMathExpressionTestCase extends DrupalWebTestCase {
+<<<<<<< HEAD
 <<<<<<< HEAD
 
   /**
@@ -16,14 +12,22 @@ class CtoolsMathExpressionTestCase extends DrupalWebTestCase {
    */
 =======
 >>>>>>> 11cf5ed37 (Upload modules,themes and libraries)
+=======
+
+  /**
+   * {@inheritDoc}
+   */
+>>>>>>> 9f2a54eea (Upgrade Backup & ctools modules. also added settings.php file.)
   public static function getInfo() {
     return array(
-      'name' => 'CTools math expression tests',
+      'name' => 'Math expressions',
       'description' => 'Test the math expression library of ctools.',
       'group' => 'ctools',
+      'dependencies' => array('ctools'),
     );
   }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   /**
    * {@inheritdoc}
@@ -36,6 +40,15 @@ class CtoolsMathExpressionTestCase extends DrupalWebTestCase {
   public function setUp() {
     parent::setUp('ctools', 'ctools_plugin_test');
 >>>>>>> 11cf5ed37 (Upload modules,themes and libraries)
+=======
+  /**
+   * {@inheritDoc}
+   */
+  function setUp(array $modules = array()) {
+    $modules[] = 'ctools';
+    $modules[] = 'ctools_plugin_test';
+    parent::setUp($modules);
+>>>>>>> 9f2a54eea (Upgrade Backup & ctools modules. also added settings.php file.)
   }
 
   /**
@@ -111,6 +124,9 @@ class CtoolsMathExpressionTestCase extends DrupalWebTestCase {
     return $this->assert($equal, $message, $group);
   }
 
+  /**
+   * Test some arithmetic handling.
+   */
   public function testArithmetic() {
     $math_expr = new ctools_math_expr();
 
@@ -187,6 +203,7 @@ class CtoolsMathExpressionTestCase extends DrupalWebTestCase {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   /**
    * Test various built-in transcendental and extended functions.
    */
@@ -213,10 +230,15 @@ class CtoolsMathExpressionTestCase extends DrupalWebTestCase {
 
     $this->assertFloat(time(), $math_expr->evaluate('time()'), "time()");
 =======
+=======
+  /**
+   * Test the basic built-in functions in the math expression library.
+   */
+>>>>>>> 9f2a54eea (Upgrade Backup & ctools modules. also added settings.php file.)
   public function testBuildInFunctions() {
     $math_expression = new ctools_math_expr();
 
-    // @todo: maybe run this code multiple times to test different values.
+    // @todo Maybe run this code multiple times to test different values.
     $random_double = $this->rand01();
     $random_int = rand(5, 10);
     $this->assertFloat(sin($random_double), $math_expression->e("sin($random_double)"));
@@ -247,6 +269,9 @@ class CtoolsMathExpressionTestCase extends DrupalWebTestCase {
       "min($random_double_a, $random_double_b)");
   }
 
+  /**
+   * Test variable handling.
+   */
   public function testVariables() {
     $math_expr = new ctools_math_expr();
 
@@ -285,6 +310,9 @@ class CtoolsMathExpressionTestCase extends DrupalWebTestCase {
       "var / $number_b");
   }
 
+  /**
+   * Test custom function handling.
+   */
   public function testCustomFunctions() {
     $math_expr = new ctools_math_expr();
 
@@ -356,4 +384,5 @@ class CtoolsMathExpressionTestCase extends DrupalWebTestCase {
         "if($number_a < $number_b, $number_b, $number_a)");
     }
   }
+
 }
