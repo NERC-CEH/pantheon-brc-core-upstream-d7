@@ -24,7 +24,10 @@ if (module_exists('comment')) {
 }
 
 function ctools_node_comments_content_type_render($subtype, $conf, $panel_args, $context) {
-  $node = isset($context->data) ? clone $context->data : NULL;
+  if (empty($context->data->nid)) {
+    return;
+  }
+  $node = clone $context->data;
   $block = new stdClass();
   $block->module = 'comments';
 <<<<<<< HEAD
@@ -32,16 +35,15 @@ function ctools_node_comments_content_type_render($subtype, $conf, $panel_args, 
   $block->title = t('Comments');
 =======
   $block->delta  = $node->nid;
+<<<<<<< HEAD
 >>>>>>> 840cf2e0e (Upload modules,themes and libraries)
 
+=======
+>>>>>>> 023456e72 (Upgrade Backup & ctools modules. also added settings.php file.)
   $block->title = t('Comments');
-  if (empty($node)) {
-    $block->content = t('Node comments go here.');
-  }
-  else if ($node->comment) {
+
+  if ($node->comment) {
     $block->content = ctools_comment_render($node, $conf);
-    // Update the history table, stating that this user viewed this node.
-    node_tag_new($node);
   }
 
   return $block;

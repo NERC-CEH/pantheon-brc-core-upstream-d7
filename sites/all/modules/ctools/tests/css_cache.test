@@ -1,28 +1,26 @@
 <?php
-/**
- * @file
- * Tests the custom CSS cache handler.
- */
 
 /**
  * Tests the custom CSS cache handler.
  */
-class CtoolsObjectCache extends DrupalWebTestCase {
+class CtoolsCSSObjectCache extends DrupalWebTestCase {
 
   /**
    * {@inheritdoc}
    */
   public static function getInfo() {
     return array(
-      'name' => 'Ctools CSS cache',
+      'name' => 'CSS cache',
       'description' => 'Tests the custom CSS cache handler.',
       'group' => 'ctools',
+      'dependencies' => array('ctools'),
     );
   }
 
   /**
-   * {@inheritdoc}
+   * {@inheritDoc}
    */
+<<<<<<< HEAD
 <<<<<<< HEAD
   public function setUp(array $modules = array()) {
     $modules[] = 'ctools';
@@ -31,6 +29,11 @@ class CtoolsObjectCache extends DrupalWebTestCase {
   public function setUp() {
     parent::setUp('ctools');
 >>>>>>> 840cf2e0e (Upload modules,themes and libraries)
+=======
+  function setUp(array $modules = array()) {
+    $modules[] = 'ctools';
+    parent::setUp($modules);
+>>>>>>> 023456e72 (Upgrade Backup & ctools modules. also added settings.php file.)
   }
 
   /**

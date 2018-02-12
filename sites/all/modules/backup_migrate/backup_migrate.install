@@ -937,6 +937,7 @@ function backup_migrate_update_7308() {
 }
 
 /**
+<<<<<<< HEAD
  * NodeSquirrel support has been removed.
  */
 function backup_migrate_update_7309() {
@@ -1069,3 +1070,10 @@ function backup_migrate_update_7311() {
 }
 =======
 >>>>>>> 840cf2e0e (Upload modules,themes and libraries)
+=======
+ * Leave a message to explain the mixup over the backup option.
+ */
+function backup_migrate_update_7306() {
+  drupal_set_message(t('Please note that release 7.x-3.4 had a bug which caused all backups to be overwritten instead of having a timestamp added. Please review all backup settings to ensure they work as intended.'), 'warning');
+}
+>>>>>>> 023456e72 (Upgrade Backup & ctools modules. also added settings.php file.)
