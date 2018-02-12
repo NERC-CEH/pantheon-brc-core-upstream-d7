@@ -1112,7 +1112,7 @@ function _bootstrap_glyphicon($name, $default = array(), array $attributes = arr
     // Attempt to use the Icon API module, if enabled and it generates output.
     if (module_exists('icon')) {
       $icon = array(
-        '#theme' => 'icon',
+        '#type' => 'icon',
         '#bundle' => 'bootstrap',
         '#icon' => 'glyphicon-' . $name,
         '#attributes' => $attributes,
