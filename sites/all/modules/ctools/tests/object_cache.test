@@ -1,13 +1,10 @@
 <?php
-/**
- * @file
- * Tests for different parts of the ctools object caching system.
- */
 
 /**
  * Test object cache storage.
  */
 class CtoolsObjectCache extends DrupalWebTestCase {
+<<<<<<< HEAD
 <<<<<<< HEAD
 
   /**
@@ -15,14 +12,22 @@ class CtoolsObjectCache extends DrupalWebTestCase {
    */
 =======
 >>>>>>> 9a28c8c7c (Upload modules,themes and libraries)
+=======
+
+  /**
+   * {@inheritDoc}
+   */
+>>>>>>> f10080b38 (Upgrade Backup & ctools modules. also added settings.php file.)
   public static function getInfo() {
     return array(
-      'name' => 'Ctools object cache storage',
+      'name' => 'Object cache storage (UI tests)',
       'description' => 'Verify that objects are written, readable and lockable.',
       'group' => 'ctools',
+      'dependencies' => array('ctools'),
     );
   }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   /**
    * {@inheritdoc}
@@ -40,7 +45,22 @@ class CtoolsObjectCache extends DrupalWebTestCase {
   }
 
 >>>>>>> 9a28c8c7c (Upload modules,themes and libraries)
+=======
+  /**
+   * {@inheritDoc}
+   */
+  function setUp(array $modules = array()) {
+    $modules[] = 'ctools';
+    parent::setUp($modules);
+  }
+
+  /**
+   *
+   */
+>>>>>>> f10080b38 (Upgrade Backup & ctools modules. also added settings.php file.)
   public function testObjectStorage() {
+    ctools_include('cache');
+
     $account1 = $this->drupalCreateUser(array());
     $this->drupalLogin($account1);
 

@@ -55,9 +55,9 @@ function ctools_modal_add_js() {
         'alt' => t('Close window'),
       )),
       'throbber' => theme('image', array(
-          'path' => ctools_image_path('throbber.gif'),
-          'title' => t('Loading...'),
-          'alt' => t('Loading'),
+        'path' => ctools_image_path('throbber.gif'),
+        'title' => t('Loading...'),
+        'alt' => t('Loading'),
       )),
     ),
   );
@@ -86,10 +86,14 @@ function ctools_modal_add_plugin_js($plugins) {
           $js[$file] = TRUE;
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
         elseif (file_exists($subtype['path'] . '/' . $file)) {
 =======
         else if (file(exists($subtype['path'] . '/' . $file))) {
 >>>>>>> 9a28c8c7c (Upload modules,themes and libraries)
+=======
+        elseif (file(exists($subtype['path'] . '/' . $file))) {
+>>>>>>> f10080b38 (Upgrade Backup & ctools modules. also added settings.php file.)
           $js[$subtype['path'] . '/' . $file] = TRUE;
         }
       }
@@ -100,10 +104,14 @@ function ctools_modal_add_plugin_js($plugins) {
           $css[$file] = TRUE;
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
         elseif (file_exists($subtype['path'] . '/' . $file)) {
 =======
         else if (file(exists($subtype['path'] . '/' . $file))) {
 >>>>>>> 9a28c8c7c (Upload modules,themes and libraries)
+=======
+        elseif (file(exists($subtype['path'] . '/' . $file))) {
+>>>>>>> f10080b38 (Upgrade Backup & ctools modules. also added settings.php file.)
           $css[$subtype['path'] . '/' . $file] = TRUE;
         }
       }
@@ -148,7 +156,7 @@ function ctools_modal_command_dismiss() {
 }
 
 /**
- * Display loading screen in the modal
+ * Display loading screen in the modal.
  */
 function ctools_modal_command_loading() {
   return array(
@@ -197,7 +205,7 @@ function ctools_modal_text_button($text, $dest, $alt, $class = '') {
  * Wrap a form so that we can use it properly with AJAX. Essentially if the
  * form wishes to render, it automatically does that, otherwise it returns
  * the render array so we can see submission results.
-
+ *
  * @param array $form
  *   An associative array containing the structure of the form.
  * @param array $form_state
@@ -230,7 +238,7 @@ function ctools_modal_form_wrapper($form_id, &$form_state) {
 
   $output = drupal_build_form($form_id, $form_state);
   if (!empty($form_state['ajax']) && (!$form_state['executed'] || $form_state['rebuild'])) {
-     return ctools_modal_form_render($form_state, $output);
+    return ctools_modal_form_render($form_state, $output);
   }
 
   return $output;

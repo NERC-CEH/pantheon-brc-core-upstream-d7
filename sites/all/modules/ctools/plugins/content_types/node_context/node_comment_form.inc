@@ -21,21 +21,24 @@ if (module_exists('comment')) {
 }
 
 function ctools_node_comment_form_content_type_render($subtype, $conf, $panel_args, $context) {
-  $node = isset($context->data) ? clone $context->data : NULL;
+  if (empty($context->data->nid)) {
+    return;
+  }
+  $node = clone $context->data;
   $block = new stdClass();
   $block->module = 'comments';
 <<<<<<< HEAD
   $block->delta = $node->nid;
 =======
   $block->delta  = $node->nid;
+<<<<<<< HEAD
 
 >>>>>>> 9a28c8c7c (Upload modules,themes and libraries)
+=======
+>>>>>>> f10080b38 (Upgrade Backup & ctools modules. also added settings.php file.)
   $block->title = t('Add comment');
 
-  if (empty($node)) {
-    $block->content = t('Comment form here.');
-  }
-  else if ($node->comment == COMMENT_NODE_OPEN) {
+  if ($node->comment == COMMENT_NODE_OPEN) {
     if (user_access('post comments')) {
       $comment = new stdClass();
       $comment->nid = $node->nid;
