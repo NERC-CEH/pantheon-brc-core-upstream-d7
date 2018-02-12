@@ -157,8 +157,12 @@ function ctools_entity_field_content_type_render($subtype, $conf, $panel_args, $
 
   $field_output = field_view_field($entity_type, $clone, $field_name, $field_settings, $language);
 
-  if (!empty($field_output) && !empty($conf['override_title'])) {
-    $field_output['#title'] = filter_xss_admin($conf['override_title_text']);
+  if (!empty($field_output)) {
+    if (!empty($conf['override_title'])) {
+      $field_output['#title'] = filter_xss_admin($conf['override_title_text']);
+    }
+    $field_output['#ctools_context'] = $context;
+    $field_output['#post_render'][] = 'ctools_entity_field_content_type_substitute_keywords';
   }
 
   // Build the content type block.
@@ -176,6 +180,9 @@ function ctools_entity_field_content_type_render($subtype, $conf, $panel_args, $
 
 /**
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 847aeaa3b... Upgrade Backup & ctools modules. also added settings.php file.
  * Replace context keywords.
  */
 function ctools_entity_field_content_type_substitute_keywords($markup, array $element) {
@@ -183,9 +190,12 @@ function ctools_entity_field_content_type_substitute_keywords($markup, array $el
 }
 
 /**
+<<<<<<< HEAD
  * Returns an edit form for custom type settings.
  */
 =======
+=======
+>>>>>>> 847aeaa3b... Upgrade Backup & ctools modules. also added settings.php file.
 * Returns an edit form for custom type settings.
 */
 >>>>>>> 9d9f2490f... Upload modules,themes and libraries
@@ -241,6 +251,11 @@ function ctools_entity_field_content_type_formatter_styles($form, &$form_state) 
 
   ctools_form_include($form_state, 'field_ui.admin', 'field_ui', '');
   ctools_form_include($form_state, 'fields');
+
+  $form['ctools_keywords'] = array(
+    '#type' => 'item',
+    '#description' => t('You may use keywords for substitutions.'),
+  );
 
   $form['ctools_field_list'] = array(
     '#type' => 'value',

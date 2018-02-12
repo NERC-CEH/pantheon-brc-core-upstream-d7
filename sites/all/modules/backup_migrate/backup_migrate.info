@@ -46,6 +46,7 @@ files[] = tests/BmTestCtools.test
 files[] = tests/BmTestUpdate7310.test
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ; Information added by Drupal.org packaging script on 2020-07-15
 version = "7.x-3.9"
 core = "7.x"
@@ -54,8 +55,12 @@ datestamp = "1594807678"
 =======
 ; Information added by Drupal.org packaging script on 2018-01-24
 version = "7.x-3.4"
+=======
+; Information added by Drupal.org packaging script on 2018-02-05
+version = "7.x-3.5"
+>>>>>>> 847aeaa3b... Upgrade Backup & ctools modules. also added settings.php file.
 core = "7.x"
 project = "backup_migrate"
-datestamp = "1516810618"
+datestamp = "1517871486"
 
 >>>>>>> 9d9f2490f... Upload modules,themes and libraries

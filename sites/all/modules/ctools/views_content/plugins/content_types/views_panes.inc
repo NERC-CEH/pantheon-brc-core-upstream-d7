@@ -143,11 +143,12 @@ function views_content_views_panes_content_type_render($subtype, $conf, $panel_a
     return;
   }
 
-  $conf['pane_contexts'] = $contexts;
-  $conf['panel_args'] = $panel_args;
   $view->display_handler->set_pane_conf($conf);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 847aeaa3b... Upgrade Backup & ctools modules. also added settings.php file.
   $args = array();
   $arguments = $view->display_handler->get_option('arguments');
 
@@ -182,6 +183,7 @@ function views_content_views_panes_content_type_render($subtype, $conf, $panel_a
         $args[] = (isset($conf['arguments'][$id])  && $conf['arguments'][$id] !== '') ? ctools_context_keyword_substitute($conf['arguments'][$id], array(), $contexts) : NULL;
         break;
 
+<<<<<<< HEAD
       case 'wildcard':
         // Put in the wildcard.
         $args[] = isset($arguments[$id]['wildcard']) ? $arguments[$id]['wildcard'] : '*';
@@ -197,15 +199,39 @@ function views_content_views_panes_content_type_render($subtype, $conf, $panel_a
   }
 
   // Remove any trailing NULL arguments as these are non-args:
+=======
+     case 'wildcard':
+        // Put in the wildcard.
+       $args[] = isset($arguments[$id]['wildcard']) ? $arguments[$id]['wildcard'] : '*';
+       break;
+
+     case 'none':
+     default:
+       // Put in NULL.
+       // views.module knows what to do with NULL (or missing) arguments
+       $args[] = NULL;
+       break;
+    }
+  }
+
+  // remove any trailing NULL arguments as these are non-args:
+>>>>>>> 847aeaa3b... Upgrade Backup & ctools modules. also added settings.php file.
   while (count($args) && end($args) === NULL) {
     array_pop($args);
   }
 
   $view->set_arguments($args);
 
+<<<<<<< HEAD
 =======
 >>>>>>> 9d9f2490f... Upload modules,themes and libraries
+=======
+>>>>>>> 847aeaa3b... Upgrade Backup & ctools modules. also added settings.php file.
   $allow = $view->display_handler->get_option('allow');
+
+  if (!empty($conf['path'])) {
+    $conf['path'] = ctools_context_keyword_substitute($conf['path'], array(), $contexts);
+  }
   if ($allow['path_override'] && !empty($conf['path'])) {
     $view->override_path = $conf['path'];
   }
@@ -219,8 +245,17 @@ function views_content_views_panes_content_type_render($subtype, $conf, $panel_a
     }
 =======
   else if ($path = $view->display_handler->get_option('inherit_panels_path')) {
+<<<<<<< HEAD
     $view->override_path = $_GET['q'];
 >>>>>>> 9d9f2490f... Upload modules,themes and libraries
+=======
+    if (drupal_is_front_page()) {
+      $view->override_path = '';
+    }
+    else {
+      $view->override_path = $_GET['q'];
+    }
+>>>>>>> 847aeaa3b... Upgrade Backup & ctools modules. also added settings.php file.
   }
 
   $block = new stdClass();
@@ -233,14 +268,22 @@ function views_content_views_panes_content_type_render($subtype, $conf, $panel_a
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   // More link.
+=======
+  // more link
+>>>>>>> 847aeaa3b... Upgrade Backup & ctools modules. also added settings.php file.
   if ($allow['more_link']) {
     if (empty($conf['more_link'])) {
       $view->display_handler->set_option('use_more', FALSE);
     }
     else {
       $view->display_handler->set_option('use_more', TRUE);
+<<<<<<< HEAD
       // Make sure the view runs the count query so we know whether or not the
+=======
+      // make sure the view runs the count query so we know whether or not the
+>>>>>>> 847aeaa3b... Upgrade Backup & ctools modules. also added settings.php file.
       // more link applies.
       $view->get_total_rows = TRUE;
     }
@@ -294,8 +337,11 @@ function views_content_views_panes_content_type_render($subtype, $conf, $panel_a
     $view->set_exposed_input($conf['exposed']);
   }
 
+<<<<<<< HEAD
 =======
 >>>>>>> 9d9f2490f... Upload modules,themes and libraries
+=======
+>>>>>>> 847aeaa3b... Upgrade Backup & ctools modules. also added settings.php file.
   $stored_feeds = drupal_add_feed();
 
   $block->content = $view->preview();
