@@ -44,6 +44,7 @@ function file_entity_token_info() {
     'type' => 'url',
   );
 
+<<<<<<< HEAD
   if (module_exists('token')) {
     $info['types']['file_field'] = array(
       'name' => t('Media'),
@@ -124,6 +125,8 @@ function file_entity_token_info() {
     }
   }
 
+=======
+>>>>>>> 188c0a312... Added admin_views and file_entity modules, updated media module
   return $info;
 }
 
@@ -135,11 +138,12 @@ function file_entity_token_info_alter(&$info) {
 }
 
 /**
- * Provide replacement values for placeholder tokens.
+ * Implements hook_tokens().
  */
 function file_entity_tokens($type, $tokens, array $data = array(), array $options = array()) {
   $replacements = array();
 
+<<<<<<< HEAD
   // Check that this token call contains the data we need
   if ($type == 'entity' && !empty($data['entity_type']) && !empty($data['entity']) &&
     !empty($data['token_type']) && module_exists('token')) {
@@ -195,6 +199,8 @@ function file_entity_tokens($type, $tokens, array $data = array(), array $option
     }
   }
 
+=======
+>>>>>>> 188c0a312... Added admin_views and file_entity modules, updated media module
   $url_options = array('absolute' => TRUE);
   if (isset($options['language'])) {
     $url_options['language'] = $options['language'];
@@ -266,6 +272,7 @@ function file_entity_tokens($type, $tokens, array $data = array(), array $option
 
   return $replacements;
 }
+<<<<<<< HEAD
 
 /**
  * This helper function gets file properties for token replacement.
@@ -348,3 +355,5 @@ function _file_entity_tokens_get_property($files, $property, $array_handler = 'f
 
   return $values;
 }
+=======
+>>>>>>> 188c0a312... Added admin_views and file_entity modules, updated media module

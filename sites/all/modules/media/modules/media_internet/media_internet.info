@@ -13,6 +13,7 @@ files[] = includes/MediaInternetValidationException.inc
 files[] = tests/media_internet.test
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ; Information added by Drupal.org packaging script on 2018-10-24
 version = "7.x-2.21"
 core = "7.x"
@@ -21,8 +22,12 @@ datestamp = "1540363086"
 =======
 ; Information added by Drupal.org packaging script on 2017-12-12
 version = "7.x-2.14"
+=======
+; Information added by Drupal.org packaging script on 2018-02-09
+version = "7.x-2.16"
+>>>>>>> 188c0a312... Added admin_views and file_entity modules, updated media module
 core = "7.x"
 project = "media"
-datestamp = "1513081090"
+datestamp = "1518139099"
 
 >>>>>>> f0da0c767... Upload modules,themes and libraries
