@@ -6,10 +6,14 @@
  */
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 define('MEDIA_WYSIWYG_TOKEN_REGEX', '/\[\[\{.*?"type":"media".*?\}\]\]/s');
 =======
 define('MEDIA_WYSIWYG_TOKEN_REGEX', '/\[\[.+?"type":"media".+?\]\]/s');
 >>>>>>> 9d9f2490f... Upload modules,themes and libraries
+=======
+define('MEDIA_WYSIWYG_TOKEN_REGEX', '/\[\[\{.*?"type":"media".+?\}\]\]/s');
+>>>>>>> bcc8567a4... Added admin_views and file_entity modules, updated media module
 
 /**
  * Filter callback for media markup filter.
