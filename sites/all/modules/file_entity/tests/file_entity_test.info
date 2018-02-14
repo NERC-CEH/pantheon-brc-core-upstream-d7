@@ -6,6 +6,7 @@ dependencies[] = file_entity
 hidden = TRUE
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ; Information added by Drupal.org packaging script on 2020-06-15
 version = "7.x-2.30"
 core = "7.x"
@@ -14,8 +15,12 @@ datestamp = "1592259102"
 =======
 ; Information added by Drupal.org packaging script on 2018-01-08
 version = "7.x-2.15"
+=======
+; Information added by Drupal.org packaging script on 2018-02-11
+version = "7.x-2.16"
+>>>>>>> e3fc737e0 (Updated file_entity module and added plupload, token and views_bulk_operations modules.)
 core = "7.x"
 project = "file_entity"
-datestamp = "1515421989"
+datestamp = "1518385686"
 
 >>>>>>> 5709a6688 (Added admin_views and file_entity modules, updated media module)
