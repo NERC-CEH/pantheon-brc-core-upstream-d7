@@ -830,12 +830,6 @@ function file_entity_edit($form, &$form_state, $file) {
       '#upload_validators' => file_entity_get_upload_validators($replacement_options),
       '#pre_render' => array('file_entity_upload_validators_pre_render'),
     );
-    $form['replace_keep_original_filename'] = array(
-      '#type' => 'checkbox',
-      '#title' => t('Keep original filename'),
-      '#default_value' => variable_get('file_entity_file_replace_options_keep_original_filename', FALSE),
-      '#description' => t('Rename the newly uploaded file to the name of the original file. This action cannot be undone.'),
-    );
   }
 
   $form['preview'] = file_view_file($file, 'preview');
@@ -986,6 +980,7 @@ function file_entity_edit_submit($form, &$form_state) {
   // Check if a replacement file has been uploaded.
   if (!empty($form_state['values']['replace_upload'])) {
     $replacement = $form_state['values']['replace_upload'];
+<<<<<<< HEAD
     // Existing image metadata is stored in $file->height and $file->width.
     // Loop through the replacement metadata and update existing values.
     if (!empty($replacement->metadata)) {
@@ -1006,6 +1001,19 @@ function file_entity_edit_submit($form, &$form_state) {
     $replace_mode = $destination_uri == $file->uri ? FILE_EXISTS_REPLACE : FILE_EXISTS_RENAME;
     if ($new_file_uri = file_unmanaged_copy($replacement->uri, $destination_uri, $replace_mode)) {
       // @todo Add watchdog() about replaced file here?
+=======
+    // Move file from temp to permanent home.
+    if (pathinfo($replacement->uri, PATHINFO_EXTENSION) == pathinfo($file->uri, PATHINFO_EXTENSION)) {
+      if ($new_file_uri = file_unmanaged_copy($replacement->uri, $file->uri, FILE_EXISTS_REPLACE)) {
+        // Remove temporary file.
+        file_delete($replacement);
+      }
+    } else {
+      $destination_uri = rtrim($file->uri, drupal_basename($file->uri)) . drupal_basename($replacement->uri);
+      $replace_mode = $destination_uri == $file->uri ? FILE_EXISTS_REPLACE : FILE_EXISTS_RENAME;
+      if ($new_file_uri = file_unmanaged_copy($replacement->uri, $destination_uri, $replace_mode)) {
+        // @todo Add watchdog() about replaced file here?
+>>>>>>> 266cdd0d2 (Added admin_views and file_entity modules, updated media module)
 
       // Remove temporary file.
       file_delete($replacement);
