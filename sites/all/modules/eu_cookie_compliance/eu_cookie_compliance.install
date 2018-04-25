@@ -70,6 +70,7 @@ function eu_cookie_compliance_schema() {
  * Implements hook_install().
  */
 function eu_cookie_compliance_install() {
+<<<<<<< HEAD
   $popup_settings = _eu_cookie_compliance_get_popup_default_setting();
   variable_set('eu_cookie_compliance', $popup_settings);
 
@@ -143,16 +144,28 @@ function eu_cookie_compliance_module_set_weight() {
  *   'eu_cookie_compliance' parameter.
  */
 function _eu_cookie_compliance_get_popup_default_setting() {
+=======
+
+>>>>>>> 5870f23e3... Update modules to latest versions.  Issue: CEHWS-1221
   $default_filter_format = filter_default_format();
   if ($default_filter_format === 'filtered_html' && filter_format_load('full_html')) {
     $default_filter_format = 'full_html';
   }
 
+<<<<<<< HEAD
   module_load_include('module', 'eu_cookie_compliance', 'eu_cookie_compliance');
 
   return array(
     'cookie_policy_version' => '1.0.0',
     'info_template' => 'new',
+=======
+  $cookie_policy = _eu_cookie_compliance_find_privacy_policy();
+  if (!$cookie_policy) {
+    $cookie_policy = '<front>';
+  }
+
+  $popup_settings = array(
+>>>>>>> 5870f23e3... Update modules to latest versions.  Issue: CEHWS-1221
     'popup_info' => array(
       'value' => '<h2>We use cookies on this site to enhance your user experience</h2><p>By clicking the Accept button, you agree to us doing so.</p>',
       'format' => $default_filter_format,
@@ -169,6 +182,7 @@ function _eu_cookie_compliance_get_popup_default_setting() {
     'popup_height' => '',
     'popup_width' => '100%',
     'popup_delay' => 1000,
+<<<<<<< HEAD
     'popup_link' => '<front>',
     'fixed_top_position' => TRUE,
     'consent_storage_method' => 'do_not_store',
@@ -224,6 +238,53 @@ function _eu_cookie_compliance_get_popup_default_setting() {
 }
 
 /**
+=======
+    'popup_link' => $cookie_policy,
+    'fixed_top_position' => TRUE,
+  );
+  variable_set('eu_cookie_compliance', $popup_settings);
+
+  // Enable banner for all roles.
+  $roles = user_roles();
+  $permission = 'display EU Cookie Compliance popup';
+  foreach ($roles as $rid => $value) {
+    user_role_grant_permissions($rid, array($permission));
+  }
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function eu_cookie_compliance_uninstall() {
+  variable_del('eu_cookie_compliance');
+  cache_clear_all('variables', 'cache');
+}
+
+/**
+ * Implements hook_requirements().
+ */
+function eu_cookie_compliance_requirements($phase) {
+  $requirements = array();
+  $settings = variable_get('eu_cookie_compliance');
+
+  if ($settings['popup_link'] == '<front>' && $settings['show_disagree_button']) {
+    $requirements['eu_cookie_compliance'] = array(
+      'title' => t('EU Cookie Compliance'),
+      'severity' => REQUIREMENT_ERROR,
+      'description' => t('Your privacy policy link is pointing at the front page. This is the default value after installation, and unless your privacy policy is actually posted at the front page, you will need to create a separate page for the privacy policy and link to that page.'),
+    );
+    if ($phase == 'runtime') {
+      $requirements['eu_cookie_compliance'] += array(
+        'value' => t('Privacy Policy link not provided'),
+      );
+    }
+  }
+
+  return $requirements;
+}
+
+/**
+>>>>>>> 5870f23e3... Update modules to latest versions.  Issue: CEHWS-1221
  * Change the banner sliding animation time from seconds to milliseconds.
  */
 function eu_cookie_compliance_update_7000(&$sandbox = NULL) {
@@ -310,14 +371,19 @@ function eu_cookie_compliance_update_7002() {
 /**
  * Clear cache for only the settings of this module, to initialize new module settings.
  */
+<<<<<<< HEAD
 function eu_cookie_compliance_update_7003() {
   module_load_include('module', 'eu_cookie_compliance', 'eu_cookie_compliance');
+=======
+function eu_cookie_compliance_update_7003(&$sandbox) {
+>>>>>>> 5870f23e3... Update modules to latest versions.  Issue: CEHWS-1221
   eu_cookie_compliance_clear_caches();
 }
 
 /**
  * Version 1.21. Clear cache for only the settings of this module.
  */
+<<<<<<< HEAD
 function eu_cookie_compliance_update_7004() {
   module_load_include('module', 'eu_cookie_compliance', 'eu_cookie_compliance');
   eu_cookie_compliance_clear_caches();
@@ -732,3 +798,8 @@ function _migrate_cookie_categories_to_separate_structure($categories, $settings
   }
   return $categories;
 }
+=======
+function eu_cookie_compliance_update_7004(&$sandbox) {
+  eu_cookie_compliance_clear_caches();
+}
+>>>>>>> 5870f23e3... Update modules to latest versions.  Issue: CEHWS-1221

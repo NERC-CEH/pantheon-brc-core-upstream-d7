@@ -7,6 +7,7 @@ hidden = TRUE
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ; Information added by Drupal.org packaging script on 2019-02-08
 version = "7.x-1.15"
 core = "7.x"
@@ -19,8 +20,12 @@ version = "7.x-1.12"
 ; Information added by Drupal.org packaging script on 2018-02-04
 version = "7.x-1.13"
 >>>>>>> 847aeaa3b... Upgrade Backup & ctools modules. also added settings.php file.
+=======
+; Information added by Drupal.org packaging script on 2018-02-24
+version = "7.x-1.14"
+>>>>>>> 5870f23e3... Update modules to latest versions.  Issue: CEHWS-1221
 core = "7.x"
 project = "ctools"
-datestamp = "1517704095"
+datestamp = "1519455788"
 
 >>>>>>> 9d9f2490f... Upload modules,themes and libraries

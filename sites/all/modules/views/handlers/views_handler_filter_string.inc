@@ -280,9 +280,13 @@ class views_handler_filter_string extends views_handler_filter {
    * {@inheritdoc}
    */
   public function op_contains($field) {
+<<<<<<< HEAD
     if (!empty($this->value)) {
       $this->query->add_where($this->options['group'], $field, '%' . db_like($this->value) . '%', 'LIKE');
     }
+=======
+    $this->query->add_where($this->options['group'], $field, '%' . db_like($this->value) . '%', 'LIKE');
+>>>>>>> 5870f23e3... Update modules to latest versions.  Issue: CEHWS-1221
   }
 
   /**
@@ -382,6 +386,7 @@ class views_handler_filter_string extends views_handler_filter {
   /**
    * {@inheritdoc}
    */
+<<<<<<< HEAD
   public function op_not_regex($field) {
     $this->query->add_where($this->options['group'], $field, $this->value, 'NOT RLIKE');
   }
@@ -389,6 +394,8 @@ class views_handler_filter_string extends views_handler_filter {
   /**
    * {@inheritdoc}
    */
+=======
+>>>>>>> 5870f23e3... Update modules to latest versions.  Issue: CEHWS-1221
   public function op_empty($field) {
     if ($this->operator == 'empty') {
       $operator = "IS NULL";

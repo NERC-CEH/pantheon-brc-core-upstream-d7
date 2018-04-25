@@ -102,10 +102,14 @@ function page_manager_node_view_page($node) {
     $meta_short = array(
       'rel' => 'shortlink',
 <<<<<<< HEAD
+<<<<<<< HEAD
       'href' => url($uri['path'], array_merge($uri['options'], array('alias' => TRUE))),
 =======
       'href' => url($uri['path'], array_merge($uri['options'], array('alias' => TRUE)))
 >>>>>>> 847aeaa3b... Upgrade Backup & ctools modules. also added settings.php file.
+=======
+      'href' => url($uri['path'], array_merge($uri['options'], array('alias' => TRUE))),
+>>>>>>> 5870f23e3... Update modules to latest versions.  Issue: CEHWS-1221
     );
     drupal_add_html_head_link($meta_short, TRUE);
   }

@@ -20,7 +20,11 @@
   Drupal.views.instances = {};
 
   /**
+<<<<<<< HEAD
    * JavaScript object for a certain view.
+=======
+   * Javascript object for a certain view.
+>>>>>>> 5870f23e3... Update modules to latest versions.  Issue: CEHWS-1221
    */
   Drupal.views.ajaxView = function(settings) {
     var selector = '.view-dom-id-' + settings.view_dom_id;
@@ -46,6 +50,7 @@
         queryString = ((/\?/.test(ajax_path)) ? '&' : '?') + queryString;
       }
     }
+<<<<<<< HEAD
 
     this.element_settings = {
       url: ajax_path + queryString,
@@ -100,21 +105,92 @@
     this.exposedFormAjax = new Drupal.ajax($(button).attr('id'), button, this.element_settings);
   };
 
+=======
+
+    this.element_settings = {
+      url: ajax_path + queryString,
+      submit: settings,
+      setClick: true,
+      event: 'click',
+      selector: selector,
+      progress: {
+        type: 'throbber'
+      }
+    };
+
+    this.settings = settings;
+
+    // Add the ajax to exposed forms.
+    this.$exposed_form = $('#views-exposed-form-' + settings.view_name.replace(/_/g, '-') + '-' + settings.view_display_id.replace(/_/g, '-'));
+    this.$exposed_form.once(jQuery.proxy(this.attachExposedFormAjax, this));
+
+    // Store Drupal.ajax objects here for all pager links.
+    this.links = [];
+
+    // Add the ajax to pagers.
+    this.$view
+    // Don't attach to nested views. Doing so would attach multiple behaviors
+    // to a given element.
+      .filter(jQuery.proxy(this.filterNestedViews, this))
+      .once(jQuery.proxy(this.attachPagerAjax, this));
+
+    // Add a trigger to update this view specifically. In order to trigger a
+    // refresh use the following code.
+    //
+    // @code
+    // jQuery('.view-name').trigger('RefreshView');
+    // @endcode
+    // Add a trigger to update this view specifically.
+    var self_settings = this.element_settings;
+    self_settings.event = 'RefreshView';
+    this.refreshViewAjax = new Drupal.ajax(this.selector, this.$view, self_settings);
+  };
+
+  Drupal.views.ajaxView.prototype.attachExposedFormAjax = function() {
+    var button = $('input[type=submit], button[type=submit], input[type=image]', this.$exposed_form);
+    button = button[0];
+
+    // Call the autocomplete submit before doing AJAX.
+    $(button).click(function () {
+      if (Drupal.autocompleteSubmit) {
+        Drupal.autocompleteSubmit();
+      }
+    });
+
+    this.exposedFormAjax = new Drupal.ajax($(button).attr('id'), button, this.element_settings);
+  };
+
+  Drupal.views.ajaxView.prototype.filterNestedViews = function() {
+    // If there is at least one parent with a view class, this view
+    // is nested (e.g., an attachment). Bail.
+    return !this.$view.parents('.view').length;
+  };
+
+>>>>>>> 5870f23e3... Update modules to latest versions.  Issue: CEHWS-1221
   /**
    * Attach the ajax behavior to each link.
    */
   Drupal.views.ajaxView.prototype.attachPagerAjax = function() {
+<<<<<<< HEAD
     this.$view.find('ul.pager > li > a, ol.pager > li > a, th.views-field a, .attachment .views-summary a')
+=======
+    this.$view.find('ul.pager > li > a, th.views-field a, .attachment .views-summary a')
+>>>>>>> 5870f23e3... Update modules to latest versions.  Issue: CEHWS-1221
       .each(jQuery.proxy(this.attachPagerLinkAjax, this));
   };
 
   /**
+<<<<<<< HEAD
    * Attach the ajax behavior to a single link.
+=======
+   * Attach the ajax behavior to a singe link.
+>>>>>>> 5870f23e3... Update modules to latest versions.  Issue: CEHWS-1221
    */
   Drupal.views.ajaxView.prototype.attachPagerLinkAjax = function(id, link) {
     var $link = $(link);
     var viewData = {};
     var href = $link.attr('href');
+<<<<<<< HEAD
     // Don't attach to pagers inside nested views.
     if ($link.closest('.view')[0] !== this.$view[0] &&
       $link.closest('.view').parent().hasClass('attachment') === false) {
@@ -136,6 +212,16 @@
       Drupal.Views.parseQueryString(href),
       // Extract argument data from the URL.
       Drupal.Views.parseViewArgs(href, this.settings.view_base_path)
+=======
+    // Construct an object using the settings defaults and then overriding
+    // with data specific to the link.
+    $.extend(
+    viewData,
+    this.settings,
+    Drupal.Views.parseQueryString(href),
+    // Extract argument data from the URL.
+    Drupal.Views.parseViewArgs(href, this.settings.view_base_path)
+>>>>>>> 5870f23e3... Update modules to latest versions.  Issue: CEHWS-1221
     );
 
     // For anchor tags, these will go to the target of the anchor rather

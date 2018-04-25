@@ -379,10 +379,15 @@ function template_preprocess_views_view_summary(&$vars) {
   $active_urls = drupal_map_assoc(array(
     // Force system path.
     url($_GET['q'], array('alias' => TRUE)),
+<<<<<<< HEAD
     url($_GET['q'], $url_options + array('alias' => TRUE)),
     // Could be an alias.
     url($_GET['q']),
     url($_GET['q'], $url_options),
+=======
+    // Could be an alias.
+    url($_GET['q']),
+>>>>>>> 5870f23e3... Update modules to latest versions.  Issue: CEHWS-1221
   ));
 
   // Collect all arguments foreach row, to be able to alter them for example by
@@ -432,10 +437,15 @@ function template_preprocess_views_view_summary_unformatted(&$vars) {
   $active_urls = drupal_map_assoc(array(
     // Force system path.
     url($_GET['q'], array('alias' => TRUE)),
+<<<<<<< HEAD
     url($_GET['q'], $url_options + array('alias' => TRUE)),
     // Could be an alias.
     url($_GET['q']),
     url($_GET['q'], $url_options),
+=======
+    // Could be an alias.
+    url($_GET['q']),
+>>>>>>> 5870f23e3... Update modules to latest versions.  Issue: CEHWS-1221
   ));
 
   // Collect all arguments foreach row, to be able to alter them for example by
