@@ -24,11 +24,18 @@ class ViewsHandlerFieldTest extends ViewsSqlTest {
   }
 
   /**
+<<<<<<< HEAD
    * {@inheritdoc}
    */
   public function setUp(array $modules = array()) {
     parent::setUp($modules);
 
+=======
+   *
+   */
+  protected function setUp() {
+    parent::setUp();
+>>>>>>> db130ce93 (Update modules to latest versions.  Issue: CEHWS-1221)
     $this->column_map = array(
       'views_test_name' => 'name',
     );

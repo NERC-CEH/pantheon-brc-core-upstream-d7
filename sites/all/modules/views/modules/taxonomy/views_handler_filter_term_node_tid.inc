@@ -156,6 +156,7 @@ class views_handler_filter_term_node_tid extends views_handler_filter_many_to_on
       if (!empty($this->options['hierarchy']) && $this->options['limit']) {
         $tree = taxonomy_get_tree($vocabulary->vid, 0, NULL, TRUE);
         $options = array();
+<<<<<<< HEAD
         if (!empty($tree)) {
           if (!empty($this->options['optgroups'])) {
             foreach ($tree as $term) {
@@ -172,6 +173,16 @@ class views_handler_filter_term_node_tid extends views_handler_filter_many_to_on
             foreach ($tree as $term) {
               $options[$term->tid] = str_repeat('-', $term->depth) . entity_label('taxonomy_term', $term);
             }
+=======
+
+        if ($tree) {
+          // Translation system needs full entity objects, so we have access to
+          // label.
+          foreach ($tree as $term) {
+            $choice = new stdClass();
+            $choice->option = array($term->tid => str_repeat('-', $term->depth) . entity_label('taxonomy_term', $term));
+            $options[] = $choice;
+>>>>>>> db130ce93 (Update modules to latest versions.  Issue: CEHWS-1221)
           }
         }
       }

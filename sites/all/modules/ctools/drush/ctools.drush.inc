@@ -1002,7 +1002,7 @@ class shellColours {
 >>>>>>> 840cf2e0e (Upload modules,themes and libraries)
 =======
   /**
-   *
+   * shellColours constructor.
    */
 >>>>>>> 023456e72 (Upgrade Backup & ctools modules. also added settings.php file.)
   private function __construct() {}

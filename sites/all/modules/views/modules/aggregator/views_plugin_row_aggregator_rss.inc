@@ -11,12 +11,20 @@
 class views_plugin_row_aggregator_rss extends views_plugin_row {
 
   /**
+<<<<<<< HEAD
    * {@inheritdoc}
+=======
+   *
+>>>>>>> db130ce93 (Update modules to latest versions.  Issue: CEHWS-1221)
    */
   public $base_table = 'aggregator_item';
 
   /**
+<<<<<<< HEAD
    * {@inheritdoc}
+=======
+   *
+>>>>>>> db130ce93 (Update modules to latest versions.  Issue: CEHWS-1221)
    */
   public $base_field = 'iid';
 
@@ -52,8 +60,13 @@ class views_plugin_row_aggregator_rss extends views_plugin_row {
    * {@inheritdoc}
    */
   public function render($row) {
+<<<<<<< HEAD
     $iid = $row->{$this->field_alias};
     $sql = "SELECT ai.iid, ai.fid, ai.title, ai.link, ai.author, ai.description, ";
+=======
+    $iid =  $row->{$this->field_alias};
+    $sql =  "SELECT ai.iid, ai.fid, ai.title, ai.link, ai.author, ai.description, ";
+>>>>>>> db130ce93 (Update modules to latest versions.  Issue: CEHWS-1221)
     $sql .= "ai.timestamp, ai.guid, af.title AS feed_title, ai.link AS feed_LINK ";
     $sql .= "FROM {aggregator_item} ai LEFT JOIN {aggregator_feed} af ON ai.fid = af.fid ";
     $sql .= "WHERE ai.iid = :iid";

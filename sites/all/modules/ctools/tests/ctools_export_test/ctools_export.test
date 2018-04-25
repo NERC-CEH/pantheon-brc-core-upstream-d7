@@ -14,7 +14,7 @@ class CtoolsExportCrudTestCase extends DrupalWebTestCase {
 >>>>>>> 840cf2e0e (Upload modules,themes and libraries)
 =======
   /**
-   * {@inheritDoc}
+   * {@inheritdoc}
    */
 >>>>>>> 023456e72 (Upgrade Backup & ctools modules. also added settings.php file.)
   public static function getInfo() {
@@ -41,9 +41,9 @@ class CtoolsExportCrudTestCase extends DrupalWebTestCase {
 >>>>>>> 840cf2e0e (Upload modules,themes and libraries)
 =======
   /**
-   * {@inheritDoc}
+   * {@inheritdoc}
    */
-  function setUp(array $modules = array()) {
+  public function setUp(array $modules = array()) {
     $modules[] = 'ctools';
     $modules[] = 'ctools_export_test';
     parent::setUp($modules);

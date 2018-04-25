@@ -49,6 +49,7 @@ class viewsHandlerFieldUserNameTest extends ViewsSqlTest {
     $anon_name = $view->field['name']->options['anonymous_text'] = $this->randomName();
     $render = $view->field['name']->advanced_render($view->result[0]);
     $this->assertIdentical($render, $anon_name, 'For user0 it should use the configured anonymous text if overwrite_anonymous is checked.');
+<<<<<<< HEAD
 
   }
 
@@ -59,6 +60,8 @@ class viewsHandlerFieldUserNameTest extends ViewsSqlTest {
     $view = $this->view_raw_user_name();
     $view->init_display();
     $this->executeView($view);
+=======
+>>>>>>> db130ce93 (Update modules to latest versions.  Issue: CEHWS-1221)
 
     $view->row_index = 0;
 
@@ -110,6 +113,7 @@ class viewsHandlerFieldUserNameTest extends ViewsSqlTest {
     return $view;
   }
 
+<<<<<<< HEAD
   function view_raw_user_name() {
     $view = new view;
     $view->name = 'test_views_handler_field_user_name';
@@ -152,4 +156,6 @@ class viewsHandlerFieldUserNameTest extends ViewsSqlTest {
 
     return $view;
   }
+=======
+>>>>>>> db130ce93 (Update modules to latest versions.  Issue: CEHWS-1221)
 }

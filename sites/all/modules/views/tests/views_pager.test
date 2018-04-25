@@ -21,6 +21,16 @@ class ViewsPagerTest extends ViewsSqlTest {
     );
   }
 
+<<<<<<< HEAD
+=======
+  /**
+   *
+   */
+  public function setUp() {
+    parent::setUp('views', 'views_ui', 'views_test');
+  }
+
+>>>>>>> db130ce93 (Update modules to latest versions.  Issue: CEHWS-1221)
   /**
    * Pagers was sometimes not stored.
    *

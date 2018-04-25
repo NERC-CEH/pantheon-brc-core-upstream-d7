@@ -16,7 +16,11 @@ class views_handler_field_comment_link_approve extends views_handler_field_comme
    * {@inheritdoc}
    */
   public function access() {
+<<<<<<< HEAD
     // Needs permission to administer comments in general.
+=======
+    //needs permission to administer comments in general
+>>>>>>> db130ce93 (Update modules to latest versions.  Issue: CEHWS-1221)
     return user_access('administer comments');
   }
 

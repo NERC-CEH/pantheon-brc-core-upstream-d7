@@ -47,6 +47,7 @@ class ViewsGlossaryTestCase extends ViewsSqlTest {
       }
     }
 
+<<<<<<< HEAD
     // Sort created nodes the same way the view does, so that we can assert
     // correct node ids for each row in the result set later.
     foreach ($nodes_per_character as $character => $count) {
@@ -55,6 +56,8 @@ class ViewsGlossaryTestCase extends ViewsSqlTest {
       });
     }
 
+=======
+>>>>>>> db130ce93 (Update modules to latest versions.  Issue: CEHWS-1221)
     // Execute glossary view.
     $view = views_get_view('glossary');
     $view->set_display('attachment');

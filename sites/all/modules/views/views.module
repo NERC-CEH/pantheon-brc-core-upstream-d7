@@ -753,6 +753,7 @@ function views_block_info() {
 }
 
 /**
+<<<<<<< HEAD
  * Implements hook_block_configure().
  */
 function views_block_configure($delta = '') {
@@ -812,6 +813,8 @@ function views_block_configure($delta = '') {
 }
 
 /**
+=======
+>>>>>>> db130ce93 (Update modules to latest versions.  Issue: CEHWS-1221)
  * Implements hook_block_view().
  */
 function views_block_view($delta) {
@@ -2270,6 +2273,7 @@ function views_exposed_form_ajax_enable(array &$form, array &$form_state) {
 }
 
 /**
+<<<<<<< HEAD
  * Recursively looks for the #ajax property for every form elemet.
  *
  * @param array $elements
@@ -2291,6 +2295,8 @@ function views_exposed_form_ajax_lookup_recursive(array $elements) {
 }
 
 /**
+=======
+>>>>>>> db130ce93 (Update modules to latest versions.  Issue: CEHWS-1221)
  * Validate handler for exposed filters.
  */
 function views_exposed_form_validate(&$form, &$form_state) {

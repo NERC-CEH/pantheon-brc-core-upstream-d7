@@ -31,11 +31,16 @@ class ViewsHandlerRelationshipNodeTermDataTest extends ViewsSqlTest {
     return $term;
   }
 
+<<<<<<< HEAD
   /**
    * {@inheritdoc}
    */
   public function setUp(array $modules = array()) {
     parent::setUp($modules);
+=======
+  function setUp() {
+    parent::setUp();
+>>>>>>> db130ce93 (Update modules to latest versions.  Issue: CEHWS-1221)
 
     // $web_user = $this->drupalCreateUser(array('create article content'));
     // $this->drupalLogin($web_user);

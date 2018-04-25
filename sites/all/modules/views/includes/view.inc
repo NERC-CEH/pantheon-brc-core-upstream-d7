@@ -93,10 +93,19 @@ class view extends views_db_object {
    * @var bool
    */
   public $disabled;
+<<<<<<< HEAD
+=======
 
   /**
    * State variable.
    */
+  public $built = FALSE;
+>>>>>>> db130ce93 (Update modules to latest versions.  Issue: CEHWS-1221)
+
+  /**
+   * State variable.
+   */
+<<<<<<< HEAD
   public $built = FALSE;
 
   /**
@@ -120,6 +129,26 @@ class view extends views_db_object {
   public $build_info = array();
 
   /**
+=======
+  public $executed = FALSE;
+
+  /**
+   * State variable.
+   */
+  public $editing = FALSE;
+
+  /**
+   *
+   */
+  public $args = array();
+
+  /**
+   *
+   */
+  public $build_info = array();
+
+  /**
+>>>>>>> db130ce93 (Update modules to latest versions.  Issue: CEHWS-1221)
    *
    */
   public $use_ajax = FALSE;
@@ -1081,7 +1110,11 @@ class view extends views_db_object {
     $this->style_plugin->query($this->display_handler->use_group_by());
 
     // Allow exposed form to affect the query.
+<<<<<<< HEAD
     if ($exposed_form) {
+=======
+    if (isset($exposed_form)) {
+>>>>>>> db130ce93 (Update modules to latest versions.  Issue: CEHWS-1221)
       $exposed_form->query();
     }
 
