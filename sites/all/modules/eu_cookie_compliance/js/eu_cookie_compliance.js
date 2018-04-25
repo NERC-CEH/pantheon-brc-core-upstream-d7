@@ -15,11 +15,19 @@
 
   Drupal.behaviors.eu_cookie_compliance_popup = {
     attach: function (context, settings) {
+<<<<<<< HEAD
       $('body', context).once('eu-cookie-compliance', function () {
         // If configured, check JSON callback to determine if in EU.
         if (Drupal.settings.eu_cookie_compliance.popup_eu_only_js) {
           if (Drupal.eu_cookie_compliance.showBanner()) {
             var url = Drupal.settings.basePath + Drupal.settings.pathPrefix + 'eu-cookie-compliance-check';
+=======
+      $('body').once('eu-cookie-compliance', function () {
+        // If configured, check JSON callback to determine if in EU.
+        if (Drupal.settings.eu_cookie_compliance.popup_eu_only_js) {
+          if (Drupal.eu_cookie_compliance.showBanner()) {
+            var url = Drupal.settings.basePath + 'eu-cookie-compliance-check';
+>>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
             var data = {};
             $.getJSON(url, data, function (data) {
               // If in the EU, show the compliance banner.
@@ -57,6 +65,7 @@
 
       Drupal.eu_cookie_compliance.updateCheck();
       var status = Drupal.eu_cookie_compliance.getCurrentStatus();
+<<<<<<< HEAD
       if ((status === 0 && Drupal.settings.eu_cookie_compliance.method === 'default') || status === null || (Drupal.settings.eu_cookie_compliance.withdraw_enabled && Drupal.settings.eu_cookie_compliance.withdraw_button_on_info_popup)) {
         if (!Drupal.settings.eu_cookie_compliance.disagree_do_not_show_popup || status === null) {
           // Detect mobile here and use mobile_popup_html_info, if we have a mobile device.
@@ -95,8 +104,24 @@
       if (Drupal.eu_cookie_compliance.getCurrentStatus() === null) {
         if (Drupal.settings.eu_cookie_compliance.select_all_categories_by_default) {
           categories_checked = Drupal.settings.eu_cookie_compliance.cookie_categories;
+=======
+      if (status === 0 || status === null) {
+        if (!Drupal.settings.eu_cookie_compliance.disagree_do_not_show_popup || status === null) {
+          // Detect mobile here and use mobile_popup_html_info, if we have a mobile device.
+          if (window.matchMedia('(max-width: ' + Drupal.settings.eu_cookie_compliance.mobile_breakpoint + 'px)').matches && Drupal.settings.eu_cookie_compliance.use_mobile_message) {
+            Drupal.eu_cookie_compliance.createPopup(Drupal.settings.eu_cookie_compliance.mobile_popup_html_info);
+          } else {
+            Drupal.eu_cookie_compliance.createPopup(Drupal.settings.eu_cookie_compliance.popup_html_info);
+          }
+
+          Drupal.eu_cookie_compliance.attachAgreeEvents();
+>>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
         }
+      } else if (status === 1 && Drupal.settings.eu_cookie_compliance.popup_agreed_enabled) {
+        Drupal.eu_cookie_compliance.createPopup(Drupal.settings.eu_cookie_compliance.popup_html_agreed);
+        Drupal.eu_cookie_compliance.attachHideEvents();
       }
+<<<<<<< HEAD
       else {
         categories_checked = Drupal.eu_cookie_compliance.getAcceptedCategories();
       }
@@ -187,6 +212,14 @@
   };
 
   Drupal.eu_cookie_compliance.createPopup = function (html, closed) {
+=======
+    }
+    catch (e) {
+    }
+  };
+
+  Drupal.eu_cookie_compliance.createPopup = function (html) {
+>>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
     // This fixes a problem with jQuery 1.9.
     var $popup = $('<div></div>').html(html);
     $popup.attr('id', 'sliding-popup');
@@ -201,6 +234,7 @@
       $popup.prependTo('body');
       height = $popup.outerHeight();
       $popup.show()
+<<<<<<< HEAD
         .attr({ 'class': 'sliding-popup-top clearfix' })
         .css({ top: !Drupal.settings.eu_cookie_compliance.fixed_top_position ? -(parseInt($('body').css('padding-top')) + parseInt($('body').css('margin-top')) + height) : -1 * height });
       if (closed !== true) {
@@ -210,15 +244,23 @@
       }
     }
     else {
+=======
+        .attr({ class: 'sliding-popup-top clearfix' })
+        .css({ top: -1 * height })
+        .animate({ top: 0 }, Drupal.settings.eu_cookie_compliance.popup_delay, null, function () {
+          $popup.trigger('eu_cookie_compliance_popup_open');
+        });
+    } else {
+>>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
       if (Drupal.settings.eu_cookie_compliance.better_support_for_screen_readers) {
         $popup.prependTo('body');
-      }
-      else {
+      } else {
         $popup.appendTo('body');
       }
 
       height = $popup.outerHeight();
       $popup.show()
+<<<<<<< HEAD
         .attr({ 'class': 'sliding-popup-bottom' })
         .css({ bottom: -1 * height });
       if (closed !== true) {
@@ -226,6 +268,13 @@
           $popup.trigger('eu_cookie_compliance_popup_open');
         });
       }
+=======
+        .attr({ class: 'sliding-popup-bottom' })
+        .css({ bottom: -1 * height })
+        .animate({ bottom: 0 }, Drupal.settings.eu_cookie_compliance.popup_delay, null, function () {
+          $popup.trigger('eu_cookie_compliance_popup_open');
+        });
+>>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
     }
   };
 
@@ -252,8 +301,12 @@
         if (alreadyScrolled) {
           Drupal.eu_cookie_compliance.acceptAction();
           $(window).off('scroll', scrollHandler);
+<<<<<<< HEAD
         }
         else {
+=======
+        } else {
+>>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
           alreadyScrolled = true;
         }
       };
@@ -264,10 +317,13 @@
     $('.find-more-button').not('.find-more-button-processed').addClass('find-more-button-processed').click(Drupal.eu_cookie_compliance.moreInfoAction);
   };
 
+<<<<<<< HEAD
   Drupal.eu_cookie_compliance.attachSavePreferencesEvents = function () {
     $('.eu-cookie-compliance-save-preferences-button').click(Drupal.eu_cookie_compliance.savePreferencesAction);
   };
 
+=======
+>>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
   Drupal.eu_cookie_compliance.attachHideEvents = function () {
     var popupHideAgreed = Drupal.settings.eu_cookie_compliance.popup_hide_agreed;
     var clickingConfirms = Drupal.settings.eu_cookie_compliance.popup_clicking_confirmation;
@@ -297,6 +353,7 @@
     var agreedEnabled = Drupal.settings.eu_cookie_compliance.popup_agreed_enabled;
     var nextStatus = 1;
     if (!agreedEnabled) {
+<<<<<<< HEAD
       Drupal.eu_cookie_compliance.setStatus(1);
       nextStatus = 2;
     }
@@ -335,15 +392,20 @@
     var agreedEnabled = Drupal.settings.eu_cookie_compliance.popup_agreed_enabled;
     var nextStatus = 1;
     if (!agreedEnabled) {
+=======
+>>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
       Drupal.eu_cookie_compliance.setStatus(1);
       nextStatus = 2;
     }
 
+<<<<<<< HEAD
     Drupal.eu_cookie_compliance.setAcceptedCategories(categories);
     if (!euCookieComplianceHasLoadedScripts && typeof euCookieComplianceLoadScripts === "function") {
       euCookieComplianceLoadScripts();
     }
     Drupal.eu_cookie_compliance.loadCategoryScripts(categories);
+=======
+>>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
     Drupal.eu_cookie_compliance.changeStatus(nextStatus);
   };
 
@@ -380,6 +442,7 @@
   Drupal.eu_cookie_compliance.moreInfoAction = function () {
     if (Drupal.settings.eu_cookie_compliance.disagree_do_not_show_popup) {
       Drupal.eu_cookie_compliance.setStatus(0);
+<<<<<<< HEAD
       if (Drupal.settings.eu_cookie_compliance.withdraw_enabled && Drupal.settings.eu_cookie_compliance.withdraw_button_on_info_popup) {
         $('#sliding-popup .eu-cookie-compliance-banner').trigger('eu_cookie_compliance_popup_close').hide();
       }
@@ -388,10 +451,13 @@
       }
     }
     else {
+=======
+      $('#sliding-popup').remove().trigger('eu_cookie_compliance_popup_close');
+    } else {
+>>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
       if (Drupal.settings.eu_cookie_compliance.popup_link_new_window) {
         window.open(Drupal.settings.eu_cookie_compliance.popup_link);
-      }
-      else {
+      } else {
         window.location.href = Drupal.settings.eu_cookie_compliance.popup_link;
       }
     }
@@ -408,6 +474,7 @@
     return value;
   };
 
+<<<<<<< HEAD
   Drupal.eu_cookie_compliance.setPreferenceCheckboxes = function (categories) {
     for (var i in categories) {
       $("#eu-cookie-compliance-categories input:checkbox[value='" + categories[i] + "']").prop("checked", true);
@@ -432,6 +499,8 @@
     return selectedCategories;
   };
 
+=======
+>>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
   Drupal.eu_cookie_compliance.changeStatus = function (value) {
     var status = Drupal.eu_cookie_compliance.getCurrentStatus();
     var reloadPage = Drupal.settings.eu_cookie_compliance.reload_page;
@@ -440,6 +509,7 @@
     }
 
     if (Drupal.settings.eu_cookie_compliance.popup_position) {
+<<<<<<< HEAD
       $('.sliding-popup-top').animate({ top: !Drupal.settings.eu_cookie_compliance.fixed_top_position ? -(parseInt($('body').css('padding-top')) + parseInt($('body').css('margin-top')) + $('#sliding-popup').outerHeight()) : $('#sliding-popup').outerHeight() * -1 }, Drupal.settings.eu_cookie_compliance.popup_delay, function () {
         if (value === 1 && status === null && !reloadPage) {
           $('.sliding-popup-top').not('.eu-cookie-withdraw-wrapper').html(Drupal.settings.eu_cookie_compliance.popup_html_agreed).animate({ top: !Drupal.settings.eu_cookie_compliance.fixed_top_position ? -(parseInt($('body').css('padding-top')) + parseInt($('body').css('margin-top'))) : 0 }, Drupal.settings.eu_cookie_compliance.popup_delay);
@@ -469,6 +539,23 @@
           else {
             $('.sliding-popup-bottom').not('.eu-cookie-withdraw-wrapper').trigger('eu_cookie_compliance_popup_close').remove();
           }
+=======
+      $('.sliding-popup-top').animate({ top: $('#sliding-popup').outerHeight() * -1 }, Drupal.settings.eu_cookie_compliance.popup_delay, function () {
+        if (status === null && !reloadPage) {
+          $('#sliding-popup').html(Drupal.settings.eu_cookie_compliance.popup_html_agreed).animate({ top: 0 }, Drupal.settings.eu_cookie_compliance.popup_delay);
+          Drupal.eu_cookie_compliance.attachHideEvents();
+        } else if (status === 1) {
+          $('#sliding-popup').remove().trigger('eu_cookie_compliance_popup_close');
+        }
+      });
+    } else {
+      $('.sliding-popup-bottom').animate({ bottom: $('#sliding-popup').outerHeight() * -1 }, Drupal.settings.eu_cookie_compliance.popup_delay, function () {
+        if (status === null && !reloadPage) {
+          $('#sliding-popup').html(Drupal.settings.eu_cookie_compliance.popup_html_agreed).animate({ bottom: 0 }, Drupal.settings.eu_cookie_compliance.popup_delay);
+          Drupal.eu_cookie_compliance.attachHideEvents();
+        } else if (status === 1) {
+          $('#sliding-popup').remove().trigger('eu_cookie_compliance_popup_close');
+>>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
         }
         Drupal.eu_cookie_compliance.showWithdrawBanner(value);
       });
@@ -481,6 +568,7 @@
     Drupal.eu_cookie_compliance.setStatus(value);
   };
 
+<<<<<<< HEAD
   Drupal.eu_cookie_compliance.showWithdrawBanner = function (value) {
     if (value === 2 && Drupal.settings.eu_cookie_compliance.withdraw_enabled) {
       if (!Drupal.settings.eu_cookie_compliance.withdraw_button_on_info_popup) {
@@ -525,12 +613,20 @@
     var domain = Drupal.settings.eu_cookie_compliance.domain ? Drupal.settings.eu_cookie_compliance.domain : '';
     var path = Drupal.settings.eu_cookie_compliance.domain_all_sites ? '/' : Drupal.settings.basePath;
     var cookieName = (typeof eu_cookie_compliance_cookie_name === 'undefined' || eu_cookie_compliance_cookie_name === '') ? 'cookie-agreed-categories' : Drupal.settings.eu_cookie_compliance.cookie_name + '-categories';
+=======
+  Drupal.eu_cookie_compliance.setStatus = function (status) {
+    var date = new Date();
+    var domain = Drupal.settings.eu_cookie_compliance.domain ? Drupal.settings.eu_cookie_compliance.domain : '';
+    var path = Drupal.settings.basePath;
+    var cookieName = (typeof eu_cookie_compliance_cookie_name === 'undefined' || eu_cookie_compliance_cookie_name === '') ? 'cookie-agreed' : eu_cookie_compliance_cookie_name;
+>>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
     if (path.length > 1) {
       var pathEnd = path.length - 1;
       if (path.lastIndexOf('/') === pathEnd) {
         path = path.substring(0, pathEnd);
       }
     }
+<<<<<<< HEAD
     var categoriesString = JSON.stringify(categories);
     var cookie_session = parseInt(Drupal.settings.eu_cookie_compliance.cookie_session);
     if (cookie_session) {
@@ -546,6 +642,15 @@
   };
 
   Drupal.eu_cookie_compliance.hasAgreed = function (category) {
+=======
+
+    date.setDate(date.getDate() + parseInt(Drupal.settings.eu_cookie_compliance.cookie_lifetime));
+    $.cookie(cookieName, status, { expires: date, path: path, domain: domain });
+    $(document).trigger('eu_cookie_compliance.changeStatus', [status]);
+  };
+
+  Drupal.eu_cookie_compliance.hasAgreed = function () {
+>>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
     var status = Drupal.eu_cookie_compliance.getCurrentStatus();
     var agreed = (status === 1 || status === 2);
 
@@ -556,6 +661,7 @@
     return agreed;
   };
 
+<<<<<<< HEAD
   Drupal.eu_cookie_compliance.hasAgreedWithCategory = function(category) {
     var allCategories = Drupal.settings.eu_cookie_compliance.cookie_categories;
     var agreedCategories = Drupal.eu_cookie_compliance.getAcceptedCategories();
@@ -567,6 +673,8 @@
     return $.inArray(category, agreedCategories) !== -1;
   };
 
+=======
+>>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
   Drupal.eu_cookie_compliance.showBanner = function () {
     var showBanner = false;
     var status = Drupal.eu_cookie_compliance.getCurrentStatus();
@@ -588,6 +696,7 @@
       document.cookie = 'testCookie';
       cookieEnabled = (document.cookie.indexOf('testCookie') !== -1);
     }
+<<<<<<< HEAD
 
     return cookieEnabled;
   };
@@ -625,12 +734,21 @@
 
     return false;
   }
+=======
+
+    return cookieEnabled;
+  };
+>>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
 
   // This code upgrades the cookie agreed status when upgrading for an old version.
   Drupal.eu_cookie_compliance.updateCheck = function () {
     var legacyCookie = 'cookie-agreed-' + Drupal.settings.eu_cookie_compliance.popup_language;
     var domain = Drupal.settings.eu_cookie_compliance.domain ? Drupal.settings.eu_cookie_compliance.domain : '';
+<<<<<<< HEAD
     var path = Drupal.settings.eu_cookie_compliance.domain_all_sites ? '/' : Drupal.settings.basePath;
+=======
+    var path = Drupal.settings.basePath;
+>>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
     var cookie = $.cookie(legacyCookie);
     var date = new Date();
     var cookieName = (typeof eu_cookie_compliance_cookie_name === 'undefined' || eu_cookie_compliance_cookie_name === '') ? 'cookie-agreed' : eu_cookie_compliance_cookie_name;
@@ -645,6 +763,7 @@
       // Use removeCookie if the function exists.
       if (typeof $.removeCookie !== 'undefined') {
         $.removeCookie(legacyCookie);
+<<<<<<< HEAD
       }
       else {
         $.cookie(legacyCookie, null, { path: path, domain: domain });
@@ -726,7 +845,12 @@
           }, 5000);
         }
       }
+=======
+      } else {
+        $.cookie(legacyCookie, null, { path: path, domain: domain });
+      }
+>>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
     }
-  }
+  };
 
 })(jQuery);

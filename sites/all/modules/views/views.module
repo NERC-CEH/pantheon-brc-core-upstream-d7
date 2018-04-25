@@ -753,6 +753,7 @@ function views_block_info() {
 }
 
 /**
+<<<<<<< HEAD
  * Implements hook_block_configure().
  */
 function views_block_configure($delta = '') {
@@ -812,6 +813,8 @@ function views_block_configure($delta = '') {
 }
 
 /**
+=======
+>>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
  * Implements hook_block_view().
  */
 function views_block_view($delta) {
@@ -1542,10 +1545,17 @@ function views_new_view() {
 
 /**
  * Get applicable views.
+<<<<<<< HEAD
  *
  * Return a list of all views and display IDs that have a particular setting in
  * their display's plugin settings.
  *
+=======
+ *
+ * Return a list of all views and display IDs that have a particular setting in
+ * their display's plugin settings.
+ *
+>>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
  * @return array
  *   An array with the following structure.
  *   array(

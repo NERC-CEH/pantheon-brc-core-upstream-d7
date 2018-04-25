@@ -201,6 +201,7 @@ class views_handler_filter_combine extends views_handler_filter_string {
   /**
    *
    */
+<<<<<<< HEAD
   public function op_not_regex($field) {
     $placeholder = $this->placeholder();
     $this->query->add_where_expression($this->options['group'], "$field NOT RLIKE $placeholder", array($placeholder => $this->value));
@@ -209,6 +210,8 @@ class views_handler_filter_combine extends views_handler_filter_string {
   /**
    *
    */
+=======
+>>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
   public function op_empty($field) {
     if ($this->operator == 'empty') {
       $operator = "IS NULL";

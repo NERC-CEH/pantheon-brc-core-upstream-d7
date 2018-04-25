@@ -1245,9 +1245,14 @@ If you would like to have the characters \'[\' and \']\' please use the html ent
    * Render this field as altered text, from a fieldset set by the user.
    */
   public function render_altered($alter, $tokens) {
+<<<<<<< HEAD
     // We trust admins so we allow any tag content. This is important for
     // displays such as XML where we should not mess with tags.
     $value = $alter['text'];
+=======
+    // Filter this right away as our substitutions are already sanitized.
+    $value = filter_xss_admin($alter['text']);
+>>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
     $value = strtr($value, $tokens);
 
     return $value;

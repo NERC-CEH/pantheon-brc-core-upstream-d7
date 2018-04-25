@@ -1003,6 +1003,24 @@ class views_many_to_one_helper {
 
       // Case 2: it's anything but an 'or'.
       // We do one join per selected value.
+<<<<<<< HEAD
+=======
+      if ($this->handler->operator != 'not') {
+        // Clone the join for each table.
+        $this->handler->table_aliases = array();
+        foreach ($this->handler->value as $value) {
+          $join = $this->get_join();
+          if ($this->handler->operator == 'and') {
+            $join->type = 'INNER';
+          }
+          $join->extra = array(
+            array(
+              'field' => $this->handler->real_field,
+              'value' => $value,
+              'numeric' => !empty($this->handler->definition['numeric']),
+            ),
+          );
+>>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
 
       // Clone the join for each table:
       $this->handler->table_aliases = array();
@@ -1037,8 +1055,26 @@ class views_many_to_one_helper {
             $this->handler->table_alias = $alias;
           }
         }
+<<<<<<< HEAD
         else {
           $this->handler->table_aliases[$value] = $this->handler->view->many_to_one_aliases[$field][$value];
+=======
+      }
+      // Case 3: it's a 'not'.
+      // We just do one join. We'll add a where clause during the query phase
+      // to ensure that $table.$field IS NULL.
+      else {
+        $join = $this->get_join();
+        $join->type = 'LEFT';
+        $join->extra = array();
+        $join->extra_type = 'OR';
+        foreach ($this->handler->value as $value) {
+          $join->extra[] = array(
+            'field' => $this->handler->real_field,
+            'value' => $value,
+            'numeric' => !empty($this->handler->definition['numeric']),
+          );
+>>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
         }
       }
     }

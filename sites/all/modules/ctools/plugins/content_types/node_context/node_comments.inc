@@ -31,6 +31,7 @@ function ctools_node_comments_content_type_render($subtype, $conf, $panel_args, 
   $block = new stdClass();
   $block->module = 'comments';
 <<<<<<< HEAD
+<<<<<<< HEAD
   $block->delta = $node->nid;
   $block->title = t('Comments');
 =======
@@ -40,6 +41,9 @@ function ctools_node_comments_content_type_render($subtype, $conf, $panel_args, 
 
 =======
 >>>>>>> 5f701d37e... Upgrade Backup & ctools modules. also added settings.php file.
+=======
+  $block->delta = $node->nid;
+>>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
   $block->title = t('Comments');
 
   if ($node->comment) {

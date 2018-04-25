@@ -1002,7 +1002,7 @@ class shellColours {
 >>>>>>> f0da0c767... Upload modules,themes and libraries
 =======
   /**
-   *
+   * shellColours constructor.
    */
 >>>>>>> 5f701d37e... Upgrade Backup & ctools modules. also added settings.php file.
   private function __construct() {}

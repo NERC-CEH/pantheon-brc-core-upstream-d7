@@ -33,10 +33,15 @@
 class views_handler_filter extends views_handler {
 
   /**
+<<<<<<< HEAD
    * Contains the actual value of the field.
    *
    * This will be either configured in the views UI or entered in the exposed
    * filters.
+=======
+   * Contains the actual value of the field,either configured in the views ui
+   * or entered in the exposed filters.
+>>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
    *
    * @var mixed
    */
@@ -210,8 +215,14 @@ class views_handler_filter extends views_handler {
   /**
    * Provide the basic form which calls through to subforms.
    *
+<<<<<<< HEAD
    * If overridden, it is best to call through to the parent, or to at least
    * make sure all of the functions in this form are called.
+=======
+   * If overridden, it is best to call through to the parent,
+   * or to at least make sure all of the functions in this form
+   * are called.
+>>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
    */
   public function options_form(&$form, &$form_state) {
     parent::options_form($form, $form_state);
@@ -334,7 +345,11 @@ class views_handler_filter extends views_handler {
   /**
    * Provide a list of options for the default operator form.
    *
+<<<<<<< HEAD
    * Should be overridden by classes that don't override operator_form.
+=======
+   * Should be overridden by classes that don't override operator_form
+>>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
    */
   public function operator_options() {
     return array();
@@ -711,6 +726,7 @@ class views_handler_filter extends views_handler {
         if (empty($group['remove'])) {
           // Check if the title is defined but value wasn't defined.
           if (!empty($group['title'])) {
+<<<<<<< HEAD
             // No value is needed for 'empty' and 'not empty' operator.
             if (!in_array($group['operator'], array('empty', 'not empty'))) {
               if ((!is_array($group['value']) && trim($group['value']) == "") ||
@@ -718,6 +734,12 @@ class views_handler_filter extends views_handler {
                 form_error($form['group_info']['group_items'][$id]['value'],
                   t('The value is required if title for this item is defined.'));
               }
+=======
+            if ((!is_array($group['value']) && trim($group['value']) == "") ||
+                (is_array($group['value']) && count(array_filter($group['value'], '_views_array_filter_zero')) == 0)) {
+              form_error($form['group_info']['group_items'][$id]['value'],
+                t('The value is required if title for this item is defined.'));
+>>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
             }
           }
 
@@ -1023,7 +1045,11 @@ class views_handler_filter extends views_handler {
 
     // The string '- Any -' will not be rendered.
     // @see theme_views_ui_build_group_filter_form()
+<<<<<<< HEAD
     $groups = array('All' => '- Any -');
+=======
+    $groups = array('All' => '- Any -'); 
+>>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
 
     // Provide 3 options to start when we are in a new group.
     if (count($this->options['group_info']['group_items']) == 0) {
@@ -1036,7 +1062,10 @@ class views_handler_filter extends views_handler {
       if (!empty($form_state['values']['options']['group_info']['group_items'][$item_id]['remove'])) {
         continue;
       }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
       // Each rows contains three widgets:
       // a) The title, where users define how they identify a pair of operator
       //    | value.
@@ -1055,7 +1084,11 @@ class views_handler_filter extends views_handler {
       $this->value_form($row, $form_state);
 
       // Fix the dependencies to update value forms when operators changes.
+<<<<<<< HEAD
       // This is needed because forms are inside a new form and their IDs
+=======
+      // This is needed because forms are inside a new form and their ids
+>>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
       // changes. Dependencies are used when operator changes from to
       // 'Between', 'Not Between', etc, and two or more widgets are displayed.
       $without_children = TRUE;
@@ -1319,7 +1352,11 @@ class views_handler_filter extends views_handler {
   }
 
   /**
+<<<<<<< HEAD
    * Indicate whether users can select multiple group items.
+=======
+   *
+>>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
    *
    * @return bool
    *   TRUE if users can select multiple groups items of a grouped exposed
@@ -1415,7 +1452,11 @@ class views_handler_filter extends views_handler {
   }
 
   /**
+<<<<<<< HEAD
    * Store the exposed input for processing later.
+=======
+   *
+>>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
    */
   public function store_exposed_input($input, $status) {
     if (empty($this->options['exposed']) || empty($this->options['expose']['identifier'])) {
@@ -1494,9 +1535,15 @@ class views_handler_filter extends views_handler {
    * @return bool
    *   Whether the filter can be used in OR groups.
    */
+<<<<<<< HEAD
   public function can_group() {
     return TRUE;
   }
+=======
+   public function can_group() {
+     return TRUE;
+   }
+>>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
 
 }
 
@@ -1551,7 +1598,10 @@ class views_handler_filter_broken extends views_handler_filter {
  * Filter by no empty values, though allow to use "0".
  *
  * @param string $var
+<<<<<<< HEAD
  *   The string to check.
+=======
+>>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
  *
  * @return bool
  *   Indicates if the argument is an empty string.

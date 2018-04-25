@@ -18,8 +18,9 @@ class CtoolsCSSObjectCache extends DrupalWebTestCase {
   }
 
   /**
-   * {@inheritDoc}
+   * {@inheritdoc}
    */
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   public function setUp(array $modules = array()) {
@@ -31,6 +32,9 @@ class CtoolsCSSObjectCache extends DrupalWebTestCase {
 >>>>>>> f0da0c767... Upload modules,themes and libraries
 =======
   function setUp(array $modules = array()) {
+=======
+  public function setUp(array $modules = array()) {
+>>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
     $modules[] = 'ctools';
     parent::setUp($modules);
 >>>>>>> 5f701d37e... Upgrade Backup & ctools modules. also added settings.php file.

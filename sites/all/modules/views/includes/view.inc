@@ -93,10 +93,19 @@ class view extends views_db_object {
    * @var bool
    */
   public $disabled;
+<<<<<<< HEAD
+=======
 
   /**
    * State variable.
    */
+  public $built = FALSE;
+>>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
+
+  /**
+   * State variable.
+   */
+<<<<<<< HEAD
   public $built = FALSE;
 
   /**
@@ -120,6 +129,26 @@ class view extends views_db_object {
   public $build_info = array();
 
   /**
+=======
+  public $executed = FALSE;
+
+  /**
+   * State variable.
+   */
+  public $editing = FALSE;
+
+  /**
+   *
+   */
+  public $args = array();
+
+  /**
+   *
+   */
+  public $build_info = array();
+
+  /**
+>>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
    *
    */
   public $use_ajax = FALSE;

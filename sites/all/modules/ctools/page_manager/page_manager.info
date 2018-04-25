@@ -24,10 +24,14 @@ datestamp = "1479787162"
 =======
 files[] = tests/head_links.test
 
-; Information added by Drupal.org packaging script on 2018-02-04
-version = "7.x-1.13"
+; Information added by Drupal.org packaging script on 2018-02-24
+version = "7.x-1.14"
 core = "7.x"
 project = "ctools"
+<<<<<<< HEAD
 datestamp = "1517704095"
 >>>>>>> 5f701d37e... Upgrade Backup & ctools modules. also added settings.php file.
+=======
+datestamp = "1519455788"
+>>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
 

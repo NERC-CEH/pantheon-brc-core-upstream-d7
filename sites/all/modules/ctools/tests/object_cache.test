@@ -15,7 +15,7 @@ class CtoolsObjectCache extends DrupalWebTestCase {
 =======
 
   /**
-   * {@inheritDoc}
+   * {@inheritdoc}
    */
 >>>>>>> 5f701d37e... Upgrade Backup & ctools modules. also added settings.php file.
   public static function getInfo() {
@@ -47,17 +47,21 @@ class CtoolsObjectCache extends DrupalWebTestCase {
 >>>>>>> f0da0c767... Upload modules,themes and libraries
 =======
   /**
-   * {@inheritDoc}
+   * {@inheritdoc}
    */
-  function setUp(array $modules = array()) {
+  public function setUp(array $modules = array()) {
     $modules[] = 'ctools';
     parent::setUp($modules);
   }
 
+<<<<<<< HEAD
   /**
    *
    */
 >>>>>>> 5f701d37e... Upgrade Backup & ctools modules. also added settings.php file.
+=======
+
+>>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
   public function testObjectStorage() {
     ctools_include('cache');
 

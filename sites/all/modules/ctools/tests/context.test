@@ -13,13 +13,19 @@ class CtoolsContextIDTestCase extends DrupalWebTestCase {
    * {@inheritdoc}
 =======
 /**
+ * @file
  * Test the keyword substitution functionality.
  */
+
 class CtoolsContextIDTestCase extends DrupalWebTestCase {
 
   /**
+<<<<<<< HEAD
    * {@inheritDoc}
 >>>>>>> 5f701d37e... Upgrade Backup & ctools modules. also added settings.php file.
+=======
+   * {@inheritdoc}
+>>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
    */
   public static function getInfo() {
     return array(
@@ -32,10 +38,14 @@ class CtoolsContextIDTestCase extends DrupalWebTestCase {
 
   /**
 <<<<<<< HEAD
+<<<<<<< HEAD
    * {@inheritdoc}
 =======
    * {@inheritDoc}
 >>>>>>> 5f701d37e... Upgrade Backup & ctools modules. also added settings.php file.
+=======
+   * {@inheritdoc}
+>>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
    */
   protected function setUp(array $modules = array()) {
     $modules[] = 'ctools';
@@ -178,10 +188,14 @@ class CtoolsContextIDTestCase extends DrupalWebTestCase {
     $this->assertEqual($value, $expected, 'Foo\'s objects have next id ' . $expected);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Another expected case: there are multiple numeric IDs.
 =======
     // Another expected case: there are multiple numeric IDs
 >>>>>>> 5f701d37e... Upgrade Backup & ctools modules. also added settings.php file.
+=======
+    // Another expected case: there are multiple numeric IDs.
+>>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
     $value = ctools_context_next_id($test_objects, 'bar');
     $expected = 100;
     $this->assertEqual($value, $expected, 'Bar\'s objects have next id ' . $expected);
@@ -197,6 +211,7 @@ class CtoolsContextKeywordsSubstitutionTestCase extends DrupalWebTestCase {
 
   /**
 <<<<<<< HEAD
+<<<<<<< HEAD
    * {@inheritdoc}
    */
 =======
@@ -204,6 +219,9 @@ class CtoolsContextKeywordsSubstitutionTestCase extends DrupalWebTestCase {
 >>>>>>> f0da0c767... Upload modules,themes and libraries
 =======
    * {@inheritDoc}
+=======
+   * {@inheritdoc}
+>>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
    */
 >>>>>>> 5f701d37e... Upgrade Backup & ctools modules. also added settings.php file.
   public static function getInfo() {
@@ -221,8 +239,12 @@ class CtoolsContextKeywordsSubstitutionTestCase extends DrupalWebTestCase {
    * {@inheritdoc}
 =======
   /**
+<<<<<<< HEAD
    * {@inheritDoc}
 >>>>>>> 5f701d37e... Upgrade Backup & ctools modules. also added settings.php file.
+=======
+   * {@inheritdoc}
+>>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
    */
   protected function setUp(array $modules = array()) {
     $modules[] = 'ctools';
@@ -384,10 +406,14 @@ class CtoolsContextUnitTestCase extends DrupalUnitTestCase {
 
   /**
 <<<<<<< HEAD
+<<<<<<< HEAD
    * {@inheritdoc}
 =======
    * {@inheritDoc}
 >>>>>>> 5f701d37e... Upgrade Backup & ctools modules. also added settings.php file.
+=======
+   * {@inheritdoc}
+>>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
    */
   public static function getInfo() {
     return array(
@@ -400,10 +426,14 @@ class CtoolsContextUnitTestCase extends DrupalUnitTestCase {
 
   /**
 <<<<<<< HEAD
+<<<<<<< HEAD
    * {@inheritdoc}
 =======
    * {@inheritDoc}
 >>>>>>> 5f701d37e... Upgrade Backup & ctools modules. also added settings.php file.
+=======
+   * {@inheritdoc}
+>>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
    */
   protected function setUp() {
     parent::setUp();

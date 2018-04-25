@@ -15,7 +15,7 @@ class CtoolsMathExpressionTestCase extends DrupalWebTestCase {
 =======
 
   /**
-   * {@inheritDoc}
+   * {@inheritdoc}
    */
 >>>>>>> 5f701d37e... Upgrade Backup & ctools modules. also added settings.php file.
   public static function getInfo() {
@@ -42,9 +42,9 @@ class CtoolsMathExpressionTestCase extends DrupalWebTestCase {
 >>>>>>> f0da0c767... Upload modules,themes and libraries
 =======
   /**
-   * {@inheritDoc}
+   * {@inheritdoc}
    */
-  function setUp(array $modules = array()) {
+  public function setUp(array $modules = array()) {
     $modules[] = 'ctools';
     $modules[] = 'ctools_plugin_test';
     parent::setUp($modules);
