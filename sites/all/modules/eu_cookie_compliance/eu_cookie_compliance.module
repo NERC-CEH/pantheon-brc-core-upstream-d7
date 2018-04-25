@@ -171,7 +171,11 @@ function eu_cookie_compliance_page_build(&$page) {
   $modules_allow_popup = TRUE;
   drupal_alter('eu_cookie_compliance_show_popup', $modules_allow_popup);
 
+<<<<<<< HEAD
   if (!empty($popup_settings['popup_enabled']) && user_access('display EU Cookie Compliance popup') && $geoip_match['in_eu'] && $domain_allow && !$path_match && !$admin_page_match && $uid1_match && $modules_allow_popup) {
+=======
+  if (!empty($popup_settings['popup_enabled']) && user_access('display EU Cookie Compliance popup') && $geoip_match && $domain_allow && !$path_match && !$admin_page_match && $uid1_match && $modules_allow_popup) {
+>>>>>>> cf5200dcf (Update modules to latest versions.  Issue: CEHWS-1221)
     global $language;
 
     $method = !empty($popup_settings['method']) ? $popup_settings['method'] : 'opt_in';
@@ -231,6 +235,7 @@ function eu_cookie_compliance_page_build(&$page) {
         $show_disagree_buttons = FALSE;
       }
 
+<<<<<<< HEAD
       if ($method === 'auto') {
         $dnt = isset($_SERVER['HTTP_DNT']) ? $_SERVER['HTTP_DNT'] : NULL;
         if ((int) $dnt === 0 && $dnt !== NULL) {
@@ -357,6 +362,25 @@ function eu_cookie_compliance_page_build(&$page) {
         'message' => check_markup($withdraw_markup, $popup_settings['withdraw_message']['format'], FALSE),
         'withdraw_tab_button_label' => !empty($popup_settings['withdraw_tab_button_label']) ? filter_xss($popup_settings['withdraw_tab_button_label']) : '',
         'withdraw_action_button_label' => !empty($popup_settings['withdraw_action_button_label']) ? filter_xss($popup_settings['withdraw_action_button_label']) : '',
+=======
+      $popup_text_info = str_replace(array("\r", "\n"), '', $popup_settings['popup_info']['value']);
+      $popup_text_agreed = str_replace(array("\r", "\n"), '', $popup_settings['popup_agreed']['value']);
+      $mobile_popup_text_info = str_replace(array("\r", "\n"), '', !empty($popup_settings['mobile_popup_info']['value']) ? $popup_settings['mobile_popup_info']['value'] : '');
+      $html_info = theme('eu_cookie_compliance_popup_info', array(
+        'message' => check_markup($popup_text_info, $popup_settings['popup_info']['format'], FALSE),
+        'agree_button' => $popup_settings['popup_agree_button_message'],
+        'disagree_button' => $show_disagree_buttons ? $popup_settings['popup_disagree_button_message'] : FALSE,
+      ));
+      $mobile_html_info = theme('eu_cookie_compliance_popup_info', array(
+        'message' => check_markup($mobile_popup_text_info, $popup_settings['popup_info']['format'], FALSE),
+        'agree_button' => $popup_settings['popup_agree_button_message'],
+        'disagree_button' => $show_disagree_buttons ? $popup_settings['popup_disagree_button_message'] : FALSE,
+      ));
+      $html_agreed = theme('eu_cookie_compliance_popup_agreed', array(
+        'message' => check_markup($popup_text_agreed, $popup_settings['popup_agreed']['format'], FALSE),
+        'hide_button' => $popup_settings['popup_hide_button_message'],
+        'find_more_button' => $show_disagree_buttons ? $popup_settings['popup_find_more_button_message'] : FALSE,
+>>>>>>> cf5200dcf (Update modules to latest versions.  Issue: CEHWS-1221)
       ));
       // Check if theme_debug is enabled.
       if (variable_get('theme_debug') == 1) {
@@ -366,8 +390,13 @@ function eu_cookie_compliance_page_build(&$page) {
         $html_agreed = preg_replace('/<!--(.|\s)*?-->/', '', $html_agreed);
         $withdraw_markup = preg_replace('/<!--(.|\s)*?-->/', '', $withdraw_markup);
       }
+<<<<<<< HEAD
       $cookie_categories = variable_get('eu_cookie_compliance_categories', array());
 
+=======
+      $clicking_confirmation = (isset($popup_settings['popup_clicking_confirmation'])) ? $popup_settings['popup_clicking_confirmation'] : TRUE;
+      $scrolling_confirmation = (isset($popup_settings['popup_scrolling_confirmation'])) ? $popup_settings['popup_scrolling_confirmation'] : FALSE;
+>>>>>>> cf5200dcf (Update modules to latest versions.  Issue: CEHWS-1221)
       $data['variables'] = array(
         'cookie_policy_version' => isset($popup_settings['cookie_policy_version']) ? $popup_settings['cookie_policy_version'] : '1.0.0',
         'popup_enabled' => $popup_settings['popup_enabled'],
@@ -430,6 +459,7 @@ function eu_cookie_compliance_page_build(&$page) {
 
     $script_scope = isset($popup_settings['script_scope']) ? $popup_settings['script_scope'] : 'footer';
 
+<<<<<<< HEAD
     // Add inline javascript.
     $disabled_javascripts = isset($popup_settings['disabled_javascripts']) ? filter_xss($popup_settings['disabled_javascripts']) : '';
     $load_disabled_scripts = '';
@@ -484,6 +514,11 @@ function eu_cookie_compliance_page_build(&$page) {
     // Add the cookie name inline, since Drupal.settings will not be available
     // if the script is loaded in the header.
     drupal_add_js('window.eu_cookie_compliance_cookie_name = ' . drupal_json_encode(!empty($popup_settings['cookie_name']) ? $popup_settings['cookie_name'] : '') . ';', array('type' => 'inline', 'scope' => $script_scope));
+=======
+    // Add the cookie name inline, since Drupal.settings will not be available
+    // if the script is loaded in the header.
+    drupal_add_js('var eu_cookie_compliance_cookie_name = "' . (!empty($popup_settings['cookie_name']) ? $popup_settings['cookie_name'] : '') . '";', array('type' => 'inline', 'scope' => $script_scope));
+>>>>>>> cf5200dcf (Update modules to latest versions.  Issue: CEHWS-1221)
 
     drupal_add_js(array('eu_cookie_compliance' => $data['variables']), array('type' => 'setting', 'scope' => $script_scope));
     if (!isset($popup_settings['use_bare_css']) || $popup_settings['use_bare_css'] == 0) {
@@ -510,9 +545,12 @@ function eu_cookie_compliance_permission() {
   return array(
     'administer EU Cookie Compliance popup' => array(
       'title' => 'Administer EU Cookie Compliance banner',
+<<<<<<< HEAD
     ),
     'administer EU Cookie Compliance categories' => array(
       'title' => 'Administer EU Cookie Compliance categories',
+=======
+>>>>>>> cf5200dcf (Update modules to latest versions.  Issue: CEHWS-1221)
     ),
     'display EU Cookie Compliance popup' => array(
       'title' => 'Display EU Cookie Compliance banner',
@@ -669,10 +707,16 @@ function eu_cookie_compliance_json() {
 function eu_cookie_compliance_user_in_eu() {
   $geoip_match = FALSE;
   $eu_countries_default = array(
+<<<<<<< HEAD
     NULL, 'AT', 'AX', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'EL', 'ES',
     'EU', 'FI', 'FR', 'GB', 'GF', 'GI', 'GP', 'GR', 'HR', 'HU', 'IE', 'IS',
     'IT', 'LI', 'LT', 'LU', 'LV', 'ME', 'MF', 'MQ', 'MT', 'NL', 'NO', 'PL',
     'PT', 'RE', 'RO', 'SE', 'SI', 'SK', 'YT', 'UK',
+=======
+    NULL, 'BE', 'BG', 'CZ', 'DK', 'DE', 'EE', 'IE', 'EL', 'ES', 'FR', 'HR',
+    'IT', 'CY', 'LV', 'LT', 'LU', 'HU', 'MT', 'NL', 'AT', 'PL', 'PT', 'RO',
+    'SI', 'SK', 'FI', 'SE', 'UK', 'GB', 'NO',
+>>>>>>> cf5200dcf (Update modules to latest versions.  Issue: CEHWS-1221)
   );
   // Allow custom array of countries to be loaded from settings.php, defaulting
   // to the array above.
@@ -743,6 +787,7 @@ function eu_cookie_compliance_clear_caches() {
 }
 
 /**
+<<<<<<< HEAD
  * Implements hook_js_alter().
  */
 function eu_cookie_compliance_js_alter(&$javascript) {
@@ -944,3 +989,47 @@ function _eu_cookie_compliance_get_category_checkbox_default_state_options_list(
     'required' => t('Checked and disabled (user cannot clear the checkbox)'),
   );
 }
+=======
+ * Attempt to find the cookie/privacy policy by searching for common titles.
+ *
+ * @return bool|string
+ *   URL to the node if found, otherwise FALSE.
+ */
+function _eu_cookie_compliance_find_privacy_policy() {
+  $pattern = 'privacy|privacy +policy|cookie +policy|terms +of +use|terms +of +service|terms +and +conditions';
+
+  $database_type = $GLOBALS['databases']['default']['default']['driver'];
+  // Select operator based on the database type.
+  switch ($database_type) {
+    case 'pgsql':
+      $op = '~*';
+      break;
+
+    case 'sqlite':
+      $op = 'REGEXP';
+      // The regexp function is not defined in SQLite for Drupal 7.
+      Database::getConnection('default')->sqliteCreateFunction('REGEXP',
+        function ($pattern, $data, $delimiter = '~', $modifiers = 'isuS') {
+          if (isset($pattern, $data) === TRUE) {
+            return (preg_match(sprintf('%1$s%2$s%1$s%3$s', $delimiter, $pattern, $modifiers), $data) > 0);
+          }
+          return NULL;
+        });
+      break;
+
+    default:
+      $op = 'RLIKE';
+  }
+
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'node')
+    ->propertyCondition('title', $pattern, $op);
+
+  $result = $query->execute();
+  if (isset($result['node'])) {
+    $nodes = array_keys($result['node']);
+    return ('node/' . array_shift($nodes));
+  }
+  return FALSE;
+}
+>>>>>>> cf5200dcf (Update modules to latest versions.  Issue: CEHWS-1221)

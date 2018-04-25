@@ -20,6 +20,7 @@ class views_handler_field_user_roles extends views_handler_field_prerender_list 
     $this->additional_fields['uid'] = array('table' => 'users', 'field' => 'uid');
   }
 
+<<<<<<< HEAD
   function option_definition() {
     $options = parent::option_definition();
     $options['display_roles'] = array('default' => array());
@@ -42,6 +43,8 @@ class views_handler_field_user_roles extends views_handler_field_prerender_list 
     parent::options_form($form, $form_state);
   }
 
+=======
+>>>>>>> cf5200dcf (Update modules to latest versions.  Issue: CEHWS-1221)
   /**
    * {@inheritdoc}
    */
@@ -82,7 +85,11 @@ class views_handler_field_user_roles extends views_handler_field_prerender_list 
    * {@inheritdoc}
    */
   public function render_item($count, $item) {
+<<<<<<< HEAD
     return t($item['role']);
+=======
+    return $item['role'];
+>>>>>>> cf5200dcf (Update modules to latest versions.  Issue: CEHWS-1221)
   }
 
   /**

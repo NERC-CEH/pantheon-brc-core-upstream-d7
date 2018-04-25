@@ -184,6 +184,7 @@ function views_content_views_panes_content_type_render($subtype, $conf, $panel_a
         break;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
       case 'wildcard':
         // Put in the wildcard.
         $args[] = isset($arguments[$id]['wildcard']) ? $arguments[$id]['wildcard'] : '*';
@@ -201,21 +202,28 @@ function views_content_views_panes_content_type_render($subtype, $conf, $panel_a
   // Remove any trailing NULL arguments as these are non-args:
 =======
      case 'wildcard':
+=======
+      case 'wildcard':
+>>>>>>> cf5200dcf (Update modules to latest versions.  Issue: CEHWS-1221)
         // Put in the wildcard.
-       $args[] = isset($arguments[$id]['wildcard']) ? $arguments[$id]['wildcard'] : '*';
-       break;
+        $args[] = isset($arguments[$id]['wildcard']) ? $arguments[$id]['wildcard'] : '*';
+        break;
 
-     case 'none':
-     default:
-       // Put in NULL.
-       // views.module knows what to do with NULL (or missing) arguments
-       $args[] = NULL;
-       break;
+      case 'none':
+      default:
+        // Put in NULL.
+        // views.module knows what to do with NULL (or missing) arguments.
+        $args[] = NULL;
+        break;
     }
   }
 
+<<<<<<< HEAD
   // remove any trailing NULL arguments as these are non-args:
 >>>>>>> f10080b38 (Upgrade Backup & ctools modules. also added settings.php file.)
+=======
+  // Remove any trailing NULL arguments as these are non-args:
+>>>>>>> cf5200dcf (Update modules to latest versions.  Issue: CEHWS-1221)
   while (count($args) && end($args) === NULL) {
     array_pop($args);
   }
@@ -236,6 +244,7 @@ function views_content_views_panes_content_type_render($subtype, $conf, $panel_a
     $view->override_path = $conf['path'];
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
   elseif ($path = $view->display_handler->get_option('inherit_panels_path')) {
     if (drupal_is_front_page()) {
       $view->override_path = '';
@@ -249,6 +258,9 @@ function views_content_views_panes_content_type_render($subtype, $conf, $panel_a
     $view->override_path = $_GET['q'];
 >>>>>>> 9a28c8c7c (Upload modules,themes and libraries)
 =======
+=======
+  elseif ($path = $view->display_handler->get_option('inherit_panels_path')) {
+>>>>>>> cf5200dcf (Update modules to latest versions.  Issue: CEHWS-1221)
     if (drupal_is_front_page()) {
       $view->override_path = '';
     }
@@ -269,10 +281,14 @@ function views_content_views_panes_content_type_render($subtype, $conf, $panel_a
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   // More link.
 =======
   // more link
 >>>>>>> f10080b38 (Upgrade Backup & ctools modules. also added settings.php file.)
+=======
+  // More link.
+>>>>>>> cf5200dcf (Update modules to latest versions.  Issue: CEHWS-1221)
   if ($allow['more_link']) {
     if (empty($conf['more_link'])) {
       $view->display_handler->set_option('use_more', FALSE);
@@ -280,10 +296,14 @@ function views_content_views_panes_content_type_render($subtype, $conf, $panel_a
     else {
       $view->display_handler->set_option('use_more', TRUE);
 <<<<<<< HEAD
+<<<<<<< HEAD
       // Make sure the view runs the count query so we know whether or not the
 =======
       // make sure the view runs the count query so we know whether or not the
 >>>>>>> f10080b38 (Upgrade Backup & ctools modules. also added settings.php file.)
+=======
+      // Make sure the view runs the count query so we know whether or not the
+>>>>>>> cf5200dcf (Update modules to latest versions.  Issue: CEHWS-1221)
       // more link applies.
       $view->get_total_rows = TRUE;
     }

@@ -22,9 +22,15 @@
       <?php print $message ?>
     </div>
     <div id="popup-buttons">
+<<<<<<< HEAD
       <button type="button" class="hide-popup-button eu-cookie-compliance-hide-button"><?php print $hide_button; ?></button>
       <?php if ($find_more_button) : ?>
         <button type="button" class="find-more-button eu-cookie-compliance-more-button-thank-you" ><?php print $find_more_button; ?></button>
+=======
+      <button type="button" class="hide-popup-button"><?php print $hide_button; ?></button>
+      <?php if ($find_more_button) : ?>
+        <button type="button" class="find-more-button" ><?php print $find_more_button; ?></button>
+>>>>>>> cf5200dcf (Update modules to latest versions.  Issue: CEHWS-1221)
       <?php endif; ?>
     </div>
   </div>

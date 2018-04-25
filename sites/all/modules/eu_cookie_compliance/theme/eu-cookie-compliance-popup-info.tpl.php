@@ -12,6 +12,7 @@
  *
  * Variables available:
  * - $message:  Contains the text that will be display within the pop-up
+<<<<<<< HEAD
  * - $agree_button: Label for the primary/agree button. Note that this is the
  *   primary button. For backwards compatibility, the name remains agree_button.
  * - $disagree_button: Contains Cookie policy button title. (Note: for
@@ -31,6 +32,10 @@
  * - $privacy_settings_tab_label: Label text for the Privacy settings tab.
  * - $withdraw_button_on_info_popup: Show the withdraw button on this popup.
  * - $method: Chosen consent method.
+=======
+ * - $agree_button: Contains agree button title
+ * - $disagree_button: Contains Cookie policy button title
+>>>>>>> cf5200dcf (Update modules to latest versions.  Issue: CEHWS-1221)
  */
 ?>
 <?php if ($privacy_settings_tab_label) : ?>
@@ -49,6 +54,7 @@
         <button type="button" class="find-more-button eu-cookie-compliance-more-button"><?php print $disagree_button; ?></button>
       <?php endif; ?>
     </div>
+<<<<<<< HEAD
     <?php if ($cookie_categories) : ?>
       <div id="eu-cookie-compliance-categories" class="eu-cookie-compliance-categories">
         <?php foreach ($cookie_categories as $key => $category) { ?>
@@ -78,6 +84,12 @@
       <button type="button" class="<?php print $primary_button_class; ?>"><?php print $agree_button; ?></button>
       <?php if ($secondary_button_label) : ?>
         <button type="button" class="<?php print $secondary_button_class; ?>" ><?php print $secondary_button_label; ?></button>
+=======
+    <div id="popup-buttons">
+      <button type="button" class="agree-button"><?php print $agree_button; ?></button>
+      <?php if ($disagree_button) : ?>
+        <button type="button" class="find-more-button"><?php print $disagree_button; ?></button>
+>>>>>>> cf5200dcf (Update modules to latest versions.  Issue: CEHWS-1221)
       <?php endif; ?>
     </div>
   </div>

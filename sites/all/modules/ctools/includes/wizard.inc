@@ -503,7 +503,11 @@ function ctools_wizard_defaults(&$form_info) {
   $form_info = $form_info + $defaults;
   // Set form callbacks if they aren't defined.
   foreach ($form_info['forms'] as $step => $params) {
+<<<<<<< HEAD
     if (empty($params['form id'])) {
+=======
+    if (!$params['form id']) {
+>>>>>>> cf5200dcf (Update modules to latest versions.  Issue: CEHWS-1221)
       $form_callback = $hook . '_' . $step . '_form';
       $form_info['forms'][$step]['form id'] = $form_callback;
     }

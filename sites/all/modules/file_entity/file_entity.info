@@ -34,6 +34,7 @@ version = 7.x-2.x-dev
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ; Information added by Drupal.org packaging script on 2020-06-15
 version = "7.x-2.30"
 core = "7.x"
@@ -51,3 +52,10 @@ project = "file_entity"
 datestamp = "1518385686"
 
 >>>>>>> 266cdd0d2 (Added admin_views and file_entity modules, updated media module)
+=======
+; Information added by Drupal.org packaging script on 2018-04-11
+version = "7.x-2.20"
+core = "7.x"
+project = "file_entity"
+datestamp = "1523461700"
+>>>>>>> cf5200dcf (Update modules to latest versions.  Issue: CEHWS-1221)

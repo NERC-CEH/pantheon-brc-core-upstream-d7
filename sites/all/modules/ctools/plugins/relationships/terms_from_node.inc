@@ -52,10 +52,14 @@ function ctools_terms_from_node_context($context, $conf) {
       if (is_array($items)) {
         $tids = array();
 <<<<<<< HEAD
+<<<<<<< HEAD
         foreach ($items as $item) {
 =======
         foreach ($items AS $item) {
 >>>>>>> f10080b38 (Upgrade Backup & ctools modules. also added settings.php file.)
+=======
+        foreach ($items as $item) {
+>>>>>>> cf5200dcf (Update modules to latest versions.  Issue: CEHWS-1221)
           $tids[] = $item['target_id'];
         }
 

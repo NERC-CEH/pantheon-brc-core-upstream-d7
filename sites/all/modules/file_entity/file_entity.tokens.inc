@@ -345,6 +345,7 @@ function _file_entity_tokens_get_property($files, $property, $array_handler = 'f
     // If values are: image, height, width, https-image
     elseif (!empty($info[$file['fid']])) {
 <<<<<<< HEAD
+<<<<<<< HEAD
       if (isset($info[$file['fid']][$property])) {
         $value = $info[$file['fid']][$property];
       } else {
@@ -353,6 +354,9 @@ function _file_entity_tokens_get_property($files, $property, $array_handler = 'f
 =======
       $value = $info[$file['fid']][$property] ?: NULL;
 >>>>>>> 35cd1c1d5 (Updated file_entity module and added plupload, token and views_bulk_operations modules.)
+=======
+      $value = isset($info[$file['fid']][$property]) ?: NULL;
+>>>>>>> cf5200dcf (Update modules to latest versions.  Issue: CEHWS-1221)
     }
     // If values are files types
     else {
@@ -385,6 +389,7 @@ function _file_entity_tokens_get_property($files, $property, $array_handler = 'f
       }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
       if (isset($info[$file['fid']][$property])) {
         $value = $info[$file['fid']][$property];
       } else {
@@ -393,6 +398,9 @@ function _file_entity_tokens_get_property($files, $property, $array_handler = 'f
 =======
       $value = $info[$file['fid']][$property] ?: NULL;
 >>>>>>> 35cd1c1d5 (Updated file_entity module and added plupload, token and views_bulk_operations modules.)
+=======
+      $value = isset($info[$file['fid']][$property]) ?: NULL;
+>>>>>>> cf5200dcf (Update modules to latest versions.  Issue: CEHWS-1221)
     }
 
     if ($return_first) {
