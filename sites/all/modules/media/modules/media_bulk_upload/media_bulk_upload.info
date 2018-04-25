@@ -17,6 +17,7 @@ files[] = tests/media_bulk_upload.test
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ; Information added by Drupal.org packaging script on 2020-03-22
 version = "7.x-2.26"
 core = "7.x"
@@ -34,3 +35,10 @@ project = "media"
 datestamp = "1518139099"
 
 >>>>>>> 11cf5ed37 (Upload modules,themes and libraries)
+=======
+; Information added by Drupal.org packaging script on 2018-04-25
+version = "7.x-2.19"
+core = "7.x"
+project = "media"
+datestamp = "1524677887"
+>>>>>>> 63f5e204c (Update modules to latest versions.  Issue: CEHWS-1221)

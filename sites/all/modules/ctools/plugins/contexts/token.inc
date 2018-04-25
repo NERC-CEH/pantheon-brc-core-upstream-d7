@@ -47,7 +47,7 @@ function ctools_context_create_token($empty, $data = NULL, $conf = FALSE) {
 >>>>>>> 11cf5ed37 (Upload modules,themes and libraries)
 =======
  *
- * @return array|NULL
+ * @return array|null
  *   An array of token type information, keyed by 'type:id', or NULL if
  *   none found.
 >>>>>>> 9f2a54eea (Upgrade Backup & ctools modules. also added settings.php file.)
@@ -83,6 +83,7 @@ function ctools_context_token_convert_list() {
  *   The name of the token.
  *
 <<<<<<< HEAD
+<<<<<<< HEAD
  * @return array|null
  *   The token value, or NULL if not found.
  *
@@ -96,6 +97,12 @@ function ctools_context_token_convert_list() {
  *
  * @see ctools_context_convert_context().
 >>>>>>> 9f2a54eea (Upgrade Backup & ctools modules. also added settings.php file.)
+=======
+ * @return array|null
+ *   The token value, or NULL if not found.
+ *
+ * @see ctools_context_convert_context()
+>>>>>>> 63f5e204c (Update modules to latest versions.  Issue: CEHWS-1221)
  */
 function ctools_context_token_convert($context, $token) {
   $tokens = token_info();

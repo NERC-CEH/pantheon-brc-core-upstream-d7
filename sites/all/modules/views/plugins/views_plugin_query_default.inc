@@ -248,6 +248,7 @@ class views_plugin_query_default extends views_plugin_query {
   public function options_form(&$form, &$form_state) {
     parent::options_form($form, $form_state);
 
+<<<<<<< HEAD
     // Establish which query tag will be affected by disable_sql_rewrite.
     // This 'access query tag' is defined by hook_views_data() for the base table.
     // e.g. node_views_data()
@@ -268,6 +269,17 @@ class views_plugin_query_default extends views_plugin_query {
         );
       }
     }
+=======
+    $form['disable_sql_rewrite'] = array(
+      '#title' => t('Disable SQL rewriting'),
+      '#description' => t('Disabling SQL rewriting will disable node_access checks as well as other modules that implement hook_query_alter().'),
+      '#type' => 'checkbox',
+      '#default_value' => !empty($this->options['disable_sql_rewrite']),
+      '#suffix' => '<div class="messages warning sql-rewrite-warning js-hide">'
+        . t('WARNING: Disabling SQL rewriting means that node access security is disabled. This may allow users to see data they should not be able to see if your view is misconfigured. Please use this option only if you understand and accept this security risk.')
+        . '</div>',
+    );
+>>>>>>> 63f5e204c (Update modules to latest versions.  Issue: CEHWS-1221)
     $form['distinct'] = array(
       '#type' => 'checkbox',
       '#title' => t('Distinct'),
@@ -1225,10 +1237,14 @@ class views_plugin_query_default extends views_plugin_query {
       }
       // This is a formula, using no tables.
       elseif (empty($field['table'])) {
+<<<<<<< HEAD
         if (Database::getConnection()->databaseType() != 'pgsql') {
           $non_aggregates[] = $fieldname;
         }
         elseif (!in_array($fieldname, $non_aggregates)) {
+=======
+        if (!in_array($fieldname, $non_aggregates)) {
+>>>>>>> 63f5e204c (Update modules to latest versions.  Issue: CEHWS-1221)
           $non_aggregates[] = $fieldname;
         }
         $placeholders = !empty($field['placeholders']) ? $field['placeholders'] : array();
@@ -1238,16 +1254,24 @@ class views_plugin_query_default extends views_plugin_query {
       elseif ($this->distinct && !in_array($fieldname, $this->groupby)) {
         // d7cx: This code was there, apparently needed for PostgreSQL
         // $string = db_driver() == 'pgsql' ? "FIRST($string)" : $string;
+<<<<<<< HEAD
         if (Database::getConnection()->databaseType() == 'pgsql' && !in_array($string, $non_aggregates)) {
+=======
+        if (!in_array($string, $non_aggregates)) {
+>>>>>>> 63f5e204c (Update modules to latest versions.  Issue: CEHWS-1221)
           $non_aggregates[] = $string;
         }
         $query->addField(!empty($field['table']) ? $field['table'] : $this->base_table, $field['field'], $fieldname);
       }
       elseif (empty($field['aggregate'])) {
+<<<<<<< HEAD
         if (Database::getConnection()->databaseType() != 'pgsql') {
           $non_aggregates[] = $fieldname;
         }
         elseif (!in_array($string, $non_aggregates)) {
+=======
+        if (!in_array($string, $non_aggregates)) {
+>>>>>>> 63f5e204c (Update modules to latest versions.  Issue: CEHWS-1221)
           $non_aggregates[] = $string;
         }
         $query->addField(!empty($field['table']) ? $field['table'] : $this->base_table, $field['field'], $fieldname);

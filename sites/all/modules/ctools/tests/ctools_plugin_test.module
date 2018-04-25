@@ -93,6 +93,7 @@ function ctools_plugin_test_ctools_plugin_test_big_hook_not_cached() {
  * @see ctools_plugin_test_ctools_plugin_test_big_hook_cached
  */
 <<<<<<< HEAD
+<<<<<<< HEAD
 function ctools_plugin_test_hook_cached_test() {
 }
 
@@ -107,11 +108,20 @@ function ctools_plugin_test_hook_not_cached_test() {
 =======
 >>>>>>> 9f2a54eea (Upgrade Backup & ctools modules. also added settings.php file.)
 function ctools_plugin_test_hook_cached_test() {}
+=======
+function ctools_plugin_test_hook_cached_test() {
+}
+>>>>>>> 63f5e204c (Update modules to latest versions.  Issue: CEHWS-1221)
 
 /**
  * Callback for the big_hook_not_cached plugin.
  *
  * @see ctools_plugin_test_ctools_plugin_test_big_hook_not_cached()
  */
+<<<<<<< HEAD
 function ctools_plugin_test_hook_not_cached_test() {}
 >>>>>>> 11cf5ed37 (Upload modules,themes and libraries)
+=======
+function ctools_plugin_test_hook_not_cached_test() {
+}
+>>>>>>> 63f5e204c (Update modules to latest versions.  Issue: CEHWS-1221)

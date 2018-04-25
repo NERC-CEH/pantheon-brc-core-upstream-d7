@@ -35,4 +35,15 @@ class views_handler_field_user_language extends views_handler_field_user {
     return $this->sanitize_value($lang->name);
   }
 
+<<<<<<< HEAD
+=======
+  /**
+   * {@inheritdoc}
+   */
+  public function render($values) {
+    $value = $this->get_value($values);
+    return $this->render_link($this->sanitize_value($value), $values);
+  }
+
+>>>>>>> 63f5e204c (Update modules to latest versions.  Issue: CEHWS-1221)
 }

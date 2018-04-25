@@ -191,6 +191,7 @@ function ctools_entity_field_content_type_substitute_keywords($markup, array $el
 
 /**
 <<<<<<< HEAD
+<<<<<<< HEAD
  * Returns an edit form for custom type settings.
  */
 =======
@@ -199,6 +200,10 @@ function ctools_entity_field_content_type_substitute_keywords($markup, array $el
 * Returns an edit form for custom type settings.
 */
 >>>>>>> 11cf5ed37 (Upload modules,themes and libraries)
+=======
+ * Returns an edit form for custom type settings.
+ */
+>>>>>>> 63f5e204c (Update modules to latest versions.  Issue: CEHWS-1221)
 function ctools_entity_field_content_type_formatter_options($form, &$form_state) {
   if (empty($form_state['conf']['formatter_settings'])) {
     $form_state['conf']['formatter_settings'] = array();

@@ -211,6 +211,7 @@ multipliers[screen-lg-min][] = 2x
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ; Information added by Drupal.org packaging script on 2019-06-20
 version = "7.x-3.26"
 core = "7.x"
@@ -228,3 +229,10 @@ project = "bootstrap"
 datestamp = "1516989514"
 
 >>>>>>> 89df5f5ab (Uploaded some more modules and themes.)
+=======
+; Information added by Drupal.org packaging script on 2018-04-18
+version = "7.x-3.20"
+core = "7.x"
+project = "bootstrap"
+datestamp = "1524091089"
+>>>>>>> 63f5e204c (Update modules to latest versions.  Issue: CEHWS-1221)

@@ -60,7 +60,11 @@ class ViewsArgumentValidatorTest extends ViewsSqlTest {
   function view_test_argument_validate_php($string) {
     $code = 'return $argument == \'' . $string . '\';';
     $view = new view();
+<<<<<<< HEAD
     $view->name = 'view_argument_validate_php';
+=======
+    $view->name = 'view_argument_validate_numeric';
+>>>>>>> 63f5e204c (Update modules to latest versions.  Issue: CEHWS-1221)
     $view->description = '';
     $view->tag = '';
     $view->view_php = '';
@@ -121,6 +125,7 @@ class ViewsArgumentValidatorTest extends ViewsSqlTest {
     return $view;
   }
 
+<<<<<<< HEAD
   /**
    *
    *
@@ -185,4 +190,6 @@ class ViewsArgumentValidatorTest extends ViewsSqlTest {
     return $view;
   }
 
+=======
+>>>>>>> 63f5e204c (Update modules to latest versions.  Issue: CEHWS-1221)
 }

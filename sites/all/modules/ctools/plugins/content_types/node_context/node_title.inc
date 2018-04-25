@@ -27,6 +27,7 @@ $plugin = array(
 function ctools_node_title_content_type_render($subtype, $conf, $panel_args, $context) {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (!empty($context) && (empty($context->data) || empty($context->data->nid))) {
 =======
   if (empty($context) || empty($context->data)) {
@@ -34,6 +35,9 @@ function ctools_node_title_content_type_render($subtype, $conf, $panel_args, $co
 =======
   if (!empty($context) && ( empty($context->data) || empty($context->data->nid)) ){
 >>>>>>> 9f2a54eea (Upgrade Backup & ctools modules. also added settings.php file.)
+=======
+  if (!empty($context) && (empty($context->data) || empty($context->data->nid))) {
+>>>>>>> 63f5e204c (Update modules to latest versions.  Issue: CEHWS-1221)
     return;
   }
 

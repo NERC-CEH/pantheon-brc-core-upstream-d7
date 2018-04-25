@@ -161,7 +161,10 @@ class views_handler_argument extends views_handler {
    * Determine if the argument can generate a breadcrumb.
    *
    * @return bool
+<<<<<<< HEAD
    *   Indicates whether the argument can generate a breadcrumb.
+=======
+>>>>>>> 63f5e204c (Update modules to latest versions.  Issue: CEHWS-1221)
    */
   public function uses_breadcrumb() {
     $info = $this->default_actions($this->options['default_action']);
@@ -196,7 +199,10 @@ class views_handler_argument extends views_handler {
    * Determine if the argument needs a style plugin.
    *
    * @return bool
+<<<<<<< HEAD
    *   the argument needs a plugin style.
+=======
+>>>>>>> 63f5e204c (Update modules to latest versions.  Issue: CEHWS-1221)
    */
   public function needs_style_plugin() {
     $info = $this->default_actions($this->options['default_action']);
@@ -658,9 +664,14 @@ class views_handler_argument extends views_handler {
   }
 
   /**
+<<<<<<< HEAD
    * Form for selecting further summary options.
    *
    * Only used when the default action is set to display one.
+=======
+   * Provide a form for selecting further summary options when the default
+   * action is set to display one.
+>>>>>>> 63f5e204c (Update modules to latest versions.  Issue: CEHWS-1221)
    */
   public function default_summary_form(&$form, &$form_state) {
     $style_plugins = views_fetch_plugin_data('style');
@@ -800,7 +811,11 @@ class views_handler_argument extends views_handler {
    * Default action: empty.
    *
    * If an argument was expected and was not given, in this case, display the
+<<<<<<< HEAD
    * view's empty text.
+=======
+   * view's empty text
+>>>>>>> 63f5e204c (Update modules to latest versions.  Issue: CEHWS-1221)
    */
   public function default_empty() {
     // We return with no query; this will force the empty text.
@@ -964,9 +979,15 @@ class views_handler_argument extends views_handler {
 
   /**
    * Sorts the summary based upon the user's selection.
+<<<<<<< HEAD
    *
    * The base variant of this is usually adequte.
    *
+=======
+   *
+   * The base variant of this is usually adequte.
+   *
+>>>>>>> 63f5e204c (Update modules to latest versions.  Issue: CEHWS-1221)
    * @param string $order
    *   The order selected in the UI.
    * @param string $by
@@ -991,9 +1012,15 @@ class views_handler_argument extends views_handler {
 
   /**
    * Provides the name to use for the summary.
+<<<<<<< HEAD
    *
    * By default this is just the name field.
    *
+=======
+   *
+   * By default this is just the name field.
+   *
+>>>>>>> 63f5e204c (Update modules to latest versions.  Issue: CEHWS-1221)
    * @param object $data
    *   The query results for the row.
    *

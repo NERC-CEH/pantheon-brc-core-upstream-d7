@@ -12,9 +12,13 @@ class views_content_plugin_display_panel_pane extends views_plugin_display {
   public $panel_pane_display = TRUE;
   public $has_pane_conf = NULL;
 
+<<<<<<< HEAD
   /**
    * {@inheritdoc}
    */
+=======
+
+>>>>>>> 63f5e204c (Update modules to latest versions.  Issue: CEHWS-1221)
   public function option_definition() {
     $options = parent::option_definition();
 
@@ -55,6 +59,7 @@ class views_content_plugin_display_panel_pane extends views_plugin_display {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
   public function set_pane_conf($conf = array()) {
 =======
@@ -63,6 +68,10 @@ class views_content_plugin_display_panel_pane extends views_plugin_display {
 =======
   function set_pane_conf($conf = array()) {
 >>>>>>> 9f2a54eea (Upgrade Backup & ctools modules. also added settings.php file.)
+=======
+
+  public function set_pane_conf($conf = array()) {
+>>>>>>> 63f5e204c (Update modules to latest versions.  Issue: CEHWS-1221)
     $this->set_option('pane_conf', $conf);
     $this->has_pane_conf = TRUE;
   }
@@ -393,6 +402,7 @@ class views_content_plugin_display_panel_pane extends views_plugin_display {
     return (bool) $conf['more_link'];
   }
 
+<<<<<<< HEAD
   /**
    * {@inheritdoc}
    */
@@ -418,6 +428,9 @@ class views_content_plugin_display_panel_pane extends views_plugin_display {
   /**
    * {@inheritdoc}
    */
+=======
+
+>>>>>>> 63f5e204c (Update modules to latest versions.  Issue: CEHWS-1221)
   public function get_path() {
     if (empty($this->view->override_path)) {
       return parent::get_path();
