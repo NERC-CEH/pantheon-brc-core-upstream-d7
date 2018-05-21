@@ -346,17 +346,23 @@ function _file_entity_tokens_get_property($files, $property, $array_handler = 'f
     elseif (!empty($info[$file['fid']])) {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c42b464d8 (Upgrade file entity module.)
       if (isset($info[$file['fid']][$property])) {
         $value = $info[$file['fid']][$property];
       } else {
         $value = NULL;
       }
+<<<<<<< HEAD
 =======
       $value = $info[$file['fid']][$property] ?: NULL;
 >>>>>>> e3fc737e0 (Updated file_entity module and added plupload, token and views_bulk_operations modules.)
 =======
       $value = isset($info[$file['fid']][$property]) ?: NULL;
 >>>>>>> 63f5e204c (Update modules to latest versions.  Issue: CEHWS-1221)
+=======
+>>>>>>> c42b464d8 (Upgrade file entity module.)
     }
     // If values are files types
     else {
@@ -390,17 +396,23 @@ function _file_entity_tokens_get_property($files, $property, $array_handler = 'f
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c42b464d8 (Upgrade file entity module.)
       if (isset($info[$file['fid']][$property])) {
         $value = $info[$file['fid']][$property];
       } else {
         $value = NULL;
       }
+<<<<<<< HEAD
 =======
       $value = $info[$file['fid']][$property] ?: NULL;
 >>>>>>> e3fc737e0 (Updated file_entity module and added plupload, token and views_bulk_operations modules.)
 =======
       $value = isset($info[$file['fid']][$property]) ?: NULL;
 >>>>>>> 63f5e204c (Update modules to latest versions.  Issue: CEHWS-1221)
+=======
+>>>>>>> c42b464d8 (Upgrade file entity module.)
     }
 
     if ($return_first) {
