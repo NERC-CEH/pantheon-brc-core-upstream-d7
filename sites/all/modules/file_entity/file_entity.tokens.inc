@@ -302,7 +302,11 @@ function _file_entity_tokens_get_property($files, $property, $array_handler = 'f
 
     // If values are: image, height, width, https-image
     elseif (!empty($info[$file['fid']])) {
-      $value = isset($info[$file['fid']][$property]) ?: NULL;
+      if (isset($info[$file['fid']][$property])) {
+        $value = $info[$file['fid']][$property];
+      } else {
+        $value = NULL;
+      }
     }
     // If values are files types
     else {
@@ -329,7 +333,11 @@ function _file_entity_tokens_get_property($files, $property, $array_handler = 'f
         $info[$file['fid']]['https-image'] = str_replace('http://', 'https://', $info[$file['fid']]['image']);
       }
 
-      $value = isset($info[$file['fid']][$property]) ?: NULL;
+      if (isset($info[$file['fid']][$property])) {
+        $value = $info[$file['fid']][$property];
+      } else {
+        $value = NULL;
+      }
     }
 
     if ($return_first) {
