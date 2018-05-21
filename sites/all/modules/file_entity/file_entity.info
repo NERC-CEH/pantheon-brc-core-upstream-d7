@@ -35,6 +35,7 @@ version = 7.x-2.x-dev
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ; Information added by Drupal.org packaging script on 2020-06-15
 version = "7.x-2.30"
 core = "7.x"
@@ -59,3 +60,10 @@ core = "7.x"
 project = "file_entity"
 datestamp = "1523461700"
 >>>>>>> 5870f23e3... Update modules to latest versions.  Issue: CEHWS-1221
+=======
+; Information added by Drupal.org packaging script on 2018-05-02
+version = "7.x-2.21"
+core = "7.x"
+project = "file_entity"
+datestamp = "1525293788"
+>>>>>>> 2a30198c4... Upgrade file entity module.
