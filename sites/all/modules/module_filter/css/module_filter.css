@@ -1,32 +1,26 @@
-.winnow-input {
+.module-filter-inputs-wrapper {
+  display: none;
+}
+.module-filter-clear {
+  display: inline;
   position: relative;
-  display: inline-block;
 }
-.winnow-input input.form-search {
-  padding-right: 2em;
-}
-.winnow-clear {
+.module-filter-clear a {
+  margin-left: 5px;
+  font-size: 11px;
   position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 2px;
-  left: auto;
-  text-align: left;
-  text-indent: -9999px;
 }
-.winnow-clear:after {
+#module-filter-show-wrapper .form-item {
+  display: inline;
+}
+.module-filter-no-results {
+  text-align: center;
+  text-transform: uppercase;
+  color: #888;
+}
+#module-filter-modules {
+  position: relative;
+}
+#module-filter-modules table {
   position: absolute;
-  right: 0;
-  padding: 0 0.5em;
-  height: 100%;
-  content: '✕';
-  color: #aaa;
-  font: 1em/2.2em arial, sans-serif;
-  text-decoration: none;
-  text-shadow: 0 1px 0 #fff;
-  text-indent: 0;
-  opacity: 0.7;
-}
-.winnow-clear:hover:after {
-  opacity: 1;
 }
