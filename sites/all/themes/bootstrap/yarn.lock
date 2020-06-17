@@ -1606,11 +1606,11 @@ websocket-driver@>=0.5.1:
   resolved "https://registry.yarnpkg.com/websocket-driver/-/websocket-driver-0.7.0.tgz#0caf9d2d755d93aee049d4bdd0d3fe2cca2a24eb"
   dependencies:
     http-parser-js ">=0.4.0"
-    websocket-extensions ">=0.1.1"
+    websocket-extensions ">=0.1.4"
 
-websocket-extensions@>=0.1.1:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/websocket-extensions/-/websocket-extensions-0.1.2.tgz#0e18781de629a18308ce1481650f67ffa2693a5d"
+websocket-extensions@>=0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/websocket-extensions/-/websocket-extensions-0.1.4.tgz#0e18781de629a18308ce1481650f67ffa2693a5d"
 
 which@~1.2.1:
   version "1.2.14"
