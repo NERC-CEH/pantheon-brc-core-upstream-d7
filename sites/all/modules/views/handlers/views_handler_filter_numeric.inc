@@ -336,7 +336,6 @@ class views_handler_filter_numeric extends views_handler_filter {
   /**
    * {@inheritdoc}
    */
-<<<<<<< HEAD
   public function op_not_regex($field) {
     $this->query->add_where($this->options['group'], $field, $this->value['value'], 'NOT RLIKE');
   }
@@ -344,8 +343,6 @@ class views_handler_filter_numeric extends views_handler_filter {
   /**
    * {@inheritdoc}
    */
-=======
->>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
   public function admin_summary() {
     if ($this->is_a_group()) {
       return t('grouped');
@@ -381,6 +378,13 @@ class views_handler_filter_numeric extends views_handler_filter {
         $value = array(
           'value' => $value,
         );
+      }
+      if (!empty($this->options['expose']['use_operator']) && !empty($this->options['expose']['operator_id']) && isset($input[$this->options['expose']['operator_id']])) {
+        if ($input[$this->options['expose']['operator_id']] === 'empty' || $input[$this->options['expose']['operator_id']] === 'not empty') {
+          // Parent method will expect a boolean value. We don't ask for a value
+          // so we'll force "Yes".
+          $value['value'] = 1;
+        }
       }
     }
 

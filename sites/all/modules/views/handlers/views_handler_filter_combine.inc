@@ -129,7 +129,7 @@ class views_handler_filter_combine extends views_handler_filter_string {
     foreach ($matches as $match) {
       $phrase = FALSE;
       // Strip off phrase quotes.
-      if ($match[2]{0} == '"') {
+      if ($match[2][0] == '"') {
         $match[2] = substr($match[2], 1, -1);
         $phrase = TRUE;
       }
@@ -201,7 +201,6 @@ class views_handler_filter_combine extends views_handler_filter_string {
   /**
    *
    */
-<<<<<<< HEAD
   public function op_not_regex($field) {
     $placeholder = $this->placeholder();
     $this->query->add_where_expression($this->options['group'], "$field NOT RLIKE $placeholder", array($placeholder => $this->value));
@@ -210,8 +209,6 @@ class views_handler_filter_combine extends views_handler_filter_string {
   /**
    *
    */
-=======
->>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
   public function op_empty($field) {
     if ($this->operator == 'empty') {
       $operator = "IS NULL";

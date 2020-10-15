@@ -4,20 +4,10 @@
  * Tests the MathExpression library of ctools.
  */
 class CtoolsMathExpressionTestCase extends DrupalWebTestCase {
-<<<<<<< HEAD
-<<<<<<< HEAD
 
   /**
    * {@inheritdoc}
    */
-=======
->>>>>>> f0da0c767... Upload modules,themes and libraries
-=======
-
-  /**
-   * {@inheritdoc}
-   */
->>>>>>> 5f701d37e... Upgrade Backup & ctools modules. also added settings.php file.
   public static function getInfo() {
     return array(
       'name' => 'Math expressions',
@@ -27,8 +17,6 @@ class CtoolsMathExpressionTestCase extends DrupalWebTestCase {
     );
   }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
   /**
    * {@inheritdoc}
    */
@@ -36,19 +24,6 @@ class CtoolsMathExpressionTestCase extends DrupalWebTestCase {
     $modules[] = 'ctools';
     $modules[] = 'ctools_plugin_test';
     parent::setUp($modules);
-=======
-  public function setUp() {
-    parent::setUp('ctools', 'ctools_plugin_test');
->>>>>>> f0da0c767... Upload modules,themes and libraries
-=======
-  /**
-   * {@inheritdoc}
-   */
-  public function setUp(array $modules = array()) {
-    $modules[] = 'ctools';
-    $modules[] = 'ctools_plugin_test';
-    parent::setUp($modules);
->>>>>>> 5f701d37e... Upgrade Backup & ctools modules. also added settings.php file.
   }
 
   /**

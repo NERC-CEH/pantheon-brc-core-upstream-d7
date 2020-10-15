@@ -50,21 +50,8 @@ class views_content_plugin_display_panel_pane extends views_plugin_display {
     return isset($this->has_pane_conf);
   }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 
   public function set_pane_conf($conf = array()) {
-=======
-  function set_pane_conf($conf = array(), $set_cache = TRUE) {
->>>>>>> f0da0c767... Upload modules,themes and libraries
-=======
-  function set_pane_conf($conf = array()) {
->>>>>>> 5f701d37e... Upgrade Backup & ctools modules. also added settings.php file.
-=======
-
-  public function set_pane_conf($conf = array()) {
->>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
     $this->set_option('pane_conf', $conf);
     $this->has_pane_conf = TRUE;
   }

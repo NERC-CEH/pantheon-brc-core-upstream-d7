@@ -135,7 +135,6 @@ abstract class ViewsTestCase extends DrupalWebTestCase {
     $this->verbose('<pre>Executed view: ' . ((string) $view->build_info['query']) . '</pre>');
   }
 
-<<<<<<< HEAD
   /**
    * Log in as user 1.
    */
@@ -170,8 +169,6 @@ abstract class ViewsTestCase extends DrupalWebTestCase {
     parent::verbose($title . $message);
   }
 
-=======
->>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
 }
 
 /**
@@ -182,8 +179,10 @@ abstract class ViewsSqlTest extends ViewsTestCase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
-    parent::setUp('views', 'views_ui');
+  public function setUp(array $modules = array()) {
+    $modules[] = 'views';
+    $modules[] = 'views_ui';
+    parent::setUp($modules);
 
     // Define the schema and views data variable before enabling the test
     // module.
@@ -205,7 +204,6 @@ abstract class ViewsSqlTest extends ViewsTestCase {
   }
 
   /**
-<<<<<<< HEAD
    * Create a term.
    *
    * @param int $vid
@@ -224,8 +222,6 @@ abstract class ViewsSqlTest extends ViewsTestCase {
   }
 
   /**
-=======
->>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
    * This function allows to enable views ui from a higher class which can't
    * change the setup function anymore.
    *

@@ -159,7 +159,7 @@ class views_handler_field extends views_handler {
               '@identifier' => $identifier,
               '@table' => $info['table'],
             );
-            debug(t('Handler @handler tried to add additional_field @identifier but @table could not be added!', $t_args));
+            debug(t('Handler @handler tried to add additional field @identifier but @table could not be added.', $t_args));
             $this->aliases[$identifier] = 'broken';
             continue;
           }
@@ -1245,15 +1245,16 @@ If you would like to have the characters \'[\' and \']\' please use the html ent
    * Render this field as altered text, from a fieldset set by the user.
    */
   public function render_altered($alter, $tokens) {
-<<<<<<< HEAD
     // We trust admins so we allow any tag content. This is important for
     // displays such as XML where we should not mess with tags.
     $value = $alter['text'];
-=======
-    // Filter this right away as our substitutions are already sanitized.
-    $value = filter_xss_admin($alter['text']);
->>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
     $value = strtr($value, $tokens);
+    // User might already used '%5B' and '%5D' instead of literal [ and ].
+    // After token replacements, we need to convert those codes to literal
+    // square bracket characters. Otherwise problems like comment #5 and #6 of
+    // https://www.drupal.org/node/578772 will happen.
+    // We could have used rawurldecode() also, but not sure about the consequences.
+    $value = strtr($value, array('%5B' => '[', '%5D' => ']'));
 
     return $value;
   }

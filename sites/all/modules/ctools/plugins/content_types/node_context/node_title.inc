@@ -25,19 +25,7 @@ $plugin = array(
  * Render the custom content type.
  */
 function ctools_node_title_content_type_render($subtype, $conf, $panel_args, $context) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
   if (!empty($context) && (empty($context->data) || empty($context->data->nid))) {
-=======
-  if (empty($context) || empty($context->data)) {
->>>>>>> f0da0c767... Upload modules,themes and libraries
-=======
-  if (!empty($context) && ( empty($context->data) || empty($context->data->nid)) ){
->>>>>>> 5f701d37e... Upgrade Backup & ctools modules. also added settings.php file.
-=======
-  if (!empty($context) && (empty($context->data) || empty($context->data->nid))) {
->>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
     return;
   }
 

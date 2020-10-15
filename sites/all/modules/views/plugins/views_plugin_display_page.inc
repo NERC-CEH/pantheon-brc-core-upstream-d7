@@ -87,7 +87,7 @@ class views_plugin_display_page extends views_plugin_display {
     $path = implode('/', $bits);
 
     $access_plugin = $this->get_plugin('access');
-    if (!isset($access_plugin)) {
+    if (!$access_plugin) {
       $access_plugin = views_get_plugin('access', 'none');
     }
 
@@ -350,10 +350,7 @@ class views_plugin_display_page extends views_plugin_display {
           '#field_prefix' => '<span dir="ltr">' . url(NULL, array('absolute' => TRUE)) . (variable_get('clean_url', 0) ? '' : '?q='),
           '#field_suffix' => '</span>&lrm;',
           '#attributes' => array('dir'=>'ltr'),
-<<<<<<< HEAD
           '#maxlength' => 255,
-=======
->>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
         );
         break;
 

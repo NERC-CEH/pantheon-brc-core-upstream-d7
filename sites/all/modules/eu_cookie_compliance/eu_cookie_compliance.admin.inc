@@ -24,7 +24,7 @@ function eu_cookie_compliance_admin_form(array $form, array $form_state) {
   $popup_settings = eu_cookie_compliance_get_settings();
 
   $default_filter_format = filter_default_format();
-  if ($default_filter_format == 'filtered_html' && filter_format_load('full_html')) {
+  if ($default_filter_format === 'filtered_html' && filter_format_load('full_html')) {
     $default_filter_format = 'full_html';
   }
 
@@ -41,11 +41,7 @@ function eu_cookie_compliance_admin_form(array $form, array $form_state) {
   );
 
   $form['eu_cookie_compliance']['info'] = array(
-<<<<<<< HEAD
     '#markup' => '<p>' . t('<strong>Note:</strong> In order for the module to work, <code>$scripts</code> needs to be output before <code>$page_bottom</code> in your <code>html.tpl.php</code>.') . '</p>',
-=======
-    '#markup' => t('<p><strong>Note:</strong> In order for the module to work, <code>$scripts</code> needs to be output before <code>$page_bottom</code> in your <code>html.tpl.php</code>.</p>'),
->>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
   );
 
   $form['eu_cookie_compliance']['popup_enabled'] = array(
@@ -87,7 +83,6 @@ function eu_cookie_compliance_admin_form(array $form, array $form_state) {
     '#default_value' => $role_values,
   );
 
-<<<<<<< HEAD
   $form['consent_option'] = array(
     '#type' => 'fieldset',
     '#title' => t('Consent for processing of personal information'),
@@ -134,12 +129,19 @@ function eu_cookie_compliance_admin_form(array $form, array $form_state) {
     '#tree' => TRUE,
   );
 
+  $options = array();
+  // Adapt links to follow realm language if present.
+  $query_parameters = drupal_get_query_parameters();
+  if (isset($query_parameters['variable_realm_key_language'])) {
+    $language_list = language_list();
+    $language = $language_list[$query_parameters['variable_realm_key_language']] ?: FALSE;
+    if ($language) {
+      $options['language'] = $language;
+    }
+  }
   $form['consent_per_category']['eu_cookie_compliance']['cookie_categories'] = array(
-    '#type' => 'textarea',
-    '#title' => t('Cookie categories with separate consent'),
-    '#description' => t('List of cookie categories that require separate consent. E.g. Functional cookies, Advertisement cookies, …') .
-      '<br />' . t('Enter one value per line, in the following format: "key|label" or "key|label|description". Description is optional.'),
-    '#default_value' => isset($popup_settings['cookie_categories']) ? $popup_settings['cookie_categories'] : '',
+    '#markup' => t('See separate <a href="@url" target="_blank">Categories</a> tab for managing cookie categories themselves.',
+      array('@url' => url('admin/config/system/eu-cookie-compliance/categories', $options))),
   );
 
   $form['consent_per_category']['eu_cookie_compliance']['enable_save_preferences_button'] = array(
@@ -176,18 +178,6 @@ function eu_cookie_compliance_admin_form(array $form, array $form_state) {
     ),
   );
 
-  $form['consent_per_category']['eu_cookie_compliance']['fix_first_cookie_category'] = array(
-    '#type' => 'checkbox',
-    '#title' => t('Tick the first checkbox and mark it read only.'),
-    '#default_value' => isset($popup_settings['fix_first_cookie_category']) ? $popup_settings['fix_first_cookie_category'] : TRUE,
-  );
-
-  $form['consent_per_category']['eu_cookie_compliance']['select_all_categories_by_default'] = array(
-    '#type' => 'checkbox',
-    '#title' => t('Tick all category checkboxes by default.'),
-    '#default_value' => isset($popup_settings['select_all_categories_by_default']) ? $popup_settings['select_all_categories_by_default'] : FALSE,
-  );
-
   // The info_template element is initialized in function
   // eu_cookie_compliance_update_7009().
   $default_value = (!empty($popup_settings['info_template'])) ? $popup_settings['info_template'] : 'new';
@@ -195,7 +185,7 @@ function eu_cookie_compliance_admin_form(array $form, array $form_state) {
     '#type' => 'radios',
     '#title' => t('Info banner template'),
     '#options' => array(
-      'legacy' => t('Cookie policy button in popup-buttons section and styled similarly to the Agree button, 
+      'legacy' => t('Cookie policy button in popup-buttons section and styled similarly to the Agree button,
         as in earlier versions of this module'),
       'new' => t('Cookie policy button in popup-text section, styled differently than the Agree button.'),
     ),
@@ -228,7 +218,7 @@ function eu_cookie_compliance_admin_form(array $form, array $form_state) {
     '#type' => 'textarea',
     '#title' => t('Disable JavaScripts'),
     '#default_value' => isset($popup_settings['disabled_javascripts']) ? $popup_settings['disabled_javascripts'] : '',
-    '#description' => t("<span style='word-break: break-word;'>Include the full path of JavaScripts, each on a separate line. When using the opt-in or opt-out consent options, you can block certain JavaScript files from being loaded when consent isn't given. The on-site JavaScripts should be written as root relative paths <strong>without the leading slash</strong>, you can use public://path/to/file.js and private://path/to/file.js, and off-site JavaScripts should be written as complete URLs <strong>with the leading http(s)://</strong>. Note that after the user gives consent, the scripts will be executed in the order you enter here.<br /><br />Libraries and scripts that attach to Drupal.behaviors are supported. To indicate a behavior that needs to be loaded on consent, append the behavior name after the script with a | (vertical bar). If you also want to conditionally load a library, place that as the third parameter, following another | (vertical bar). <strong>Example: modules/custom/custom_module/js/custom.js|customModule|custom_module/custom_module</strong>.<br />If your script file does not attach to Drupal.attributes, you may skip the second parameter. <strong>Example: modules/custom/custom_module/js/custom.js||custom_module/custom_module</strong><br /><strong>Note that Drupal behavior name and library parameters are both optional</strong>, but may be required to achieve your objective.</span>") .
+    '#description' => t("<span style='word-break: break-word;'>Include the full path of JavaScripts, each on a separate line. When using the opt-in or opt-out consent options, you can block certain JavaScript files from being loaded when consent isn't given. The on-site JavaScripts should be written as root relative paths <strong>without the leading slash</strong>, you can use public://path/to/file.js and private://path/to/file.js, and off-site JavaScripts should be written as complete URLs <strong>with the leading http(s)://</strong>. Note that after the user gives consent, the scripts will be executed in the order you enter here.<br /><br />Libraries and scripts that attach to Drupal.behaviors are supported. To indicate a behavior that needs to be loaded on consent, append the behavior name after the script with a | (vertical bar).<br /><strong>Note that Drupal behavior name parameter is optional</strong>, but may be required to achieve your objective.</span>") .
       '<br /><br />' . t('When using the consent method "Opt-in with categories", you can link the script to a specific category by using the format: "category:path/to/the/script.js".'),
   );
 
@@ -249,12 +239,12 @@ function eu_cookie_compliance_admin_form(array $form, array $form_state) {
     '#tree' => TRUE,
   );
 
-  $form['cookies']['eu_cookie_compliance']['whitelisted_cookies'] = array(
+  $form['cookies']['eu_cookie_compliance']['allowed_cookies'] = array(
     '#type' => 'textarea',
-    '#title' => t('Whitelisted cookies'),
-    '#default_value' => isset($popup_settings['whitelisted_cookies']) ? $popup_settings['whitelisted_cookies'] : '',
-    '#description' => t("Include the name of cookies, each on a separate line. When using the opt-in or opt-out consent options, this module will <strong>delete cookies that are not on the whitelist</strong> every few seconds when consent isn't given. PHP session cookies and the cookie for this module are always whitelisted.") .
-      '<br /><br />' . t('When using the consent method "Opt-in with categories", you can link the cookie to a specific consent category by using the format: "category:cookie_name".  Only when consent is given for the given category, will the cookie be whitelisted.'),
+    '#title' => t('Allowed cookies'),
+    '#default_value' => isset($popup_settings['allowed_cookies']) ? $popup_settings['allowed_cookies'] : '',
+    '#description' => t("Include the name of cookies, each on a separate line. When using the opt-in or opt-out consent options, this module will <strong>delete cookies that are not allowed</strong> every few seconds when consent isn't given. PHP session cookies and the cookie for this module are always allowed.") .
+      '<br /><br />' . t('When using the consent method "Opt-in with categories", you can link the cookie to a specific consent category by using the format: "category:cookie_name".  Only when consent is given for the given category, will the cookie be allowed.'),
   );
 
   $form['consent_storage'] = array(
@@ -284,11 +274,6 @@ function eu_cookie_compliance_admin_form(array $form, array $form_state) {
   $form['popup_message'] = array(
     '#type' => 'fieldset',
     '#title' => t('Cookie information banner message'),
-=======
-  $form['popup_message'] = array(
-    '#type' => 'fieldset',
-    '#title' => t('Cookie information banner Message'),
->>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
     '#collapsible' => TRUE,
     '#collapsed' => FALSE,
   );
@@ -320,11 +305,7 @@ function eu_cookie_compliance_admin_form(array $form, array $form_state) {
 
   $form['popup_message']['eu_cookie_compliance']['use_mobile_message'] = array(
     '#type' => 'checkbox',
-<<<<<<< HEAD
     '#title' => t('Use a different message for mobile phones.'),
-=======
-    '#title' => t('Use a different message for mobile phones'),
->>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
     '#default_value' => isset($popup_settings['use_mobile_message']) ? $popup_settings['use_mobile_message'] : 0,
   );
 
@@ -346,11 +327,7 @@ function eu_cookie_compliance_admin_form(array $form, array $form_state) {
     '#type' => 'textfield',
     '#title' => t('Mobile breakpoint'),
     '#default_value' => isset($popup_settings['mobile_breakpoint']) ? $popup_settings['mobile_breakpoint'] : 768,
-<<<<<<< HEAD
     '#field_suffix' => t('px'),
-=======
-    '#field_suffix' => ' ' . t('pixels'),
->>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
     '#size' => 4,
     '#maxlength' => 4,
     '#required' => FALSE,
@@ -401,17 +378,9 @@ function eu_cookie_compliance_admin_form(array $form, array $form_state) {
     ),
   );
 
-  $form['popup_message']['eu_cookie_compliance']['show_disagree_button'] = array(
-    '#type' => 'checkbox',
-    '#title' => t('Show "Cookie policy" and "More info" buttons'),
-    '#description' => t('If this option is checked, the Cookie policy button will be shown on the site. Disabling this option will hide both the "Cookie policy" button on the information banner and the "More info" button on the "Thank you" banner.'),
-    '#default_value' => isset($popup_settings['show_disagree_button']) ? $popup_settings['show_disagree_button'] : TRUE,
-  );
-
   $form['popup_message']['eu_cookie_compliance']['popup_disagree_button_message'] = array(
     '#type' => 'textfield',
     '#title' => t('Cookie policy button label'),
-<<<<<<< HEAD
     '#default_value' => isset($popup_settings['popup_disagree_button_message']) ? $popup_settings['popup_disagree_button_message'] : t('More info'),
     '#size' => 30,
     '#states' => array(
@@ -473,6 +442,9 @@ function eu_cookie_compliance_admin_form(array $form, array $form_state) {
     '#type' => 'checkbox',
     '#title' => t('Put the "Withdraw consent" button on the cookie information banner.'),
     '#default_value' => isset($popup_settings['withdraw_button_on_info_popup']) ? $popup_settings['withdraw_button_on_info_popup'] : FALSE,
+    '#states' => array(
+      'visible' => array('input[name="eu_cookie_compliance[method]"]' => array('value' => 'categories')),
+    ),
   );
 
   $form['withdraw_consent']['eu_cookie_compliance']['container'] = array(
@@ -501,18 +473,6 @@ function eu_cookie_compliance_admin_form(array $form, array $form_state) {
     '#title' => t('Withdraw consent button label'),
     '#default_value' => isset($popup_settings['withdraw_action_button_label']) ? $popup_settings['withdraw_action_button_label'] : '',
     '#description' => t('This button will withdraw consent when clicked.'),
-=======
-    '#default_value' => isset($popup_settings['popup_disagree_button_message']) ? $popup_settings['popup_disagree_button_message'] : t('No, give me more info'),
-    '#size' => 30,
-    '#states' => array(
-      'visible' => array(
-        'input[name="eu_cookie_compliance[show_disagree_button]"]' => array('checked' => TRUE),
-      ),
-      'required' => array(
-        'input[name="eu_cookie_compliance[show_disagree_button]"]' => array('checked' => TRUE),
-      ),
-    ),
->>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
   );
 
   $form['thank_you'] = array(
@@ -529,21 +489,13 @@ function eu_cookie_compliance_admin_form(array $form, array $form_state) {
 
   $form['thank_you']['eu_cookie_compliance']['popup_agreed_enabled'] = array(
     '#type' => 'checkbox',
-<<<<<<< HEAD
     '#title' => t('Enable "Thank you" banner.'),
-=======
-    '#title' => t('Enable thank you banner'),
->>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
     '#default_value' => isset($popup_settings['popup_agreed_enabled']) ? $popup_settings['popup_agreed_enabled'] : 1,
   );
 
   $form['thank_you']['eu_cookie_compliance']['popup_hide_agreed'] = array(
     '#type' => 'checkbox',
-<<<<<<< HEAD
     '#title' => t('Clicking hides "Thank you" banner.'),
-=======
-    '#title' => t('Clicking hides “Thank you” banner'),
->>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
     '#default_value' => isset($popup_settings['popup_hide_agreed']) ? $popup_settings['popup_hide_agreed'] : 0,
     '#description' => t('Clicking a link or button hides the thank you message automatically.'),
   );
@@ -552,7 +504,6 @@ function eu_cookie_compliance_admin_form(array $form, array $form_state) {
     '#type' => 'text_format',
     '#title' => t('Thank you banner message'),
     '#default_value' => isset($popup_settings['popup_agreed']['value']) ? $popup_settings['popup_agreed']['value'] : '',
-    '#required' => TRUE,
     '#format' => isset($popup_settings['popup_agreed']['format']) ? $popup_settings['popup_agreed']['format'] : $default_filter_format,
   );
 
@@ -561,22 +512,10 @@ function eu_cookie_compliance_admin_form(array $form, array $form_state) {
     '#title' => t('More info button label'),
     '#default_value' => isset($popup_settings['popup_find_more_button_message']) ? $popup_settings['popup_find_more_button_message'] : t('More info'),
     '#size' => 30,
-    '#required' => TRUE,
     '#states' => array(
       'visible' => array(
-<<<<<<< HEAD
         array('input[name="eu_cookie_compliance[show_disagree_button]"]' => array('checked' => TRUE)),
         array('input[name="eu_cookie_compliance[method]"]' => array('!value' => 'default')),
-      ),
-      'required' => array(
-        array('input[name="eu_cookie_compliance[show_disagree_button]"]' => array('checked' => TRUE)),
-        array('input[name="eu_cookie_compliance[method]"]' => array('!value' => 'default')),
-=======
-        'input[name="eu_cookie_compliance[show_disagree_button]"]' => array('checked' => TRUE),
-      ),
-      'required' => array(
-        'input[name="eu_cookie_compliance[show_disagree_button]"]' => array('checked' => TRUE),
->>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
       ),
     ),
   );
@@ -586,7 +525,6 @@ function eu_cookie_compliance_admin_form(array $form, array $form_state) {
     '#title' => t('Hide button label'),
     '#default_value' => isset($popup_settings['popup_hide_button_message']) ? $popup_settings['popup_hide_button_message'] : t('Hide'),
     '#size' => 30,
-    '#required' => TRUE,
   );
 
   $form['privacy'] = array(
@@ -621,10 +559,40 @@ function eu_cookie_compliance_admin_form(array $form, array $form_state) {
     );
   }
 
+  if (module_exists('translation')) {
+    $form['privacy']['eu_cookie_compliance']['popup_link_translate'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Try to translate the privacy policy link.'),
+      '#default_value' => isset($popup_settings['popup_link_translate']) ? $popup_settings['popup_link_translate'] : 0,
+      '#description' => t('Link needs to be an internal link to a node, i. e. node/123. System tries to get translations for this node using Content Translation from Drupal Core Translation module.'),
+    );
+  }
+
   $form['privacy']['eu_cookie_compliance']['popup_link_new_window'] = array(
     '#type' => 'checkbox',
     '#title' => t('Open privacy policy link in a new window.'),
     '#default_value' => isset($popup_settings['popup_link_new_window']) ? $popup_settings['popup_link_new_window'] : 1,
+  );
+
+  $form['version_set'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Cookie Policy Version'),
+    '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
+  );
+
+  $form['version_set']['eu_cookie_compliance'] = array(
+    '#type' => 'item',
+    '#tree' => TRUE,
+  );
+
+  $form['version_set']['eu_cookie_compliance']['cookie_policy_version'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Cookie Policy Version'),
+    '#title_display' => 'invisible',
+    '#description' => t('Change this value to make the cookie information banner reappear for all visitors. A typical usage of this field is to increase the value when the privacy policy has been changed.'),
+    '#default_value' => isset($popup_settings['cookie_policy_version']) ? $popup_settings['cookie_policy_version'] : '1.0.0',
+    '#required' => TRUE,
   );
 
   $form['appearance'] = array(
@@ -644,6 +612,15 @@ function eu_cookie_compliance_admin_form(array $form, array $form_state) {
   if (module_exists('jquery_colorpicker')) {
     $form_color_picker_type = 'jquery_colorpicker';
   }
+
+  $form['appearance']['eu_cookie_compliance']['containing_element'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Containing element'),
+    '#default_value' => isset($popup_settings['containing_element']) ? $popup_settings['containing_element'] : 'body',
+    '#maxlength' => 255,
+    '#required' => TRUE,
+    '#description' => t('Serves as the parent element to append cookie banner html to.'),
+  );
 
   $popup_position_options = array(
     'bottom' => 'Bottom',
@@ -695,11 +672,7 @@ function eu_cookie_compliance_admin_form(array $form, array $form_state) {
 
   $form['appearance']['eu_cookie_compliance']['popup_height'] = array(
     '#type' => 'textfield',
-<<<<<<< HEAD
     '#title' => t('Banner height'),
-=======
-    '#title' => t('Banner height in pixels'),
->>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
     '#default_value' => isset($popup_settings['popup_height']) ? $popup_settings['popup_height'] : '',
     '#field_suffix' => t('px'),
     '#size' => 5,
@@ -727,7 +700,6 @@ function eu_cookie_compliance_admin_form(array $form, array $form_state) {
         "input[name='eu_cookie_compliance[use_bare_css]']" => array('checked' => FALSE),
       ),
     ),
-<<<<<<< HEAD
   );
 
   $form['eu_only'] = array(
@@ -737,17 +709,6 @@ function eu_cookie_compliance_admin_form(array $form, array $form_state) {
     '#title' => t('EU countries'),
   );
 
-=======
-  );
-
-  $form['eu_only'] = array(
-    '#type' => 'fieldset',
-    '#collapsible' => TRUE,
-    '#collapsed' => FALSE,
-    '#title' => t('EU countries'),
-  );
-
->>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
   $form['eu_only']['eu_cookie_compliance'] = array(
     '#type' => 'item',
     '#tree' => TRUE,
@@ -756,21 +717,13 @@ function eu_cookie_compliance_admin_form(array $form, array $form_state) {
   if (module_exists('geoip') || module_exists('smart_ip') || extension_loaded('geoip')) {
     $form['eu_only']['eu_cookie_compliance']['eu_only'] = array(
       '#type' => 'checkbox',
-<<<<<<< HEAD
       '#title' => t('Only display banner in EU countries.'),
-=======
-      '#title' => t('Only display banner in EU countries'),
->>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
       '#default_value' => isset($popup_settings['eu_only']) ? $popup_settings['eu_only'] : 0,
       '#description' => t('You can limit the number of countries for which the banner is displayed by checking this option. If you want to provide a list of countries other than current EU states, you may place an array in <code>$conf[\'eu_cookie_compliance_eu_countries\']</code> in your <code>settings.php</code> file. Using the <a href="http://drupal.org/project/geoip">geoip</a> module or the <a href="http://drupal.org/project/smart_ip">smart_ip</a> module or the <a href="http://www.php.net/manual/en/function.geoip-country-code-by-name.php">geoip_country_code_by_name()</a> PHP function.'),
     );
     $form['eu_only']['eu_cookie_compliance']['eu_only_js'] = array(
       '#type' => 'checkbox',
-<<<<<<< HEAD
       '#title' => t('JavaScript-based (for Varnish): Only display banner in EU countries.'),
-=======
-      '#title' => t('JavaScript-based (for Varnish): Only display banner in EU countries'),
->>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
       '#default_value' => isset($popup_settings['eu_only_js']) ? $popup_settings['eu_only_js'] : 0,
       '#description' => t('This option also works for visitors that bypass Varnish. You can limit the number of countries for which the banner is displayed by checking this option. If you want to provide a list of countries other than current EU states, you may place an array in <code>$conf[\'eu_cookie_compliance_eu_countries\']</code> in your <code>settings.php</code> file. Using the <a href="http://drupal.org/project/geoip">geoip</a> module or the <a href="http://drupal.org/project/smart_ip">smart_ip</a> module or the <a href="http://www.php.net/manual/en/function.geoip-country-code-by-name.php">geoip_country_code_by_name()</a> PHP function.'),
     );
@@ -802,12 +755,8 @@ function eu_cookie_compliance_admin_form(array $form, array $form_state) {
 
   $form['advanced']['eu_cookie_compliance']['popup_delay'] = array(
     '#type' => 'textfield',
-<<<<<<< HEAD
     '#title' => t('Banner sliding animation time'),
     '#field_suffix' => t('ms'),
-=======
-    '#title' => t('Banner sliding animation time in milliseconds'),
->>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
     '#default_value' => isset($popup_settings['popup_delay']) ? $popup_settings['popup_delay'] : 1000,
     '#size' => 5,
     '#maxlength' => 5,
@@ -816,22 +765,14 @@ function eu_cookie_compliance_admin_form(array $form, array $form_state) {
 
   $form['advanced']['eu_cookie_compliance']['disagree_do_not_show_popup'] = array(
     '#type' => 'checkbox',
-<<<<<<< HEAD
     '#title' => t('Do not show cookie policy when the user clicks the "Cookie policy" button.'),
-=======
-    '#title' => t('Do not show cookie policy when the user clicks the “Cookie policy” button.'),
->>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
     '#default_value' => isset($popup_settings['disagree_do_not_show_popup']) ? $popup_settings['disagree_do_not_show_popup'] : 0,
     '#description' => t('Enabling this will make it possible to record the fact that the user disagrees without the user having to see the privacy policy.'),
   );
 
   $form['advanced']['eu_cookie_compliance']['reload_page'] = array(
     '#type' => 'checkbox',
-<<<<<<< HEAD
     '#title' => t('Reload page after user clicks the "Agree" button.'),
-=======
-    '#title' => t('Reload page after user clicks the “Agree” button.'),
->>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
     '#default_value' => isset($popup_settings['reload_page']) ? $popup_settings['reload_page'] : 0,
   );
 
@@ -854,7 +795,6 @@ function eu_cookie_compliance_admin_form(array $form, array $form_state) {
     '#description' => t('Sets the domain of the cookie to a specific url. Used when you need consistency across domains. This is language independent. Note: Make sure you actually enter a domain that the browser can make use of. For example if your site is accessible at both www.domain.com and domain.com, you will not be able to hide the banner at domain.com if your value for this field is www.domain.com.'),
   );
 
-<<<<<<< HEAD
   $form['advanced']['eu_cookie_compliance_domain_all_sites'] = array(
     '#type' => 'checkbox',
     '#title' => t('Allow the cookie to be set for all sites on the same domain.'),
@@ -862,17 +802,11 @@ function eu_cookie_compliance_admin_form(array $form, array $form_state) {
     '#description' => t("Sets the path of the cookie to '/' so that the cookie works across all sites on the domain."),
   );
 
-=======
->>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
   $form['advanced']['eu_cookie_compliance']['cookie_name'] = array(
     '#type' => 'textfield',
     '#title' => t('Cookie name'),
     '#default_value' => isset($popup_settings['cookie_name']) ? $popup_settings['cookie_name'] : '',
-<<<<<<< HEAD
     '#description' => t('Sets the cookie name that is used to check whether the user has agreed or not. This option is useful when policies change and the user needs to agree again.'),
-=======
-    '#description' => t('Sets the cookie name that is used to check whether the user has agreed or not.  This option is useful when policies change and the user needs to agree again.'),
->>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
   );
 
   $form['advanced']['eu_cookie_compliance_cookie_lifetime'] = array(
@@ -933,14 +867,10 @@ function eu_cookie_compliance_admin_form(array $form, array $form_state) {
   $form['advanced']['eu_cookie_compliance']['script_scope'] = array(
     '#type' => 'select',
     '#title' => t('Script scope'),
-<<<<<<< HEAD
     '#options' => array(
       'header' => t('Header (Scripts variable)'),
       'footer' => t('Footer (Page bottom variable)'),
     ),
-=======
-    '#options' => array('header' => t('Header (Scripts variable)'), 'footer' => t('Footer (Page bottom variable)')),
->>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
     '#default_value' => isset($popup_settings['script_scope']) ? $popup_settings['script_scope'] : 'footer',
     '#description' => t('If you want to use the hasAgreed() function from other scripts, you may want to change this to header.'),
   );
@@ -952,7 +882,6 @@ function eu_cookie_compliance_admin_form(array $form, array $form_state) {
     '#description' => t('Enable this if you want to place the banner as the first HTML element on the page. This will make it possible for screen readers to close the banner without tabbing through all links on the page.'),
   );
 
-<<<<<<< HEAD
   $form['advanced']['eu_cookie_compliance']['cookie_session'] = array(
     '#type' => 'checkbox',
     '#title' => t('Prompt for consent (from the same user) at every new browser session.'),
@@ -960,10 +889,10 @@ function eu_cookie_compliance_admin_form(array $form, array $form_state) {
     '#default_value' => isset($popup_settings['cookie_session']) ? $popup_settings['cookie_session'] : FALSE,
   );
 
-=======
->>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
   $form = system_settings_form($form);
   $form['#submit'][] = 'eu_cookie_compliance_admin_form_submit';
+
+  drupal_add_js(drupal_get_path('module', 'eu_cookie_compliance') . '/js/eu_cookie_compliance_admin.js');
 
   return $form;
 }
@@ -977,6 +906,20 @@ function eu_cookie_compliance_admin_form(array $form, array $form_state) {
  *   Form state array.
  */
 function eu_cookie_compliance_admin_form_validate(array $form, array &$form_state) {
+  if ($form_state['values']['eu_cookie_compliance']['popup_agreed_enabled']) {
+    if (empty($form_state['values']['eu_cookie_compliance']['popup_agreed']['value'])) {
+      form_set_error('eu_cookie_compliance][popup_agreed', t('@name field is required', array('@name' => '"Thank you" banner message')));
+    }
+
+    if (empty($form_state['values']['eu_cookie_compliance']['popup_find_more_button_message'])) {
+      form_set_error('eu_cookie_compliance][popup_find_more_button_message', t('@name field is required', array('@name' => 'More info button label')));
+    }
+
+    if (empty($form_state['values']['eu_cookie_compliance']['popup_hide_button_message'])) {
+      form_set_error('eu_cookie_compliance][popup_hide_button_message', t('@name field is required', array('@name' => 'Hide button label')));
+    }
+  }
+
   if ((!preg_match('/^[1-9][0-9]{0,4}$/', $form_state['values']['eu_cookie_compliance']['popup_delay'])) && ($form_state['values']['eu_cookie_compliance']['popup_delay'] != '0')) {
     form_set_error('eu_cookie_compliance][popup_delay', t('Delay must be an integer value.'));
   }
@@ -984,7 +927,7 @@ function eu_cookie_compliance_admin_form_validate(array $form, array &$form_stat
     if (!preg_match('/^[1-9][0-9]{0,4}$/', $form_state['values']['eu_cookie_compliance']['popup_height']) && !empty($form_state['values']['eu_cookie_compliance']['popup_height'])) {
       form_set_error('eu_cookie_compliance][popup_height', t('Height must be an integer value .'));
     }
-    if (!preg_match('/^[1-9][0-9]{1,4}\%?$/', $form_state['values']['eu_cookie_compliance']['popup_width'])) {
+    if (!preg_match('/^[1-9][0-9]{1,4}%?$/', $form_state['values']['eu_cookie_compliance']['popup_width'])) {
       form_set_error('eu_cookie_compliance][popup_width', t('Width must be an integer or a percentage value.'));
     }
   }
@@ -1003,38 +946,31 @@ function eu_cookie_compliance_admin_form_validate(array $form, array &$form_stat
     form_set_error('eu_cookie_compliance][popup_link', t('Looks like your privacy policy link contains a fragment #. You should make this an absolute url, e.g. @link', array('@link' => $popup_link)));
   }
 
-  if ($popup_link == '<front>' && $form_state['values']['eu_cookie_compliance']['show_disagree_button']) {
+  if ($popup_link === '<front>' && $form_state['values']['eu_cookie_compliance']['show_disagree_button']) {
     drupal_set_message(t('Your privacy policy link is pointing at the front page. This is the default value after installation, and unless your privacy policy is actually posted at the front page, you will need to create a separate page for the privacy policy and link to that page.'), 'error');
-<<<<<<< HEAD
   }
 
   // Handle legacy settings for popup_position:
-  if ($form_state['values']['eu_cookie_compliance']['popup_position'] == 'top') {
+  if ($form_state['values']['eu_cookie_compliance']['popup_position'] === 'top') {
     $form_state['values']['eu_cookie_compliance']['popup_position'] = TRUE;
   }
-=======
-  }
-
-  // Handle legacy settings for popup_position:
-  if ($form_state['values']['eu_cookie_compliance']['popup_position'] == 'top') {
-    $form_state['values']['eu_cookie_compliance']['popup_position'] = TRUE;
-  }
->>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
-  elseif ($form_state['values']['eu_cookie_compliance']['popup_position'] == 'bottom') {
+  elseif ($form_state['values']['eu_cookie_compliance']['popup_position'] === 'bottom') {
     $form_state['values']['eu_cookie_compliance']['popup_position'] = FALSE;
   }
 
-<<<<<<< HEAD
   $method = $form_state['values']['eu_cookie_compliance']['method'];
 
-  if ($method != 'default') {
+  // Fix possible urlencoded strings (#3171654).
+  $form_state['values']['eu_cookie_compliance']['disabled_javascripts'] = str_replace('%3A', ':', $form_state['values']['eu_cookie_compliance']['disabled_javascripts']);
+
+  if ($method !== 'default') {
     $form_state['values']['eu_cookie_compliance']['show_disagree_button'] = TRUE;
     $form_state['values']['eu_cookie_compliance']['popup_clicking_confirmation'] = FALSE;
     $form_state['values']['eu_cookie_compliance']['popup_scrolling_confirmation'] = FALSE;
     $form_state['values']['eu_cookie_compliance']['info_template'] = 'new';
   }
   else {
-    $form_state['values']['eu_cookie_compliance']['whitelisted_cookies'] = '';
+    $form_state['values']['eu_cookie_compliance']['allowed_cookies'] = '';
     $form_state['values']['eu_cookie_compliance']['disabled_javascripts'] = '';
     $form_state['values']['eu_cookie_compliance']['withdraw_enabled'] = FALSE;
   }
@@ -1044,8 +980,6 @@ function eu_cookie_compliance_admin_form_validate(array $form, array &$form_stat
     form_set_error('eu_cookie_compliance][cookie_name', t('Invalid cookie name, please remove any special characters and try again.'));
   }
 
-=======
->>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
   eu_cookie_compliance_clear_caches();
 }
 
@@ -1057,11 +991,7 @@ function eu_cookie_compliance_admin_form_validate(array $form, array &$form_stat
  * @param array $form_state
  *   Form state array.
  */
-<<<<<<< HEAD
 function eu_cookie_compliance_admin_form_submit(array $form, array &$form_state) {
-=======
-function eu_cookie_compliance_admin_form_submit($form, &$form_state) {
->>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
   $permission = 'display EU Cookie Compliance popup';
   $roles = $form_state['values']['see_the_banner'];
   foreach ($roles as $rid => $value) {

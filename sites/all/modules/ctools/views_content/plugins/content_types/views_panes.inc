@@ -145,10 +145,6 @@ function views_content_views_panes_content_type_render($subtype, $conf, $panel_a
 
   $view->display_handler->set_pane_conf($conf);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 5f701d37e... Upgrade Backup & ctools modules. also added settings.php file.
   $args = array();
   $arguments = $view->display_handler->get_option('arguments');
 
@@ -183,8 +179,6 @@ function views_content_views_panes_content_type_render($subtype, $conf, $panel_a
         $args[] = (isset($conf['arguments'][$id])  && $conf['arguments'][$id] !== '') ? ctools_context_keyword_substitute($conf['arguments'][$id], array(), $contexts) : NULL;
         break;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
       case 'wildcard':
         // Put in the wildcard.
         $args[] = isset($arguments[$id]['wildcard']) ? $arguments[$id]['wildcard'] : '*';
@@ -200,41 +194,12 @@ function views_content_views_panes_content_type_render($subtype, $conf, $panel_a
   }
 
   // Remove any trailing NULL arguments as these are non-args:
-=======
-     case 'wildcard':
-=======
-      case 'wildcard':
->>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
-        // Put in the wildcard.
-        $args[] = isset($arguments[$id]['wildcard']) ? $arguments[$id]['wildcard'] : '*';
-        break;
-
-      case 'none':
-      default:
-        // Put in NULL.
-        // views.module knows what to do with NULL (or missing) arguments.
-        $args[] = NULL;
-        break;
-    }
-  }
-
-<<<<<<< HEAD
-  // remove any trailing NULL arguments as these are non-args:
->>>>>>> 5f701d37e... Upgrade Backup & ctools modules. also added settings.php file.
-=======
-  // Remove any trailing NULL arguments as these are non-args:
->>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
   while (count($args) && end($args) === NULL) {
     array_pop($args);
   }
 
   $view->set_arguments($args);
 
-<<<<<<< HEAD
-=======
->>>>>>> f0da0c767... Upload modules,themes and libraries
-=======
->>>>>>> 5f701d37e... Upgrade Backup & ctools modules. also added settings.php file.
   $allow = $view->display_handler->get_option('allow');
 
   if (!empty($conf['path'])) {
@@ -243,8 +208,6 @@ function views_content_views_panes_content_type_render($subtype, $conf, $panel_a
   if ($allow['path_override'] && !empty($conf['path'])) {
     $view->override_path = $conf['path'];
   }
-<<<<<<< HEAD
-<<<<<<< HEAD
   elseif ($path = $view->display_handler->get_option('inherit_panels_path')) {
     if (drupal_is_front_page()) {
       $view->override_path = '';
@@ -252,22 +215,6 @@ function views_content_views_panes_content_type_render($subtype, $conf, $panel_a
     else {
       $view->override_path = $_GET['q'];
     }
-=======
-  else if ($path = $view->display_handler->get_option('inherit_panels_path')) {
-<<<<<<< HEAD
-    $view->override_path = $_GET['q'];
->>>>>>> f0da0c767... Upload modules,themes and libraries
-=======
-=======
-  elseif ($path = $view->display_handler->get_option('inherit_panels_path')) {
->>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
-    if (drupal_is_front_page()) {
-      $view->override_path = '';
-    }
-    else {
-      $view->override_path = $_GET['q'];
-    }
->>>>>>> 5f701d37e... Upgrade Backup & ctools modules. also added settings.php file.
   }
 
   $block = new stdClass();
@@ -279,31 +226,14 @@ function views_content_views_panes_content_type_render($subtype, $conf, $panel_a
     $block->title_link = $view->get_url();
   }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
   // More link.
-=======
-  // more link
->>>>>>> 5f701d37e... Upgrade Backup & ctools modules. also added settings.php file.
-=======
-  // More link.
->>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
   if ($allow['more_link']) {
     if (empty($conf['more_link'])) {
       $view->display_handler->set_option('use_more', FALSE);
     }
     else {
       $view->display_handler->set_option('use_more', TRUE);
-<<<<<<< HEAD
-<<<<<<< HEAD
       // Make sure the view runs the count query so we know whether or not the
-=======
-      // make sure the view runs the count query so we know whether or not the
->>>>>>> 5f701d37e... Upgrade Backup & ctools modules. also added settings.php file.
-=======
-      // Make sure the view runs the count query so we know whether or not the
->>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
       // more link applies.
       $view->get_total_rows = TRUE;
     }
@@ -357,11 +287,6 @@ function views_content_views_panes_content_type_render($subtype, $conf, $panel_a
     $view->set_exposed_input($conf['exposed']);
   }
 
-<<<<<<< HEAD
-=======
->>>>>>> f0da0c767... Upload modules,themes and libraries
-=======
->>>>>>> 5f701d37e... Upgrade Backup & ctools modules. also added settings.php file.
   $stored_feeds = drupal_add_feed();
 
   $block->content = $view->preview();

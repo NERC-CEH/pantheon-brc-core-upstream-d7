@@ -32,13 +32,9 @@ class views_plugin_display extends views_plugin {
   public $view = NULL;
 
   /**
-<<<<<<< HEAD
    * List of handlers for this display.
    *
    * @var array
-=======
-   *
->>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
    */
   public $handlers = array();
 
@@ -224,11 +220,7 @@ class views_plugin_display extends views_plugin {
     // Convert filter groups.
     $filter_groups = $this->get_option('filter_groups');
     // Only convert if it wasn't converted yet, which is the case if there is a
-<<<<<<< HEAD
     // '0' group.
-=======
-    // 0 group.
->>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
     if (isset($filter_groups['groups'][0])) {
       // Update filter groups.
       $filter_groups['groups'] = views_array_key_plus($filter_groups['groups']);
@@ -322,7 +314,7 @@ class views_plugin_display extends views_plugin {
         }
       }
       $pager = $this->get_plugin('pager');
-      if (isset($pager) && $pager->uses_exposed()) {
+      if ($pager && $pager->uses_exposed()) {
         $this->has_exposed = TRUE;
         return TRUE;
       }
@@ -1084,7 +1076,6 @@ class views_plugin_display extends views_plugin {
   /**
    * List of fields for the current display with the associated relationship.
    *
-<<<<<<< HEAD
    * @param bool $groupable_only
    *   Return only an array of field labels from handler that return TRUE from
    *   use_string_group_by method.
@@ -1092,15 +1083,6 @@ class views_plugin_display extends views_plugin {
   public function get_field_labels() {
     // Use func_get_arg so the function signature isn't amended but we can still
     // pass TRUE into the function to filter by groupable handlers.
-=======
-   * @param  $groupable_only
-   *  Return only an array of field labels from handler that return TRUE
-   *  from use_string_group_by method.
-   */
-  public function get_field_labels() {
-    // Use func_get_arg so the function signature isn't amended but we can
-    // still pass TRUE into the function to filter by groupable handlers.
->>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
     $args = func_get_args();
     $groupable_only = isset($args[0]) ? $args[0] : FALSE;
 
@@ -1418,9 +1400,8 @@ class views_plugin_display extends views_plugin {
       '***DEFAULT_LANGUAGE***' => t("Default site language"),
       LANGUAGE_NONE => t('Language neutral'),
     );
-    if (module_exists('locale')) {
-      $languages = array_merge($languages, locale_language_list());
-    }
+    $languages = array_merge($languages, views_language_list());
+
     $field_language = array();
     $options['field_language'] = array(
       'category' => 'other',
@@ -3087,11 +3068,7 @@ class views_plugin_display extends views_plugin {
     $output = '';
 
     // Cut the 's' off because the data is stored as the plural form but we need
-<<<<<<< HEAD
     // the singular form.
-=======
-    // the singular form. Who designed that anyway? Oh yeah, I did. :(
->>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
     if ($option != 'header' && $option != 'footer' && $option != 'empty') {
       $type = substr($option, 0, -1);
     }
@@ -3252,11 +3229,7 @@ class views_plugin_display extends views_plugin {
     $output = '';
 
     // Cut the 's' off because the data is stored as the plural form but we need
-<<<<<<< HEAD
     // the singular form.
-=======
-    // the singular form. Who designed that anyway? Oh yeah, I did. :(
->>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
     if ($option != 'header' && $option != 'footer' && $option != 'empty') {
       $type = substr($option, 0, -1);
     }
@@ -3288,7 +3261,6 @@ class views_plugin_display extends views_plugin {
   /**
    * Provide some helpful text for the arguments.
    *
-<<<<<<< HEAD
    * The result should contain of an array with:
    * - filter value present: The title of the fieldset in the argument where
    *   you can configure what should be done with a given argument.
@@ -3296,16 +3268,6 @@ class views_plugin_display extends views_plugin {
    *   you can configure what should be done if the argument does not exist.
    * - description: A description about how arguments comes to the display. For
    *   example blocks don't get it from url.
-=======
-   * The result should contain of an array with
-   *   - filter value present: The title of the fieldset in the argument
-   *     where you can configure what should be done with a given argument.
-   *   - filter value not present: The tiel of the fieldset in the argument
-   *     where you can configure what should be done if the argument does not
-   *     exist.
-   *   - description: A description about how arguments comes to the display.
-   *     For example blocks don't get it from url.
->>>>>>> 4710b6f30... Update modules to latest versions.  Issue: CEHWS-1221
    */
   public function get_argument_text() {
     return array(
