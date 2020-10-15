@@ -43,6 +43,7 @@ function ctools_terms_from_node_context($context, $conf) {
         }
       }
     }
+<<<<<<< HEAD
     elseif ($field_info['type'] == 'entityreference' && $field_info['settings']['target_type'] == 'taxonomy_term') {
       $items = field_get_items('node', $node, $name);
       if (is_array($items)) {
@@ -59,6 +60,8 @@ function ctools_terms_from_node_context($context, $conf) {
         }
       }
     }
+=======
+>>>>>>> f0da0c767... Upload modules,themes and libraries
   }
 
   if (!empty($terms)) {
