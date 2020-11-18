@@ -143,8 +143,11 @@ function views_content_views_panes_content_type_render($subtype, $conf, $panel_a
     return;
   }
 
+  $conf['pane_contexts'] = $contexts;
+  $conf['panel_args'] = $panel_args;
   $view->display_handler->set_pane_conf($conf);
 
+<<<<<<< HEAD
   $args = array();
   $arguments = $view->display_handler->get_option('arguments');
 
@@ -200,14 +203,13 @@ function views_content_views_panes_content_type_render($subtype, $conf, $panel_a
 
   $view->set_arguments($args);
 
+=======
+>>>>>>> 9d9f2490f... Upload modules,themes and libraries
   $allow = $view->display_handler->get_option('allow');
-
-  if (!empty($conf['path'])) {
-    $conf['path'] = ctools_context_keyword_substitute($conf['path'], array(), $contexts);
-  }
   if ($allow['path_override'] && !empty($conf['path'])) {
     $view->override_path = $conf['path'];
   }
+<<<<<<< HEAD
   elseif ($path = $view->display_handler->get_option('inherit_panels_path')) {
     if (drupal_is_front_page()) {
       $view->override_path = '';
@@ -215,6 +217,10 @@ function views_content_views_panes_content_type_render($subtype, $conf, $panel_a
     else {
       $view->override_path = $_GET['q'];
     }
+=======
+  else if ($path = $view->display_handler->get_option('inherit_panels_path')) {
+    $view->override_path = $_GET['q'];
+>>>>>>> 9d9f2490f... Upload modules,themes and libraries
   }
 
   $block = new stdClass();
@@ -226,6 +232,7 @@ function views_content_views_panes_content_type_render($subtype, $conf, $panel_a
     $block->title_link = $view->get_url();
   }
 
+<<<<<<< HEAD
   // More link.
   if ($allow['more_link']) {
     if (empty($conf['more_link'])) {
@@ -287,6 +294,8 @@ function views_content_views_panes_content_type_render($subtype, $conf, $panel_a
     $view->set_exposed_input($conf['exposed']);
   }
 
+=======
+>>>>>>> 9d9f2490f... Upload modules,themes and libraries
   $stored_feeds = drupal_add_feed();
 
   $block->content = $view->preview();
