@@ -16,31 +16,11 @@ files[] = tests/ctools.test
 files[] = tests/math_expression.test
 files[] = tests/math_expression_stack.test
 files[] = tests/object_cache.test
-<<<<<<< HEAD
-<<<<<<< HEAD
 files[] = tests/object_cache_unit.test
 files[] = tests/page_tokens.test
 
-; Information added by Drupal.org packaging script on 2019-02-08
-version = "7.x-1.15"
+; Information added by Drupal.org packaging script on 2020-10-23
+version = "7.x-1.17"
 core = "7.x"
 project = "ctools"
-datestamp = "1549603691"
-=======
-=======
-files[] = tests/object_cache_unit.test
-files[] = tests/page_tokens.test
-<<<<<<< HEAD
-files[] = tests/uuid_with_uuid.test
-files[] = tests/uuid_without_uuid.test
->>>>>>> 847aeaa3b... Upgrade Backup & ctools modules. also added settings.php file.
-=======
->>>>>>> 5870f23e3... Update modules to latest versions.  Issue: CEHWS-1221
-
-; Information added by Drupal.org packaging script on 2018-02-24
-version = "7.x-1.14"
-core = "7.x"
-project = "ctools"
-datestamp = "1519455788"
-
->>>>>>> 9d9f2490f... Upload modules,themes and libraries
+datestamp = "1603490551"

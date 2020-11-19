@@ -1598,11 +1598,7 @@ function views_ui_get_display_tab_details($view, $display) {
   $is_enabled = $display->handler->get_option('enabled');
 
   if (!$is_display_deleted && $is_deletable && !$is_default) {
-<<<<<<< HEAD
     $prefix = '<div class="ctools-no-js ctools-button ctools-dropbutton"><div class="ctools-link"><a href="#" class="ctools-twisty ctools-text"><span class="element-invisible">open</span></a></div><div class="ctools-content"><ul class="horizontal right actions">';
-=======
-    $prefix = '<div class="ctools-no-js ctools-button ctools-dropbutton"><div class="ctools-link"><a href="#" class="ctools-twisty ctools-text">open</a></div><div class="ctools-content"><ul class="horizontal right actions">';
->>>>>>> 5870f23e3... Update modules to latest versions.  Issue: CEHWS-1221
     $suffix = '</ul></div></div>';
     $item_element = 'li';
   }
@@ -3007,12 +3003,6 @@ function views_ui_ajax_form($js, $key, $view, $display_id = '') {
   }
 
   views_include('ajax');
-<<<<<<< HEAD
-=======
-  $args = func_get_args();
-  // Remove the known args.
-  array_splice($args, 0, 4);
->>>>>>> 5870f23e3... Update modules to latest versions.  Issue: CEHWS-1221
 
   $form_state = views_ui_build_form_state($js, $key, $view, $display_id, $args);
   // check to see if this is the top form of the stack. If it is, pop
@@ -3181,11 +3171,7 @@ function views_ui_reorder_displays_form($form, &$form_state) {
   $form['#title'] = t('Displays Reorder');
   $form['#section'] = 'reorder';
 
-<<<<<<< HEAD
   // Add JavaScript settings that will be added via $.extend for tabledragging.
-=======
-  // Add javascript settings that will be added via $.extend for tabledragging.
->>>>>>> 5870f23e3... Update modules to latest versions.  Issue: CEHWS-1221
   $form['#js']['tableDrag']['reorder-displays']['weight'][0] = array(
     'target' => 'weight',
     'source' => NULL,
@@ -3568,11 +3554,7 @@ function views_ui_rearrange_form($form, &$form_state) {
     );
   }
 
-<<<<<<< HEAD
   // Add JavaScript settings that will be added via $.extend for tabledragging.
-=======
-  // Add javascript settings that will be added via $.extend for tabledragging.
->>>>>>> 5870f23e3... Update modules to latest versions.  Issue: CEHWS-1221
   $form['#js']['tableDrag']['arrange']['weight'][0] = array(
     'target' => 'weight',
     'source' => NULL,

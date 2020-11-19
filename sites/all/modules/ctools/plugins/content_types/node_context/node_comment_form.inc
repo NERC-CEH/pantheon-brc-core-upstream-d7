@@ -27,19 +27,7 @@ function ctools_node_comment_form_content_type_render($subtype, $conf, $panel_ar
   $node = clone $context->data;
   $block = new stdClass();
   $block->module = 'comments';
-<<<<<<< HEAD
-<<<<<<< HEAD
   $block->delta = $node->nid;
-=======
-  $block->delta  = $node->nid;
-<<<<<<< HEAD
-
->>>>>>> 9d9f2490f... Upload modules,themes and libraries
-=======
->>>>>>> 847aeaa3b... Upgrade Backup & ctools modules. also added settings.php file.
-=======
-  $block->delta = $node->nid;
->>>>>>> 5870f23e3... Update modules to latest versions.  Issue: CEHWS-1221
   $block->title = t('Add comment');
 
   if ($node->comment == COMMENT_NODE_OPEN) {

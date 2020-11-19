@@ -227,19 +227,11 @@ function views_revert_allviews($views) {
 
 /**
  * Revert a specified view.
-<<<<<<< HEAD
  *
  * Checks on wether or not the view is overridden is handled in
  * views_revert_views_revert(). We perform a check here anyway in case someone
  * somehow calls this function on their own...
  *
-=======
- *
- * Checks on wether or not the view is overridden is handled in
- * views_revert_views_revert(). We perform a check here anyway in case someone
- * somehow calls this function on their own...
- *
->>>>>>> 5870f23e3... Update modules to latest versions.  Issue: CEHWS-1221
  * @param object $view
  *   The view object to be reverted.
  */

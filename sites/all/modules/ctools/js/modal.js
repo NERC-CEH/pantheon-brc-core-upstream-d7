@@ -299,6 +299,7 @@
     // content. This is helpful for allowing users to see error messages at the
     // top of a form, etc.
     $('#modal-content').html(response.output).scrollTop(0);
+    $(document).trigger('CToolsAttachBehaviors', $('#modalContent'));
 
     // Attach behaviors within a modal dialog.
     var settings = response.settings || ajax.settings || Drupal.settings;
@@ -554,16 +555,8 @@
 
     // Create our content div, get the dimensions, and hide it
     var modalContent = $('#modalContent').css('top','-1000px');
-<<<<<<< HEAD
-<<<<<<< HEAD
     var $modalHeader = modalContent.find('.modal-header');
     var mdcTop = wt + Math.max((winHeight / 2) - (modalContent.outerHeight() / 2), 0);
-=======
-=======
-    var $modalHeader = modalContent.find('.modal-header');
->>>>>>> 847aeaa3b... Upgrade Backup & ctools modules. also added settings.php file.
-    var mdcTop = wt + ( winHeight / 2 ) - (  modalContent.outerHeight() / 2);
->>>>>>> 9d9f2490f... Upload modules,themes and libraries
     var mdcLeft = ( winWidth / 2 ) - ( modalContent.outerWidth() / 2);
     $('#modalBackdrop').css(css).css('top', 0).css('height', docHeight + 'px').css('width', docWidth + 'px').show();
     modalContent.css({top: mdcTop + 'px', left: mdcLeft + 'px'}).hide()[animation](speed);
@@ -595,17 +588,8 @@
       $('body').unbind( 'focus', modalEventHandler);
       $('body').unbind( 'keypress', modalEventHandler );
       $('body').unbind( 'keydown', modalTabTrapHandler );
-<<<<<<< HEAD
-<<<<<<< HEAD
       $('.close', $modalHeader).unbind('click', modalContentClose);
       $(document).unbind('keydown', modalEventEscapeCloseHandler);
-=======
-      $('.close').unbind('click', modalContentClose);
-=======
-      $('.close', $modalHeader).unbind('click', modalContentClose);
->>>>>>> 847aeaa3b... Upgrade Backup & ctools modules. also added settings.php file.
-      $('body').unbind('keypress', modalEventEscapeCloseHandler);
->>>>>>> 9d9f2490f... Upload modules,themes and libraries
       $(document).trigger('CToolsDetachBehaviors', $('#modalContent'));
 
       // Closing animation.

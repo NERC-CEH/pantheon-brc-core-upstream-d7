@@ -4,6 +4,7 @@
  * The plugin that handles a panel_pane.
  */
 class views_content_plugin_display_panel_pane extends views_plugin_display {
+
   /**
    * If this variable is true, this display counts as a panel pane. We use
    * this variable so that other modules can create alternate pane displays.
@@ -11,7 +12,9 @@ class views_content_plugin_display_panel_pane extends views_plugin_display {
   public $panel_pane_display = TRUE;
   public $has_pane_conf = NULL;
 
-
+  /**
+   * {@inheritdoc}
+   */
   public function option_definition() {
     $options = parent::option_definition();
 
@@ -50,21 +53,8 @@ class views_content_plugin_display_panel_pane extends views_plugin_display {
     return isset($this->has_pane_conf);
   }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 
   public function set_pane_conf($conf = array()) {
-=======
-  function set_pane_conf($conf = array(), $set_cache = TRUE) {
->>>>>>> 9d9f2490f... Upload modules,themes and libraries
-=======
-  function set_pane_conf($conf = array()) {
->>>>>>> 847aeaa3b... Upgrade Backup & ctools modules. also added settings.php file.
-=======
-
-  public function set_pane_conf($conf = array()) {
->>>>>>> 5870f23e3... Update modules to latest versions.  Issue: CEHWS-1221
     $this->set_option('pane_conf', $conf);
     $this->has_pane_conf = TRUE;
   }
@@ -395,7 +385,31 @@ class views_content_plugin_display_panel_pane extends views_plugin_display {
     return (bool) $conf['more_link'];
   }
 
+  /**
+   * {@inheritdoc}
+   */
+  public function has_path() {
+    return TRUE;
+  }
 
+  /**
+   * {@inheritdoc}
+   */
+  public function validate() {
+    // To bypass the validation of the path from Views we temporarily
+    // override the path if one doesn't exist because it will be generated
+    // by panels though we want the rest of the validations to run.
+    $path = $this->get_path();
+    if (!$path) {
+      $this->set_option('path', $_GET['q']);
+    }
+
+    return parent::validate();
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public function get_path() {
     if (empty($this->view->override_path)) {
       return parent::get_path();

@@ -15,19 +15,6 @@ class views_handler_field_user_name extends views_handler_field_user {
   /**
    * {@inheritdoc}
    */
-<<<<<<< HEAD
-=======
-  public function init(&$view, &$data) {
-    parent::init($view, $data);
-    if (!empty($this->options['overwrite_anonymous']) || !empty($this->options['format_username'])) {
-      $this->additional_fields['uid'] = 'uid';
-    }
-  }
-
-  /**
-   * {@inheritdoc}
-   */
->>>>>>> 5870f23e3... Update modules to latest versions.  Issue: CEHWS-1221
   public function option_definition() {
     $options = parent::option_definition();
 

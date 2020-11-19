@@ -5,18 +5,9 @@
  */
 class CtoolsExportCrudTestCase extends DrupalWebTestCase {
 
-<<<<<<< HEAD
-<<<<<<< HEAD
   /**
    * {@inheritdoc}
    */
-=======
->>>>>>> 9d9f2490f... Upload modules,themes and libraries
-=======
-  /**
-   * {@inheritdoc}
-   */
->>>>>>> 847aeaa3b... Upgrade Backup & ctools modules. also added settings.php file.
   public static function getInfo() {
     return array(
       'name' => 'Export CRUD',
@@ -25,8 +16,6 @@ class CtoolsExportCrudTestCase extends DrupalWebTestCase {
     );
   }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
   /**
    * {@inheritdoc}
    */
@@ -34,20 +23,6 @@ class CtoolsExportCrudTestCase extends DrupalWebTestCase {
     $modules[] = 'ctools';
     $modules[] = 'ctools_export_test';
     parent::setUp($modules);
-=======
-  protected function setUp() {
-    parent::setUp('ctools_export_test');
-    $this->resetAll();
->>>>>>> 9d9f2490f... Upload modules,themes and libraries
-=======
-  /**
-   * {@inheritdoc}
-   */
-  public function setUp(array $modules = array()) {
-    $modules[] = 'ctools';
-    $modules[] = 'ctools_export_test';
-    parent::setUp($modules);
->>>>>>> 847aeaa3b... Upgrade Backup & ctools modules. also added settings.php file.
   }
 
   /**

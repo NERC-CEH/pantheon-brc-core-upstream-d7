@@ -22,19 +22,7 @@ $plugin = array(
  * Render the custom content type.
  */
 function ctools_node_created_content_type_render($subtype, $conf, $panel_args, $context) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
   if (!empty($context) && (empty($context->data) || empty($context->data->nid))) {
-=======
-  if (empty($context) || empty($context->data)) {
->>>>>>> 9d9f2490f... Upload modules,themes and libraries
-=======
-  if (!empty($context) && ( empty($context->data) || empty($context->data->nid)) ){
->>>>>>> 847aeaa3b... Upgrade Backup & ctools modules. also added settings.php file.
-=======
-  if (!empty($context) && (empty($context->data) || empty($context->data->nid))) {
->>>>>>> 5870f23e3... Update modules to latest versions.  Issue: CEHWS-1221
     return;
   }
 

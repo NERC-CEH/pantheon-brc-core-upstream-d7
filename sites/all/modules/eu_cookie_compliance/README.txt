@@ -16,7 +16,6 @@ consent is given another banner appears with a thank you message.
 
 The module provides a settings page where the banner can be customised. There
 are also template files for the banners that can be overridden by your theme.
-<<<<<<< HEAD
 
 Upgrade info.
 =============
@@ -30,8 +29,6 @@ need to translate the banners, download i18n and install the i18n_variable and
 its dependencies.
 
 https://www.drupal.org/project/i18n
-=======
->>>>>>> 5870f23e3... Update modules to latest versions.  Issue: CEHWS-1221
 
 Installation.
 =============
@@ -52,11 +49,7 @@ Installation.
    enable the banner
 
 5. If you want to customise the banner background and text color, either type
-<<<<<<< HEAD
    in the hex values or simply install
-=======
-   in the hex values or simply install 
->>>>>>> 5870f23e3... Update modules to latest versions.  Issue: CEHWS-1221
    http://drupal.org/project/jquery_colorpicker
 
 6. If you want to theme your banner override the themes in the template file.
@@ -68,7 +61,6 @@ Installation.
    available for sites that use Varnish (or other caching strategies). The
    JavaScript based variant also works for visitors that bypass Varnish.
 
-<<<<<<< HEAD
 Translations.
 =============
 
@@ -76,12 +68,6 @@ To translate the message in the banners, enable the "i18n_variable" submodule in
 the i18n project.
 
 https://www.drupal.org/project/i18n
-=======
-8. To translate the message displayed, enable the i18n_variable module in the
-   i18n package. After enabling "EU Cookie Compliance" at
-   admin/config/regional/i18n/variable, you will be able to set your
-   translations on the settings page for this module.
->>>>>>> 5870f23e3... Update modules to latest versions.  Issue: CEHWS-1221
 
 After enabling "EU Cookie Compliance" at admin/config/regional/i18n/variable,
 you will be able to set your translations on the settings page for this module.
