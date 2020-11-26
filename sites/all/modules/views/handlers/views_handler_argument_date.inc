@@ -26,20 +26,12 @@
 class views_handler_argument_date extends views_handler_argument_formula {
 
   /**
-<<<<<<< HEAD
    * @var string
-=======
-   *
->>>>>>> 63f5e204c (Update modules to latest versions.  Issue: CEHWS-1221)
    */
   public $option_name = 'default_argument_date';
 
   /**
-<<<<<<< HEAD
    * @var string
-=======
-   *
->>>>>>> 63f5e204c (Update modules to latest versions.  Issue: CEHWS-1221)
    */
   public $arg_format = 'Y-m-d';
 
@@ -54,15 +46,9 @@ class views_handler_argument_date extends views_handler_argument_formula {
   }
 
   /**
-<<<<<<< HEAD
    * Set the empty argument value to the current date.
    *
    * Formatted appropriately for this argument.
-=======
-   * Set the empty argument value to the current date,
-   *
-   * formatted appropriately for this argument.
->>>>>>> 63f5e204c (Update modules to latest versions.  Issue: CEHWS-1221)
    *
    * @return string
    *   The default argument.

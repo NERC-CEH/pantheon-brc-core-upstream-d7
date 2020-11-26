@@ -41,10 +41,6 @@ function ctools_requirements($phase) {
  * Implements hook_schema().
  */
 function ctools_schema() {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 9f2a54eea (Upgrade Backup & ctools modules. also added settings.php file.)
   return ctools_schema_4();
 }
 
@@ -54,25 +50,10 @@ function ctools_schema() {
 function ctools_schema_4() {
   $schema = ctools_schema_3();
 
-<<<<<<< HEAD
-<<<<<<< HEAD
   // Removed due to alternative database configuration issues.
   // @see https://www.drupal.org/project/ctools/issues/2941920
 
   return $schema;
-=======
-  return ctools_schema_3();
->>>>>>> 11cf5ed37 (Upload modules,themes and libraries)
-=======
-  // Update the 'name' field to be 255 bytes long:
-  $schema['ctools_object_cache']['fields']['name']['length'] = 255;
-=======
-  // Removed due to alternative database configuration issues.
-  // @see https://www.drupal.org/project/ctools/issues/2941920
->>>>>>> 63f5e204c (Update modules to latest versions.  Issue: CEHWS-1221)
-
-  return $schema;
->>>>>>> 9f2a54eea (Upgrade Backup & ctools modules. also added settings.php file.)
 }
 
 /**
@@ -295,19 +276,11 @@ function ctools_update_7001() {
     'description' => 'The type of the object this cache is attached to; this essentially represents the owner so that several sub-systems can use this cache.',
   ));
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 9f2a54eea (Upgrade Backup & ctools modules. also added settings.php file.)
 
 /**
  * Increase the length of the ctools_object_cache.name column to 255.
  */
 function ctools_update_7002() {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 63f5e204c (Update modules to latest versions.  Issue: CEHWS-1221)
   // Removed due to alternative database configuration issues.
   // @see https://www.drupal.org/project/ctools/issues/2941920
 }
@@ -317,7 +290,6 @@ function ctools_update_7002() {
  */
 function ctools_update_7003() {
   db_delete('ctools_object_cache')->execute();
-<<<<<<< HEAD
   db_change_field('ctools_object_cache', 'name', 'name', array(
     'type' => 'varchar',
     'length' => '128',
@@ -325,16 +297,3 @@ function ctools_update_7003() {
     'description' => 'The name of the object this cache is attached to.',
   ));
 }
-=======
->>>>>>> 11cf5ed37 (Upload modules,themes and libraries)
-=======
-=======
->>>>>>> 63f5e204c (Update modules to latest versions.  Issue: CEHWS-1221)
-  db_change_field('ctools_object_cache', 'name', 'name', array(
-    'type' => 'varchar',
-    'length' => '128',
-    'not null' => TRUE,
-    'description' => 'The name of the object this cache is attached to.',
-  ));
-}
->>>>>>> 9f2a54eea (Upgrade Backup & ctools modules. also added settings.php file.)

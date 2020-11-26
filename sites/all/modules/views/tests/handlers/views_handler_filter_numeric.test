@@ -142,11 +142,7 @@ class ViewsHandlerFilterNumericTest extends ViewsSqlTest {
     );
     $this->assertIdenticalResultset($view, $resultset, $this->column_map);
 
-<<<<<<< HEAD
     // Test not between.
-=======
-    // test not between.
->>>>>>> 63f5e204c (Update modules to latest versions.  Issue: CEHWS-1221)
     $view->delete();
     $view = $this->getBasicView();
 
@@ -253,16 +249,12 @@ class ViewsHandlerFilterNumericTest extends ViewsSqlTest {
     ));
 
     $this->executeView($view);
-<<<<<<< HEAD
     $resultset = array(
       array(
         'name' => 'Charles',
         'age' => NULL,
       ),
     );
-=======
-    $resultset = array();
->>>>>>> 63f5e204c (Update modules to latest versions.  Issue: CEHWS-1221)
     $this->assertIdenticalResultset($view, $resultset, $this->column_map);
 
     $view->delete();
@@ -316,16 +308,12 @@ class ViewsHandlerFilterNumericTest extends ViewsSqlTest {
     $view->display['page_1']->handler->override_option('filters', $filters);
 
     $this->executeView($view);
-<<<<<<< HEAD
     $resultset = array(
       array(
         'name' => 'Charles',
         'age' => NULL,
       ),
     );
-=======
-    $resultset = array();
->>>>>>> 63f5e204c (Update modules to latest versions.  Issue: CEHWS-1221)
     $this->assertIdenticalResultset($view, $resultset, $this->column_map);
   }
 

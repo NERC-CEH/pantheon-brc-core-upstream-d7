@@ -44,10 +44,6 @@ function file_entity_token_info() {
     'type' => 'url',
   );
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> e3fc737e0 (Updated file_entity module and added plupload, token and views_bulk_operations modules.)
   if (module_exists('token')) {
     $info['types']['file_field'] = array(
       'name' => t('Media'),
@@ -114,12 +110,9 @@ function file_entity_token_info() {
       if ($field['type'] == 'file') {
         $field_info = _token_field_info($field_name);
         foreach (array_keys($field['bundles']) as $entity_type) {
-<<<<<<< HEAD
           if ($entity_type == 'taxonomy_term') {
             $entity_type = 'term';
           }
-=======
->>>>>>> e3fc737e0 (Updated file_entity module and added plupload, token and views_bulk_operations modules.)
           $info['tokens'][$entity_type][$field_name] = array(
             'name' => $field_info['label'],
             'description' => $field_info['description'],
@@ -131,11 +124,6 @@ function file_entity_token_info() {
     }
   }
 
-<<<<<<< HEAD
-=======
->>>>>>> 5709a6688 (Added admin_views and file_entity modules, updated media module)
-=======
->>>>>>> e3fc737e0 (Updated file_entity module and added plupload, token and views_bulk_operations modules.)
   return $info;
 }
 
@@ -152,10 +140,6 @@ function file_entity_token_info_alter(&$info) {
 function file_entity_tokens($type, $tokens, array $data = array(), array $options = array()) {
   $replacements = array();
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> e3fc737e0 (Updated file_entity module and added plupload, token and views_bulk_operations modules.)
   // Check that this token call contains the data we need
   if ($type == 'entity' && !empty($data['entity_type']) && !empty($data['entity']) &&
     !empty($data['token_type']) && module_exists('token')) {
@@ -174,12 +158,9 @@ function file_entity_tokens($type, $tokens, array $data = array(), array $option
 
         // Get basic information
         $entity_type = $data['entity_type'];
-<<<<<<< HEAD
         if ($entity_type == 'taxonomy_term') {
           $entity_type = 'term';
         }
-=======
->>>>>>> e3fc737e0 (Updated file_entity module and added plupload, token and views_bulk_operations modules.)
         $langcode = isset($options['language']) ? $options['language']->language : NULL;
         $entity = clone $data['entity'];
 
@@ -188,11 +169,7 @@ function file_entity_tokens($type, $tokens, array $data = array(), array $option
           unset($entity->_field_view_prepared);
           $field_output = field_view_field($entity_type, $entity, $field_name, 'token', $langcode);
           $field_output['#token_options'] = $options;
-<<<<<<< HEAD
           $field_output['#pre_render'][] = 'token_pre_render_field_token';
-=======
-          $field_output['#prerender'][] = 'token_pre_render_field_token';
->>>>>>> e3fc737e0 (Updated file_entity module and added plupload, token and views_bulk_operations modules.)
           $replacements[$original] = drupal_render($field_output);
         }
         else {
@@ -208,13 +185,9 @@ function file_entity_tokens($type, $tokens, array $data = array(), array $option
             }
           }
           else {
-<<<<<<< HEAD
             if (!is_null($return)) {
               $replacements[$original] = $return;
             }
-=======
-            $replacements[$original] = $return;
->>>>>>> e3fc737e0 (Updated file_entity module and added plupload, token and views_bulk_operations modules.)
           }
         }
 
@@ -224,11 +197,6 @@ function file_entity_tokens($type, $tokens, array $data = array(), array $option
     }
   }
 
-<<<<<<< HEAD
-=======
->>>>>>> 5709a6688 (Added admin_views and file_entity modules, updated media module)
-=======
->>>>>>> e3fc737e0 (Updated file_entity module and added plupload, token and views_bulk_operations modules.)
   $url_options = array('absolute' => TRUE);
   if (isset($options['language'])) {
     $url_options['language'] = $options['language'];
@@ -300,10 +268,6 @@ function file_entity_tokens($type, $tokens, array $data = array(), array $option
 
   return $replacements;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> e3fc737e0 (Updated file_entity module and added plupload, token and views_bulk_operations modules.)
 
 /**
  * This helper function gets file properties for token replacement.
@@ -322,11 +286,7 @@ function file_entity_tokens($type, $tokens, array $data = array(), array $option
  * Either a single value, the first of the array, or an array of values.
  */
 function _file_entity_tokens_get_property($files, $property, $array_handler = 'first') {
-<<<<<<< HEAD
   $value = NULL;
-=======
-
->>>>>>> e3fc737e0 (Updated file_entity module and added plupload, token and views_bulk_operations modules.)
   // If we only need the first variable
   $return_first = ($array_handler == 'first' || empty($array_handler) || $array_handler == 'value:0');
 
@@ -344,25 +304,11 @@ function _file_entity_tokens_get_property($files, $property, $array_handler = 'f
 
     // If values are: image, height, width, https-image
     elseif (!empty($info[$file['fid']])) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c42b464d8 (Upgrade file entity module.)
       if (isset($info[$file['fid']][$property])) {
         $value = $info[$file['fid']][$property];
       } else {
         $value = NULL;
       }
-<<<<<<< HEAD
-=======
-      $value = $info[$file['fid']][$property] ?: NULL;
->>>>>>> e3fc737e0 (Updated file_entity module and added plupload, token and views_bulk_operations modules.)
-=======
-      $value = isset($info[$file['fid']][$property]) ?: NULL;
->>>>>>> 63f5e204c (Update modules to latest versions.  Issue: CEHWS-1221)
-=======
->>>>>>> c42b464d8 (Upgrade file entity module.)
     }
     // If values are files types
     else {
@@ -373,13 +319,8 @@ function _file_entity_tokens_get_property($files, $property, $array_handler = 'f
       }
 
       // If file type is video
-<<<<<<< HEAD
       elseif ($file['type'] == 'video' && strpos($file['uri'], '://v')) {
         list($provider, $filename) = preg_split('!://v.*/!', $file['uri']);
-=======
-      elseif ($file['type'] == 'video') {
-        list($provider, $filename) = explode('://v/', $file['uri']);
->>>>>>> e3fc737e0 (Updated file_entity module and added plupload, token and views_bulk_operations modules.)
         $imageuri = "public://file_entity-$provider/$filename.jpg";
       }
 
@@ -394,25 +335,11 @@ function _file_entity_tokens_get_property($files, $property, $array_handler = 'f
         $info[$file['fid']]['https-image'] = str_replace('http://', 'https://', $info[$file['fid']]['image']);
       }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c42b464d8 (Upgrade file entity module.)
       if (isset($info[$file['fid']][$property])) {
         $value = $info[$file['fid']][$property];
       } else {
         $value = NULL;
       }
-<<<<<<< HEAD
-=======
-      $value = $info[$file['fid']][$property] ?: NULL;
->>>>>>> e3fc737e0 (Updated file_entity module and added plupload, token and views_bulk_operations modules.)
-=======
-      $value = isset($info[$file['fid']][$property]) ?: NULL;
->>>>>>> 63f5e204c (Update modules to latest versions.  Issue: CEHWS-1221)
-=======
->>>>>>> c42b464d8 (Upgrade file entity module.)
     }
 
     if ($return_first) {
@@ -423,8 +350,3 @@ function _file_entity_tokens_get_property($files, $property, $array_handler = 'f
 
   return $values;
 }
-<<<<<<< HEAD
-=======
->>>>>>> 5709a6688 (Added admin_views and file_entity modules, updated media module)
-=======
->>>>>>> e3fc737e0 (Updated file_entity module and added plupload, token and views_bulk_operations modules.)

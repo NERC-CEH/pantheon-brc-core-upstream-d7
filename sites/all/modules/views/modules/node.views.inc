@@ -211,11 +211,7 @@ function node_views_data() {
   // Sticky.
   $data['node']['sticky'] = array(
     // The item it appears as on the UI,
-<<<<<<< HEAD
     'title' => t('Sticky status'),
-=======
-    'title' => t('Sticky'),
->>>>>>> 63f5e204c (Update modules to latest versions.  Issue: CEHWS-1221)
     // The help that appears on the UI,
     'help' => t('Whether or not the content is sticky.'),
     // Information for displaying a title as a field.

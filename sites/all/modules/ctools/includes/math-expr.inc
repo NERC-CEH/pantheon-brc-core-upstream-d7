@@ -66,7 +66,6 @@
  * ctools_math_expr Class.
  */
 class ctools_math_expr {
-<<<<<<< HEAD
 
   /**
    * If TRUE do not call trigger_error on error other wise do.
@@ -258,30 +257,6 @@ class ctools_math_expr {
         'function' => $function,
         'arguments' => 1,
       );
-=======
-    var $suppress_errors = false;
-    var $last_error = null;
-
-    var $v = array('e'=>2.71,'pi'=>3.14); // variables (and constants)
-    var $f = array(); // user-defined functions
-    var $vb = array('e', 'pi'); // constants
-    var $fb = array(  // built-in functions
-        'sin','sinh','arcsin','asin','arcsinh','asinh',
-        'cos','cosh','arccos','acos','arccosh','acosh',
-        'tan','tanh','arctan','atan','arctanh','atanh',
-        'pow', 'exp',
-        'sqrt','abs','ln','log',
-        'time', 'ceil', 'floor', 'min', 'max', 'round');
-
-  /**
-   * ctools_math_expr constructor.
-   */
-  function __construct() {
-        // make the variables a little more accurate
-        $this->v['pi'] = pi();
-        $this->v['e'] = exp(1);
-        drupal_alter('ctools_math_expression_functions', $this->fb);
->>>>>>> 63f5e204c (Update modules to latest versions.  Issue: CEHWS-1221)
     }
   }
 

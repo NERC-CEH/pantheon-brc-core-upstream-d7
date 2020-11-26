@@ -85,15 +85,7 @@ function ctools_modal_add_plugin_js($plugins) {
         if (file_exists($file)) {
           $js[$file] = TRUE;
         }
-<<<<<<< HEAD
-<<<<<<< HEAD
         elseif (file_exists($subtype['path'] . '/' . $file)) {
-=======
-        else if (file(exists($subtype['path'] . '/' . $file))) {
->>>>>>> 11cf5ed37 (Upload modules,themes and libraries)
-=======
-        elseif (file(exists($subtype['path'] . '/' . $file))) {
->>>>>>> 9f2a54eea (Upgrade Backup & ctools modules. also added settings.php file.)
           $js[$subtype['path'] . '/' . $file] = TRUE;
         }
       }
@@ -103,15 +95,7 @@ function ctools_modal_add_plugin_js($plugins) {
         if (file_exists($file)) {
           $css[$file] = TRUE;
         }
-<<<<<<< HEAD
-<<<<<<< HEAD
         elseif (file_exists($subtype['path'] . '/' . $file)) {
-=======
-        else if (file(exists($subtype['path'] . '/' . $file))) {
->>>>>>> 11cf5ed37 (Upload modules,themes and libraries)
-=======
-        elseif (file(exists($subtype['path'] . '/' . $file))) {
->>>>>>> 9f2a54eea (Upgrade Backup & ctools modules. also added settings.php file.)
           $css[$subtype['path'] . '/' . $file] = TRUE;
         }
       }
