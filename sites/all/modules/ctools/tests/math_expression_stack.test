@@ -4,20 +4,10 @@
  * Tests the simple MathExpressionStack class.
  */
 class CtoolsMathExpressionStackTestCase extends DrupalWebTestCase {
-<<<<<<< HEAD
-<<<<<<< HEAD
 
   /**
    * {@inheritdoc}
    */
-=======
->>>>>>> 9a28c8c7c (Upload modules,themes and libraries)
-=======
-
-  /**
-   * {@inheritdoc}
-   */
->>>>>>> f10080b38 (Upgrade Backup & ctools modules. also added settings.php file.)
   public static function getInfo() {
     return array(
       'name' => 'Math expressions stack',
@@ -27,8 +17,6 @@ class CtoolsMathExpressionStackTestCase extends DrupalWebTestCase {
     );
   }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
   /**
    * {@inheritdoc}
    */
@@ -36,19 +24,6 @@ class CtoolsMathExpressionStackTestCase extends DrupalWebTestCase {
     $modules[] = 'ctools';
     $modules[] = 'ctools_plugin_test';
     parent::setUp($modules);
-=======
-  public function setUp() {
-    parent::setUp('ctools', 'ctools_plugin_test');
->>>>>>> 9a28c8c7c (Upload modules,themes and libraries)
-=======
-  /**
-   * {@inheritdoc}
-   */
-  public function setUp(array $modules = array()) {
-    $modules[] = 'ctools';
-    $modules[] = 'ctools_plugin_test';
-    parent::setUp($modules);
->>>>>>> f10080b38 (Upgrade Backup & ctools modules. also added settings.php file.)
   }
 
   /**

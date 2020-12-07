@@ -4,20 +4,10 @@
  * Test menu links depending on user permissions.
  */
 class CtoolsCssTestCase extends DrupalWebTestCase {
-<<<<<<< HEAD
-<<<<<<< HEAD
 
   /**
    * {@inheritdoc}
    */
-=======
->>>>>>> 9a28c8c7c (Upload modules,themes and libraries)
-=======
-
-  /**
-   * {@inheritdoc}
-   */
->>>>>>> f10080b38 (Upgrade Backup & ctools modules. also added settings.php file.)
   public static function getInfo() {
     return array(
       'name' => 'CSS Tools tests',
@@ -27,8 +17,6 @@ class CtoolsCssTestCase extends DrupalWebTestCase {
     );
   }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
   /**
    * {@inheritdoc}
    */
@@ -36,20 +24,6 @@ class CtoolsCssTestCase extends DrupalWebTestCase {
     $modules[] = 'ctools';
     parent::setUp($modules);
     ctools_include('css');
-=======
-  function setUp() {
-    // Additionally enable contact module.
-    parent::setUp('ctools');
->>>>>>> 9a28c8c7c (Upload modules,themes and libraries)
-=======
-  /**
-   * {@inheritdoc}
-   */
-  public function setUp(array $modules = array()) {
-    $modules[] = 'ctools';
-    parent::setUp($modules);
-    ctools_include('css');
->>>>>>> f10080b38 (Upgrade Backup & ctools modules. also added settings.php file.)
   }
 
   /**
@@ -74,8 +48,6 @@ class CtoolsCssTestCase extends DrupalWebTestCase {
     $this->assertEqual($filename2, ctools_css_retrieve('filtered-css-test'), 'Filtered css file succcesfully fetched');
     $file_contents = file_get_contents($filename2);
     $this->assertEqual($filtered_css, $file_contents, 'Filtered css file contents are correct');
-<<<<<<< HEAD
-<<<<<<< HEAD
   }
 
   /**
@@ -100,41 +72,6 @@ class CtoolsCssTestCase extends DrupalWebTestCase {
     $this->assertEqual($css2, $file_contents3, 'Unfiltered CSS has overwritten earlier contents.');
     $this->assertEqual($filtered_css2, $file_contents4, 'Filtered CSS has overwritten earlier contents.');
   }
-=======
-    //    $match = $filename2 == ctools_css_retrieve('filtered-css-test') ? 'Match' : 'No match';
-//    $output .= '<pre>Filtered: ' . $filename2 . ' ' . $match . '</pre>';
-//    $output .= '<pre>' . file_get_contents($filename2) . '</pre>';
-//
-//    drupal_add_css($filename2, array('type' => 'file'));
-//    return array('#markup' => $output);
-
->>>>>>> 9a28c8c7c (Upload modules,themes and libraries)
-=======
-  }
-
-  /**
-   * Test that Stored CSS snippets can be correctly overwritten.
-   */
-  public function testCssStoreOverwrite() {
-    $css1 = "#some-id .some-class {\n  color: black;\n  illegal-key: foo;\n}";
-
-    $css2 = "#other-id .other-class {\n  color: blue;\n  illegal-key: foo;\n}";
-    $filtered_css2 = '#other-id .other-class{color:blue;}';
-
-    ctools_css_store('unfiltered-css-test', $css1, FALSE);
-    ctools_css_store('filtered-css-test', $css1, TRUE);
-
-    // Now overwrite the first css with the second version.
-    $filename3 = ctools_css_store('unfiltered-css-test', $css2, FALSE);
-    $filename4 = ctools_css_store('filtered-css-test', $css2, TRUE);
-
-    $file_contents3 = file_get_contents($filename3);
-    $file_contents4 = file_get_contents($filename4);
-
-    $this->assertEqual($css2, $file_contents3, 'Unfiltered CSS has overwritten earlier contents.');
-    $this->assertEqual($filtered_css2, $file_contents4, 'Filtered CSS has overwritten earlier contents.');
-  }
->>>>>>> f10080b38 (Upgrade Backup & ctools modules. also added settings.php file.)
 
   /**
    * Test that in case that url is used, the colons survives filtering.

@@ -5,15 +5,7 @@
  * Functions related to the WYSIWYG editor and the media input filter.
  */
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 define('MEDIA_WYSIWYG_TOKEN_REGEX', '/\[\[\{.*?"type":"media".*?\}\]\]/s');
-=======
-define('MEDIA_WYSIWYG_TOKEN_REGEX', '/\[\[.+?"type":"media".+?\]\]/s');
->>>>>>> 9a28c8c7c (Upload modules,themes and libraries)
-=======
-define('MEDIA_WYSIWYG_TOKEN_REGEX', '/\[\[\{.*?"type":"media".+?\}\]\]/s');
->>>>>>> 266cdd0d2 (Added admin_views and file_entity modules, updated media module)
 
 /**
  * Filter callback for media markup filter.

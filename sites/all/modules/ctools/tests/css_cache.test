@@ -20,24 +20,9 @@ class CtoolsCSSObjectCache extends DrupalWebTestCase {
   /**
    * {@inheritdoc}
    */
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
   public function setUp(array $modules = array()) {
     $modules[] = 'ctools';
     parent::setUp($modules);
-=======
-  public function setUp() {
-    parent::setUp('ctools');
->>>>>>> 9a28c8c7c (Upload modules,themes and libraries)
-=======
-  function setUp(array $modules = array()) {
-=======
-  public function setUp(array $modules = array()) {
->>>>>>> cf5200dcf (Update modules to latest versions.  Issue: CEHWS-1221)
-    $modules[] = 'ctools';
-    parent::setUp($modules);
->>>>>>> f10080b38 (Upgrade Backup & ctools modules. also added settings.php file.)
   }
 
   /**
