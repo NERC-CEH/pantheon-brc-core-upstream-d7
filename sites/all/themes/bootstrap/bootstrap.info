@@ -209,30 +209,8 @@ multipliers[screen-md-max][] = 2x
 multipliers[screen-lg-min][] = 1.5x
 multipliers[screen-lg-min][] = 2x
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 ; Information added by Drupal.org packaging script on 2019-06-20
 version = "7.x-3.26"
 core = "7.x"
 project = "bootstrap"
 datestamp = "1561051701"
-=======
-; Information added by Drupal.org packaging script on 2018-01-20
-version = "7.x-3.18"
-=======
-; Information added by Drupal.org packaging script on 2018-01-26
-version = "7.x-3.19"
->>>>>>> 0f38a3dd5 (Update modules like entity_api, job_scheduler & service_links and bootstrap theme)
-core = "7.x"
-project = "bootstrap"
-datestamp = "1516989514"
-
->>>>>>> b9daaa5be (Uploaded some more modules and themes.)
-=======
-; Information added by Drupal.org packaging script on 2018-04-18
-version = "7.x-3.20"
-core = "7.x"
-project = "bootstrap"
-datestamp = "1524091089"
->>>>>>> db130ce93 (Update modules to latest versions.  Issue: CEHWS-1221)

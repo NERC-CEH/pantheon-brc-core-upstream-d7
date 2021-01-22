@@ -110,7 +110,6 @@ function user_views_data() {
     ),
   );
 
-<<<<<<< HEAD
   // Comments authored.
   $data['users']['uid_comment'] = array(
     'relationship' => array(
@@ -124,8 +123,6 @@ function user_views_data() {
     ),
   );
 
-=======
->>>>>>> db130ce93 (Update modules to latest versions.  Issue: CEHWS-1221)
   // User name.
   $data['users']['name'] = array(
     // The item it appears as on the UI,
@@ -155,11 +152,7 @@ function user_views_data() {
     // The item it appears as on the UI,
     'title' => t('E-mail'),
     // The help that appears on the UI,
-<<<<<<< HEAD
     'help' => t('E-mail address for a given user. This field is normally not shown to users, so be cautious when using it.'),
-=======
-    'help' => t('Email address for a given user. This field is normally not shown to users, so be cautious when using it.'),
->>>>>>> db130ce93 (Update modules to latest versions.  Issue: CEHWS-1221)
     'field' => array(
       'handler' => 'views_handler_field_user_mail',
       'click sortable' => TRUE,
@@ -338,11 +331,7 @@ function user_views_data() {
   // Active status.
   $data['users']['status'] = array(
     // The item it appears as on the UI,
-<<<<<<< HEAD
     'title' => t('Active status'),
-=======
-    'title' => t('Active'),
->>>>>>> db130ce93 (Update modules to latest versions.  Issue: CEHWS-1221)
     // The help that appears on the UI,
     'help' => t('Whether a user is active or blocked.'),
     // Information for displaying a title as a field.

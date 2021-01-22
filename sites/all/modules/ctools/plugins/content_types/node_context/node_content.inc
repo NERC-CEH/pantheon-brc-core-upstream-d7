@@ -29,19 +29,7 @@ $plugin = array(
  * Render the node content.
  */
 function ctools_node_content_content_type_render($subtype, $conf, $panel_args, $context) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
   if (!empty($context) && (empty($context->data) || empty($context->data->nid))) {
-=======
-  if (!empty($context) && empty($context->data)) {
->>>>>>> 840cf2e0e (Upload modules,themes and libraries)
-=======
-  if (!empty($context) && ( empty($context->data) || empty($context->data->nid)) ){
->>>>>>> 023456e72 (Upgrade Backup & ctools modules. also added settings.php file.)
-=======
-  if (!empty($context) && (empty($context->data) || empty($context->data->nid))) {
->>>>>>> db130ce93 (Update modules to latest versions.  Issue: CEHWS-1221)
     return;
   }
 

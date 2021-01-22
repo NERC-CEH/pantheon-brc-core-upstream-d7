@@ -336,7 +336,6 @@ class views_handler_filter_numeric extends views_handler_filter {
   /**
    * {@inheritdoc}
    */
-<<<<<<< HEAD
   public function op_not_regex($field) {
     $this->query->add_where($this->options['group'], $field, $this->value['value'], 'NOT RLIKE');
   }
@@ -344,8 +343,6 @@ class views_handler_filter_numeric extends views_handler_filter {
   /**
    * {@inheritdoc}
    */
-=======
->>>>>>> db130ce93 (Update modules to latest versions.  Issue: CEHWS-1221)
   public function admin_summary() {
     if ($this->is_a_group()) {
       return t('grouped');

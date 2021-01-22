@@ -59,7 +59,6 @@ class views_handler_field_term_link_edit extends views_handler_field {
   /**
    * {@inheritdoc}
    */
-<<<<<<< HEAD
   function render($values) {
     $value = $this->get_value($values, 'tid');
     return $this->render_link($this->sanitize_value($value), $values);
@@ -81,22 +80,6 @@ class views_handler_field_term_link_edit extends views_handler_field {
       $this->options['alter']['path'] = "taxonomy/term/$data/edit";
       $this->options['alter']['query'] = drupal_get_destination();
       return $text;
-=======
-  public function render($values) {
-    // Check there is an actual value, as on a relationship there may not be.
-    if ($tid = $this->get_value($values, 'tid')) {
-      // Mock a term object for taxonomy_term_edit_access(). Use machine name
-      // and vid to ensure compatibility with vid based and machine name based
-      // access checks. See http://drupal.org/node/995156
-      $term = new stdClass();
-      $term->vid = $values->{$this->aliases['vid']};
-      $term->vocabulary_machine_name = $values->{$this->aliases['vocabulary_machine_name']};
-      if (taxonomy_term_edit_access($term)) {
-        $text = !empty($this->options['text']) ? $this->options['text'] : t('edit');
-        $tid = $this->get_value($values, 'tid');
-        return l($text, 'taxonomy/term/' . $tid . '/edit', array('query' => drupal_get_destination()));
-      }
->>>>>>> db130ce93 (Update modules to latest versions.  Issue: CEHWS-1221)
     }
   }
 

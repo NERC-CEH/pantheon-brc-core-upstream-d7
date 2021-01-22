@@ -27,14 +27,6 @@
  *   The session id, allowing someone to use Session API or their own solution;
  *   defaults to session_id().
  *
-<<<<<<< HEAD
-=======
- * @deprecated $skip_cache is deprecated in favor of drupal_static*
-<<<<<<< HEAD
->>>>>>> 840cf2e0e (Upload modules,themes and libraries)
-=======
- *
->>>>>>> 023456e72 (Upgrade Backup & ctools modules. also added settings.php file.)
  * @return
  *   The data that was cached.
  */

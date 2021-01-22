@@ -24,11 +24,7 @@
  *   Whether to show the cookie compliance banner.
  */
 function hook_eu_cookie_compliance_geoip_match_alter(&$geoip_match) {
-<<<<<<< HEAD
   $geoip_match['in_eu'] = FALSE;
-=======
-  $geoip_match = FALSE;
->>>>>>> db130ce93 (Update modules to latest versions.  Issue: CEHWS-1221)
 }
 
 /**

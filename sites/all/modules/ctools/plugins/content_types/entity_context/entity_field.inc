@@ -179,10 +179,6 @@ function ctools_entity_field_content_type_render($subtype, $conf, $panel_args, $
 }
 
 /**
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 023456e72 (Upgrade Backup & ctools modules. also added settings.php file.)
  * Replace context keywords.
  */
 function ctools_entity_field_content_type_substitute_keywords($markup, array $element) {
@@ -190,20 +186,8 @@ function ctools_entity_field_content_type_substitute_keywords($markup, array $el
 }
 
 /**
-<<<<<<< HEAD
-<<<<<<< HEAD
  * Returns an edit form for custom type settings.
  */
-=======
-=======
->>>>>>> 023456e72 (Upgrade Backup & ctools modules. also added settings.php file.)
-* Returns an edit form for custom type settings.
-*/
->>>>>>> 840cf2e0e (Upload modules,themes and libraries)
-=======
- * Returns an edit form for custom type settings.
- */
->>>>>>> db130ce93 (Update modules to latest versions.  Issue: CEHWS-1221)
 function ctools_entity_field_content_type_formatter_options($form, &$form_state) {
   if (empty($form_state['conf']['formatter_settings'])) {
     $form_state['conf']['formatter_settings'] = array();

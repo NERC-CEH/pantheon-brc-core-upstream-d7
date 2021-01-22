@@ -157,21 +157,12 @@ function hook_ctools_api_hook_alter(array &$list) {
  * One use case would be to create your own function in your module and
  * allow to use it in the math expression api.
  *
-<<<<<<< HEAD
  * @param array $functions
  *   An array which has the functions as value.
  * @param array $context
  *   An array containing an item 'final' whose value is a reference to the
  *   definitions for multiple-arg functions. Use this to add in functions that
  *   require more than one arg.
-=======
- * @param $functions
-<<<<<<< HEAD
- *    An array which has the functions as value.
->>>>>>> 840cf2e0e (Upload modules,themes and libraries)
-=======
- *   An array which has the functions as value.
->>>>>>> 023456e72 (Upgrade Backup & ctools modules. also added settings.php file.)
  */
 function hook_ctools_math_expression_functions_alter(array &$functions, array $context) {
   // Allow to convert from degrees to radians.
@@ -269,10 +260,6 @@ function hook_ctools_entity_context_alter(array &$plugin, array &$entity, $plugi
 }
 
 /**
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 023456e72 (Upgrade Backup & ctools modules. also added settings.php file.)
  * Alter the conversion of context items by ctools context plugin convert()s.
  *
  * @param ctools_context $context
@@ -282,32 +269,19 @@ function hook_ctools_entity_context_alter(array &$plugin, array &$entity, $plugi
  *   A string associated with the plugin type, identifying the operation.
  * @param string $value
  *   The value being converted; this is the only return from the function.
-<<<<<<< HEAD
  * @param array $converter_options
-=======
- * @param $converter_options
->>>>>>> 023456e72 (Upgrade Backup & ctools modules. also added settings.php file.)
  *   Array of key-value pairs to pass to a converter function from higher
  *   levels.
  *
  * @see ctools_context_convert_context()
  */
-<<<<<<< HEAD
 function hook_ctools_context_converter_alter(ctools_context $context, $converter, &$value, array $converter_options) {
-=======
-function hook_ctools_context_converter_alter($context, $converter, &$value, $converter_options) {
->>>>>>> 023456e72 (Upgrade Backup & ctools modules. also added settings.php file.)
   if ($converter === 'mystring') {
     $value = 'fixed';
   }
 }
 
 /**
-<<<<<<< HEAD
-=======
->>>>>>> 840cf2e0e (Upload modules,themes and libraries)
-=======
->>>>>>> 023456e72 (Upgrade Backup & ctools modules. also added settings.php file.)
  * Alter the definition of entity context plugins.
  *
  * @param array $plugins
@@ -346,10 +320,6 @@ function hook_ctools_cleanstring_CLEAN_ID_alter(array &$settings) {
 }
 
 /**
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 023456e72 (Upgrade Backup & ctools modules. also added settings.php file.)
  * Let other modules modify the context handler before it is rendered.
  *
  * @param object $handler
@@ -361,19 +331,10 @@ function hook_ctools_cleanstring_CLEAN_ID_alter(array &$settings) {
  *
  * @see ctools_context_handler_pre_render()
  */
-<<<<<<< HEAD
 function ctools_context_handler_pre_render($handler, array $contexts, array $args) {
-=======
-function ctools_context_handler_pre_render($handler, $contexts, $args) {
->>>>>>> 023456e72 (Upgrade Backup & ctools modules. also added settings.php file.)
   $handler->conf['css_id'] = 'my-id';
 }
 
 /**
-<<<<<<< HEAD
-=======
->>>>>>> 840cf2e0e (Upload modules,themes and libraries)
-=======
->>>>>>> 023456e72 (Upgrade Backup & ctools modules. also added settings.php file.)
  * @} End of "addtogroup hooks".
  */

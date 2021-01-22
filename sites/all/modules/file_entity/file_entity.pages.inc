@@ -986,7 +986,6 @@ function file_entity_edit_submit($form, &$form_state) {
   // Check if a replacement file has been uploaded.
   if (!empty($form_state['values']['replace_upload'])) {
     $replacement = $form_state['values']['replace_upload'];
-<<<<<<< HEAD
     // Existing image metadata is stored in $file->height and $file->width.
     // Loop through the replacement metadata and update existing values.
     if (!empty($replacement->metadata)) {
@@ -1007,25 +1006,6 @@ function file_entity_edit_submit($form, &$form_state) {
     $replace_mode = $destination_uri == $file->uri ? FILE_EXISTS_REPLACE : FILE_EXISTS_RENAME;
     if ($new_file_uri = file_unmanaged_copy($replacement->uri, $destination_uri, $replace_mode)) {
       // @todo Add watchdog() about replaced file here?
-=======
-    // Move file from temp to permanent home.
-    if (pathinfo($replacement->uri, PATHINFO_EXTENSION) == pathinfo($file->uri, PATHINFO_EXTENSION)) {
-      if ($new_file_uri = file_unmanaged_copy($replacement->uri, $file->uri, FILE_EXISTS_REPLACE)) {
-        // Remove temporary file.
-        file_delete($replacement);
-      }
-    } else {
-      if (!empty($form_state['values']['replace_keep_original_filename'])
-      && $form_state['values']['replace_keep_original_filename']) {
-        $destination_uri = rtrim($file->uri, drupal_basename($file->uri)) . drupal_basename($file->uri);
-      }
-      else {
-        $destination_uri = rtrim($file->uri, drupal_basename($file->uri)) . drupal_basename($replacement->uri);
-      }
-      $replace_mode = $destination_uri == $file->uri ? FILE_EXISTS_REPLACE : FILE_EXISTS_RENAME;
-      if ($new_file_uri = file_unmanaged_copy($replacement->uri, $destination_uri, $replace_mode)) {
-        // @todo Add watchdog() about replaced file here?
->>>>>>> 0f5b907a4 (Added admin_views and file_entity modules, updated media module)
 
       // Remove temporary file.
       file_delete($replacement);

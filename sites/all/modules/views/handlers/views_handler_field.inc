@@ -159,11 +159,7 @@ class views_handler_field extends views_handler {
               '@identifier' => $identifier,
               '@table' => $info['table'],
             );
-<<<<<<< HEAD
             debug(t('Handler @handler tried to add additional field @identifier but @table could not be added.', $t_args));
-=======
-            debug(t('Handler @handler tried to add additional_field @identifier but @table could not be added!', $t_args));
->>>>>>> db130ce93 (Update modules to latest versions.  Issue: CEHWS-1221)
             $this->aliases[$identifier] = 'broken';
             continue;
           }
@@ -1249,14 +1245,9 @@ If you would like to have the characters \'[\' and \']\' please use the html ent
    * Render this field as altered text, from a fieldset set by the user.
    */
   public function render_altered($alter, $tokens) {
-<<<<<<< HEAD
     // We trust admins so we allow any tag content. This is important for
     // displays such as XML where we should not mess with tags.
     $value = $alter['text'];
-=======
-    // Filter this right away as our substitutions are already sanitized.
-    $value = filter_xss_admin($alter['text']);
->>>>>>> db130ce93 (Update modules to latest versions.  Issue: CEHWS-1221)
     $value = strtr($value, $tokens);
     // User might already used '%5B' and '%5D' instead of literal [ and ].
     // After token replacements, we need to convert those codes to literal

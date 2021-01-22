@@ -4,20 +4,10 @@
  * Test menu links depending on user permissions.
  */
 class CtoolsPluginsGetInfoTestCase extends DrupalWebTestCase {
-<<<<<<< HEAD
-<<<<<<< HEAD
 
   /**
    * {@inheritdoc}
    */
-=======
->>>>>>> 840cf2e0e (Upload modules,themes and libraries)
-=======
-
-  /**
-   * {@inheritdoc}
-   */
->>>>>>> 023456e72 (Upgrade Backup & ctools modules. also added settings.php file.)
   public static function getInfo() {
     return array(
       'name' => 'Get plugin info',
@@ -27,8 +17,6 @@ class CtoolsPluginsGetInfoTestCase extends DrupalWebTestCase {
     );
   }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
   /**
    * {@inheritdoc}
    */
@@ -36,20 +24,6 @@ class CtoolsPluginsGetInfoTestCase extends DrupalWebTestCase {
     $modules[] = 'ctools';
     $modules[] = 'ctools_plugin_test';
     parent::setUp($modules);
-=======
-  function setUp() {
-    // Additionally enable contact module.
-    parent::setUp('ctools', 'ctools_plugin_test');
->>>>>>> 840cf2e0e (Upload modules,themes and libraries)
-=======
-  /**
-   * {@inheritdoc}
-   */
-  public function setUp(array $modules = array()) {
-    $modules[] = 'ctools';
-    $modules[] = 'ctools_plugin_test';
-    parent::setUp($modules);
->>>>>>> 023456e72 (Upgrade Backup & ctools modules. also added settings.php file.)
   }
 
   /**

@@ -68,10 +68,6 @@ function ctools_plugin_example_default_page_manager_pages() {
   $handler->handler = 'panel_context';
   $handler->weight = 0;
   $handler->conf = array(
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 023456e72 (Upgrade Backup & ctools modules. also added settings.php file.)
     'title' => 'Panel',
     'no_blocks' => FALSE,
     'css_id' => '',
@@ -99,39 +95,7 @@ function ctools_plugin_example_default_page_manager_pages() {
     'access' => array(
       'logic' => 'and',
     ),
-<<<<<<< HEAD
     'pipeline' => 'standard',
-=======
-  'title' => 'Panel',
-  'no_blocks' => FALSE,
-  'css_id' => '',
-  'css' => '',
-  'contexts' => array(
-    '0' => array(
-      'name' => 'simplecontext',
-      'id' => 1,
-      'identifier' => 'Configured simplecontext (not from argument)',
-      'keyword' => 'configured_simplecontext',
-      'context_settings' => array(
-        'sample_simplecontext_setting' => 'default simplecontext setting',
-  ),
-  ),
-  ),
-  'relationships' => array(
-    '0' => array(
-      'context' => 'argument_simplecontext_arg_2',
-      'name' => 'relcontext_from_simplecontext',
-      'id' => 1,
-      'identifier' => 'Relcontext from simplecontext (from relationship)',
-      'keyword' => 'relcontext',
-  ),
-  ),
-  'access' => array(
-    'logic' => 'and',
-  ),
->>>>>>> 840cf2e0e (Upload modules,themes and libraries)
-=======
->>>>>>> 023456e72 (Upgrade Backup & ctools modules. also added settings.php file.)
   );
   $display = new panels_display();
   $display->layout = 'threecol_33_34_33_stacked';
@@ -439,28 +403,13 @@ function ctools_plugin_example_default_page_manager_pages() {
   $handler->handler = 'panel_context';
   $handler->weight = 0;
   $handler->conf = array(
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 023456e72 (Upgrade Backup & ctools modules. also added settings.php file.)
     'title' => 'Panel',
     'no_blocks' => FALSE,
     'css_id' => '',
     'css' => '',
     'contexts' => array(),
     'relationships' => array(),
-<<<<<<< HEAD
     'pipeline' => 'standard',
-=======
-  'title' => 'Panel',
-  'no_blocks' => FALSE,
-  'css_id' => '',
-  'css' => '',
-  'contexts' => array(),
-  'relationships' => array(),
->>>>>>> 840cf2e0e (Upload modules,themes and libraries)
-=======
->>>>>>> 023456e72 (Upgrade Backup & ctools modules. also added settings.php file.)
   );
   $display = new panels_display();
   $display->layout = 'onecol';

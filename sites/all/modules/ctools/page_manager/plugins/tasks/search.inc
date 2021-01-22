@@ -97,10 +97,6 @@ function page_manager_search_menu_alter(&$items, $task) {
  * Entry point for our overridden search page.
  */
 function page_manager_search_page($type) {
-<<<<<<< HEAD
-=======
-  ctools_include('menu');
->>>>>>> db130ce93 (Update modules to latest versions.  Issue: CEHWS-1221)
   // Get the arguments and construct a keys string out of them.
   $args = func_get_args();
   ctools_include('menu');

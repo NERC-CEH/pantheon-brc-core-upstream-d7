@@ -32,38 +32,8 @@ configure = admin/config/media/file-settings
 ; We have to add a fake version so Git checkouts do not fail Media dependencies
 version = 7.x-2.x-dev
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 ; Information added by Drupal.org packaging script on 2020-06-15
 version = "7.x-2.30"
 core = "7.x"
 project = "file_entity"
 datestamp = "1592259102"
-=======
-; Information added by Drupal.org packaging script on 2018-01-08
-version = "7.x-2.15"
-=======
-; Information added by Drupal.org packaging script on 2018-02-11
-version = "7.x-2.16"
->>>>>>> a1c8f6be7 (Updated file_entity module and added plupload, token and views_bulk_operations modules.)
-core = "7.x"
-project = "file_entity"
-datestamp = "1518385686"
-
->>>>>>> 0f5b907a4 (Added admin_views and file_entity modules, updated media module)
-=======
-; Information added by Drupal.org packaging script on 2018-04-11
-version = "7.x-2.20"
-core = "7.x"
-project = "file_entity"
-datestamp = "1523461700"
->>>>>>> db130ce93 (Update modules to latest versions.  Issue: CEHWS-1221)
-=======
-; Information added by Drupal.org packaging script on 2018-05-02
-version = "7.x-2.21"
-core = "7.x"
-project = "file_entity"
-datestamp = "1525293788"
->>>>>>> 0bf9f1ebb (Upgrade file entity module.)

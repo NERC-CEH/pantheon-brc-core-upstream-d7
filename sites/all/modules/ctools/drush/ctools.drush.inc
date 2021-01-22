@@ -993,18 +993,9 @@ class shellColours {
     'light_gray' => '47',
   );
 
-<<<<<<< HEAD
-<<<<<<< HEAD
   /**
    * shellColours constructor.
    */
-=======
->>>>>>> 840cf2e0e (Upload modules,themes and libraries)
-=======
-  /**
-   * shellColours constructor.
-   */
->>>>>>> 023456e72 (Upgrade Backup & ctools modules. also added settings.php file.)
   private function __construct() {}
 
   /**

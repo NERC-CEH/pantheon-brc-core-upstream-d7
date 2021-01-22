@@ -50,11 +50,7 @@ class views_plugin_pager extends views_plugin {
    * most pagers will not need to override this method.
    */
   public function get_items_per_page() {
-<<<<<<< HEAD
     return isset($this->options['items_per_page']) ? (int) $this->options['items_per_page'] : 0;
-=======
-    return isset($this->options['items_per_page']) ? $this->options['items_per_page'] : 0;
->>>>>>> db130ce93 (Update modules to latest versions.  Issue: CEHWS-1221)
   }
 
   /**
@@ -63,11 +59,7 @@ class views_plugin_pager extends views_plugin {
    * This is mostly used for things that will override the value.
    */
   public function set_items_per_page($items) {
-<<<<<<< HEAD
     $this->options['items_per_page'] = (int) $items;
-=======
-    $this->options['items_per_page'] = $items;
->>>>>>> db130ce93 (Update modules to latest versions.  Issue: CEHWS-1221)
   }
 
   /**
@@ -77,22 +69,14 @@ class views_plugin_pager extends views_plugin {
    * so few pagers will need to override this method.
    */
   public function get_offset() {
-<<<<<<< HEAD
     return isset($this->options['offset']) ? (int) $this->options['offset'] : 0;
-=======
-    return isset($this->options['offset']) ? $this->options['offset'] : 0;
->>>>>>> db130ce93 (Update modules to latest versions.  Issue: CEHWS-1221)
   }
 
   /**
    * Set the page offset, or how many items to skip.
    */
   public function set_offset($offset) {
-<<<<<<< HEAD
     $this->options['offset'] = (int) $offset;
-=======
-    $this->options['offset'] = $offset;
->>>>>>> db130ce93 (Update modules to latest versions.  Issue: CEHWS-1221)
   }
 
   /**

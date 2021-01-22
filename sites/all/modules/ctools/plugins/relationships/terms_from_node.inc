@@ -43,23 +43,11 @@ function ctools_terms_from_node_context($context, $conf) {
         }
       }
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 023456e72 (Upgrade Backup & ctools modules. also added settings.php file.)
     elseif ($field_info['type'] == 'entityreference' && $field_info['settings']['target_type'] == 'taxonomy_term') {
       $items = field_get_items('node', $node, $name);
       if (is_array($items)) {
         $tids = array();
-<<<<<<< HEAD
-<<<<<<< HEAD
         foreach ($items as $item) {
-=======
-        foreach ($items AS $item) {
->>>>>>> 023456e72 (Upgrade Backup & ctools modules. also added settings.php file.)
-=======
-        foreach ($items as $item) {
->>>>>>> db130ce93 (Update modules to latest versions.  Issue: CEHWS-1221)
           $tids[] = $item['target_id'];
         }
 
@@ -71,11 +59,6 @@ function ctools_terms_from_node_context($context, $conf) {
         }
       }
     }
-<<<<<<< HEAD
-=======
->>>>>>> 840cf2e0e (Upload modules,themes and libraries)
-=======
->>>>>>> 023456e72 (Upgrade Backup & ctools modules. also added settings.php file.)
   }
 
   if (!empty($terms)) {
