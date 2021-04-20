@@ -34,9 +34,14 @@ function markup_field_formatter_info() {
       'description' => t('Markup will only be displayed when a user is on the edit page.'),
       'field types' => array('markup'),
     ),
+    'markup_display' => array(
+      'label' => t('Display only'),
+      'description' => t('Markup will only be displayed when a user is viewing the entity.'),
+      'field types' => array('markup'),
+    ),
     'markup_view' => array(
       'label' => t('Always visible'),
-      'description' => t('Displays the markup while viewing the entity (in addition to the edit form).'),
+      'description' => t('Displays the markup on the edit form and on the entity display.'),
       'field types' => array('markup'),
     ),
   );
@@ -52,10 +57,11 @@ function markup_field_formatter_prepare_view($entity_type, $entities, $field, $i
 
   // Set item value to markup for all to-be-displayed markup.
   foreach ($items as $eid => $item) {
-    if ($instances[$eid]['display']['default']['type'] == 'markup_view') {
-      $markup = $field['settings']['markup'];
-      // Since markup is always a single item, add to the first item.
-      $items[$eid][0]['markup'] = check_markup($markup['value'], $markup['format']);
+    $instance = $instances[$eid];
+    if (in_array($instance['display']['default']['type'], ['markup_view', 'markup_display'])) {
+      // Add to display form in 'Always visible' and 'Display only' formatter.
+      // Since markup is always a single item, add to the first item:
+      $items[$eid][0]['markup'] = markup_translate_instance($field, $instance);
     }
   }
 }
@@ -87,7 +93,7 @@ function markup_field_settings_form($field, $instance, $has_data) {
     '#description' => t('The markup to be displayed. Any HTML is legal here, so be careful not to break your page layout.'),
   );
   $form['instructions'] = array(
-    '#markup' => htmlentities(t('This is a special field. It will output the markup below, on the node/edit form for this content type. Consider wrapping any visible output in <div class="form-item"></div> to follow form standards.')),
+    '#markup' => htmlentities(t('This is a special field. It will output the markup below. Consider wrapping any visible output in <div class="form-item"></div> to follow form standards.')),
     '#weight' => -1,
   );
   return $form;
@@ -117,11 +123,15 @@ function markup_field_widget_form(&$form, &$form_state, $field, $instance, $lang
   if (!isset($field['settings']['markup']['value'])) {
     $field['settings']['markup']['value'] = '';
   }
-  $element += array(
-    'markup' => array(
-      '#markup' => check_markup($field['settings']['markup']['value'], $field['settings']['markup']['format']),
-    ),
-  );
+  if (in_array($instance['display']['default']['type'], ['markup_view', 'markup_default'])) {
+    // Add to display form in 'Always visible' and 'Edit form only' formatter.
+    $element += array(
+      'markup' => array(
+        '#markup' => markup_translate_instance($field, $instance),
+      ),
+    );
+  }
+  
   return $element;
 }
 
@@ -141,4 +151,45 @@ function markup_form_alter(&$form, &$form_state, $form_id) {
       unset($form['field']['cardinality']);
     }
   }
+}
+
+/**
+ * Implements hook_i18n_string_list_TEXTGROUP_alter().
+ */
+function markup_i18n_string_list_field_alter(&$strings, $type = NULL, $object = NULL) {
+  if ($type != 'field' || !is_array($object) || !isset($object['type'])) {
+    return;
+  }
+  if ($object['type'] == 'markup' && isset($object['settings']['markup']['value'])) {
+    $strings['field'][$object['field_name']]['#field']['markup']['string'] = $object['settings']['markup']['value'];
+    $strings['field'][$object['field_name']]['#field']['markup']['title'] = t('Markup');
+    $strings['field'][$object['field_name']]['#field']['markup']['format'] = $object['settings']['markup']['format'];
+  }
+}
+
+/**
+ * Tries to translate the value of the field.
+ *
+ * @param array $field
+ *   The field structure for the markup field.
+ * @param array $instance
+ *   The field instance that is being translated.
+ *
+ * @return string
+ *   Either the translated value or the original value. In both cases, the
+ *   string is "display safe".
+ */
+function markup_translate_instance($field, $instance) {
+  // Translate the markup setting when possible.
+  if (function_exists('i18n_string_text')) {
+    $i18n_string_name = "field:{$instance['field_name']}:#field:markup";
+    $options = array(
+      'format' => $field['settings']['markup']['format'],
+      // Apply text filter for source.
+      'sanitize default' => TRUE,
+    );
+    return i18n_string_text($i18n_string_name, $field['settings']['markup']['value'], $options);
+  }
+
+  return check_markup($field['settings']['markup']['value'], $field['settings']['markup']['format']);
 }
